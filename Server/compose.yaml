@@ -8,7 +8,7 @@ services:
             #   MYSQL_ROOT_PASSWORD: root
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
-            - ./data:/var/lib/mysql
+            - bu_student_information_system_data:/var/lib/mysql
 
     phpmyadmin:
         image: phpmyadmin
