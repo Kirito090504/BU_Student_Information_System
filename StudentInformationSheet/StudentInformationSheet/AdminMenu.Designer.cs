@@ -34,6 +34,7 @@
             System.Windows.Forms.Button filesBut;
             System.Windows.Forms.Button profileBut;
             System.Windows.Forms.Button signoutBut;
+            this.label1 = new System.Windows.Forms.Label();
             minimizeBut = new System.Windows.Forms.Button();
             exitBut = new System.Windows.Forms.Button();
             addStudentBut = new System.Windows.Forms.Button();
@@ -174,12 +175,22 @@
             signoutBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             signoutBut.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(196, 203);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "label1";
+            // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.AdminBgFinal;
             this.ClientSize = new System.Drawing.Size(1500, 900);
+            this.Controls.Add(this.label1);
             this.Controls.Add(signoutBut);
             this.Controls.Add(profileBut);
             this.Controls.Add(filesBut);
@@ -191,9 +202,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }
