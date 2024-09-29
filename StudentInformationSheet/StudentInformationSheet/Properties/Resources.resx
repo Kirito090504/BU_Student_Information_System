@@ -118,64 +118,91 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="signouticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signouticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fileicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fileicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logouticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logouticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="profileicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\profileicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eyeclosedicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eyeclosedicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AdminMenuBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AdminMenuBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="addicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AddStudentBut2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="AddStudentBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eyeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eyeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="No-Entry-Transparent-Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\No-Entry-Transparent-Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Xicon-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Xicon-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FilesIconbut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FilesIconbut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eyeclosedicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eyeclosedicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ProfileBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProfileBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UploadBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UploadBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exiticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exiticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="profileicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\profileicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddStudentBut1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="MenuBGFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuBGFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SearchBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SearchBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StudentSheetPage1(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StudentSheetPage1(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogOutBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogOutBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UploadBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UploadBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddStudentBut2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddStudentBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MenuBGadjust(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuBGadjust(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LoginBackFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LoginBackFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fileicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fileicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AdminBgFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AdminBgFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eyeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eyeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LoginBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LoginBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogOutBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogOutBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="No-Entry-Transparent-Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\No-Entry-Transparent-Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuBGadjust" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuBGadjust.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exiticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exiticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProfileBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProfileBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NextBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NextBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AdminBgFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdminBgFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signouticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signouticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logouticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logouticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddStudentBut1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AdminMenuBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdminMenuBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LoginBackFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoginBackFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FilesIconbut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FilesIconbut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NextBut(2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NextBut(2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
