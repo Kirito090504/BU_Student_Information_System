@@ -51,7 +51,7 @@
             addStudentBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             addStudentBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             addStudentBut.ForeColor = System.Drawing.Color.Indigo;
-            addStudentBut.Location = new System.Drawing.Point(246, 52);
+            addStudentBut.Location = new System.Drawing.Point(226, 52);
             addStudentBut.Margin = new System.Windows.Forms.Padding(0);
             addStudentBut.Name = "addStudentBut";
             addStudentBut.Size = new System.Drawing.Size(336, 315);
@@ -74,7 +74,7 @@
             filesBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             filesBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             filesBut.ForeColor = System.Drawing.Color.Indigo;
-            filesBut.Location = new System.Drawing.Point(613, 52);
+            filesBut.Location = new System.Drawing.Point(593, 52);
             filesBut.Margin = new System.Windows.Forms.Padding(0);
             filesBut.Name = "filesBut";
             filesBut.Size = new System.Drawing.Size(537, 315);
@@ -96,7 +96,7 @@
             profileBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             profileBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             profileBut.ForeColor = System.Drawing.Color.Red;
-            profileBut.Location = new System.Drawing.Point(246, 387);
+            profileBut.Location = new System.Drawing.Point(226, 387);
             profileBut.Margin = new System.Windows.Forms.Padding(0);
             profileBut.Name = "profileBut";
             profileBut.Size = new System.Drawing.Size(569, 269);
@@ -118,7 +118,7 @@
             signoutBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             signoutBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             signoutBut.ForeColor = System.Drawing.Color.Indigo;
-            signoutBut.Location = new System.Drawing.Point(842, 387);
+            signoutBut.Location = new System.Drawing.Point(822, 387);
             signoutBut.Margin = new System.Windows.Forms.Padding(0);
             signoutBut.Name = "signoutBut";
             signoutBut.Size = new System.Drawing.Size(308, 269);
@@ -128,23 +128,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(profileBut);
             this.groupBox1.Controls.Add(signoutBut);
             this.groupBox1.Controls.Add(addStudentBut);
             this.groupBox1.Controls.Add(filesBut);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(319, 102);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1329, 745);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            this.ClientSize = new System.Drawing.Size(1920, 1020);
+            this.ClientSize = new System.Drawing.Size(1920, 1061);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdminMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
