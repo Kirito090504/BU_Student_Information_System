@@ -179,5 +179,23 @@
   <ItemGroup>
     <None Include="Resources\NextBut%282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundForAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\framebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\framebg%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\framebgfinal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginPhotodesign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linephoto.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

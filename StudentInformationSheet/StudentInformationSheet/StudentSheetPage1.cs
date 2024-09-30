@@ -15,6 +15,8 @@ namespace StudentInformationSheet
         public StudentSheetPage1()
         {
             InitializeComponent();
+            GenderText.Items.Add("Male");
+            GenderText.Items.Add("Female");
         }
 
         private void uploadBut_Click(object sender, EventArgs e)
@@ -27,6 +29,11 @@ namespace StudentInformationSheet
             {
                 photoHolder.Image = new Bitmap(openFileDialog.FileName);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
