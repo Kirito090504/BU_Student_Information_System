@@ -67,7 +67,7 @@
             minimizeBut.Location = new System.Drawing.Point(1324, 19);
             minimizeBut.Margin = new System.Windows.Forms.Padding(0);
             minimizeBut.Name = "minimizeBut";
-            minimizeBut.Size = new System.Drawing.Size(32, 19);
+            minimizeBut.Size = new System.Drawing.Size(0, 0);
             minimizeBut.TabIndex = 9;
             minimizeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             minimizeBut.UseVisualStyleBackColor = false;
@@ -89,7 +89,7 @@
             exitBut.Location = new System.Drawing.Point(1411, 19);
             exitBut.Margin = new System.Windows.Forms.Padding(0);
             exitBut.Name = "exitBut";
-            exitBut.Size = new System.Drawing.Size(32, 19);
+            exitBut.Size = new System.Drawing.Size(0, 0);
             exitBut.TabIndex = 10;
             exitBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             exitBut.UseVisualStyleBackColor = false;
@@ -250,7 +250,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.StudentSheetPage1_1_;
-            this.ClientSize = new System.Drawing.Size(1500, 900);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox7);
