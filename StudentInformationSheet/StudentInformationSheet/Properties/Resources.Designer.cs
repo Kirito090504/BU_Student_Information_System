@@ -123,6 +123,16 @@ namespace StudentInformationSheet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundForAll {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundForAll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exiticon {
             get {
                 object obj = ResourceManager.GetObject("exiticon", resourceCulture);
@@ -173,6 +183,46 @@ namespace StudentInformationSheet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap framebg {
+            get {
+                object obj = ResourceManager.GetObject("framebg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap framebg_1_ {
+            get {
+                object obj = ResourceManager.GetObject("framebg(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap framebgfinal {
+            get {
+                object obj = ResourceManager.GetObject("framebgfinal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap linephoto {
+            get {
+                object obj = ResourceManager.GetObject("linephoto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LoginBackFinal {
             get {
                 object obj = ResourceManager.GetObject("LoginBackFinal", resourceCulture);
@@ -186,6 +236,16 @@ namespace StudentInformationSheet.Properties {
         internal static System.Drawing.Bitmap LoginBut {
             get {
                 object obj = ResourceManager.GetObject("LoginBut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loginPhotodesign {
+            get {
+                object obj = ResourceManager.GetObject("loginPhotodesign", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -136,8 +136,8 @@
   <data name="MenuBGFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuBGFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SearchBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SearchBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="framebgfinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\framebgfinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StudentSheetPage1(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StudentSheetPage1(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,6 +160,9 @@
   <data name="fileicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fileicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NextBut(2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NextBut(2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="eyeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eyeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,17 +175,29 @@
   <data name="MenuBGadjust" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuBGadjust.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="framebg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\framebg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exiticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exiticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="framebg(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\framebg(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ProfileBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProfileBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SearchBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SearchBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NextBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NextBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AdminBgFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AdminBgFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackgroundForAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundForAll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="signouticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signouticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,10 +214,13 @@
   <data name="LoginBackFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LoginBackFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loginPhotodesign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loginPhotodesign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FilesIconbut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FilesIconbut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NextBut(2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NextBut(2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="linephoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\linephoto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
