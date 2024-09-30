@@ -61,7 +61,7 @@
             minimizeBut.Location = new System.Drawing.Point(1330, 26);
             minimizeBut.Margin = new System.Windows.Forms.Padding(0);
             minimizeBut.Name = "minimizeBut";
-            minimizeBut.Size = new System.Drawing.Size(32, 19);
+            minimizeBut.Size = new System.Drawing.Size(0, 0);
             minimizeBut.TabIndex = 8;
             minimizeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             minimizeBut.UseVisualStyleBackColor = false;
@@ -83,7 +83,7 @@
             exitBut.Location = new System.Drawing.Point(1417, 26);
             exitBut.Margin = new System.Windows.Forms.Padding(0);
             exitBut.Name = "exitBut";
-            exitBut.Size = new System.Drawing.Size(32, 19);
+            exitBut.Size = new System.Drawing.Size(0, 0);
             exitBut.TabIndex = 9;
             exitBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             exitBut.UseVisualStyleBackColor = false;
@@ -125,7 +125,7 @@
             filesBut.Location = new System.Drawing.Point(905, 154);
             filesBut.Margin = new System.Windows.Forms.Padding(0);
             filesBut.Name = "filesBut";
-            filesBut.Size = new System.Drawing.Size(210, 160);
+            filesBut.Size = new System.Drawing.Size(96, 48);
             filesBut.TabIndex = 11;
             filesBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             filesBut.UseVisualStyleBackColor = false;
@@ -147,7 +147,7 @@
             profileBut.Location = new System.Drawing.Point(323, 629);
             profileBut.Margin = new System.Windows.Forms.Padding(0);
             profileBut.Name = "profileBut";
-            profileBut.Size = new System.Drawing.Size(149, 111);
+            profileBut.Size = new System.Drawing.Size(35, 0);
             profileBut.TabIndex = 12;
             profileBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             profileBut.UseVisualStyleBackColor = false;
@@ -169,7 +169,7 @@
             signoutBut.Location = new System.Drawing.Point(922, 544);
             signoutBut.Margin = new System.Windows.Forms.Padding(0);
             signoutBut.Name = "signoutBut";
-            signoutBut.Size = new System.Drawing.Size(212, 166);
+            signoutBut.Size = new System.Drawing.Size(98, 54);
             signoutBut.TabIndex = 13;
             signoutBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             signoutBut.UseVisualStyleBackColor = false;
@@ -191,7 +191,7 @@
             searchbutton.Location = new System.Drawing.Point(605, 626);
             searchbutton.Margin = new System.Windows.Forms.Padding(0);
             searchbutton.Name = "searchbutton";
-            searchbutton.Size = new System.Drawing.Size(144, 114);
+            searchbutton.Size = new System.Drawing.Size(30, 2);
             searchbutton.TabIndex = 14;
             searchbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             searchbutton.UseVisualStyleBackColor = false;
@@ -201,7 +201,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.MenuBGadjust_1_;
-            this.ClientSize = new System.Drawing.Size(1500, 900);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(searchbutton);
             this.Controls.Add(signoutBut);
             this.Controls.Add(profileBut);
