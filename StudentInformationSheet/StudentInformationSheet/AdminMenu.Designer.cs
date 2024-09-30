@@ -34,12 +34,14 @@
             System.Windows.Forms.Button filesBut;
             System.Windows.Forms.Button profileBut;
             System.Windows.Forms.Button signoutBut;
+            System.Windows.Forms.Button searchbutton;
             minimizeBut = new System.Windows.Forms.Button();
             exitBut = new System.Windows.Forms.Button();
             addStudentBut = new System.Windows.Forms.Button();
             filesBut = new System.Windows.Forms.Button();
             profileBut = new System.Windows.Forms.Button();
             signoutBut = new System.Windows.Forms.Button();
+            searchbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // minimizeBut
@@ -88,9 +90,6 @@
             // 
             // addStudentBut
             // 
-            addStudentBut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             addStudentBut.BackColor = System.Drawing.Color.Transparent;
             addStudentBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.AddStudentBut2;
             addStudentBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -100,13 +99,14 @@
             addStudentBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             addStudentBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             addStudentBut.ForeColor = System.Drawing.Color.Indigo;
-            addStudentBut.Location = new System.Drawing.Point(450, 96);
+            addStudentBut.Location = new System.Drawing.Point(406, 181);
             addStudentBut.Margin = new System.Windows.Forms.Padding(0);
             addStudentBut.Name = "addStudentBut";
-            addStudentBut.Size = new System.Drawing.Size(112, 92);
+            addStudentBut.Size = new System.Drawing.Size(289, 235);
             addStudentBut.TabIndex = 10;
             addStudentBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             addStudentBut.UseVisualStyleBackColor = false;
+            addStudentBut.Click += new System.EventHandler(this.addStudentBut_Click);
             // 
             // filesBut
             // 
@@ -122,10 +122,10 @@
             filesBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             filesBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             filesBut.ForeColor = System.Drawing.Color.Indigo;
-            filesBut.Location = new System.Drawing.Point(613, 96);
+            filesBut.Location = new System.Drawing.Point(905, 154);
             filesBut.Margin = new System.Windows.Forms.Padding(0);
             filesBut.Name = "filesBut";
-            filesBut.Size = new System.Drawing.Size(112, 92);
+            filesBut.Size = new System.Drawing.Size(210, 160);
             filesBut.TabIndex = 11;
             filesBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             filesBut.UseVisualStyleBackColor = false;
@@ -144,10 +144,10 @@
             profileBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             profileBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             profileBut.ForeColor = System.Drawing.Color.Indigo;
-            profileBut.Location = new System.Drawing.Point(774, 96);
+            profileBut.Location = new System.Drawing.Point(323, 629);
             profileBut.Margin = new System.Windows.Forms.Padding(0);
             profileBut.Name = "profileBut";
-            profileBut.Size = new System.Drawing.Size(112, 92);
+            profileBut.Size = new System.Drawing.Size(149, 111);
             profileBut.TabIndex = 12;
             profileBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             profileBut.UseVisualStyleBackColor = false;
@@ -166,20 +166,43 @@
             signoutBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             signoutBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             signoutBut.ForeColor = System.Drawing.Color.Indigo;
-            signoutBut.Location = new System.Drawing.Point(938, 96);
+            signoutBut.Location = new System.Drawing.Point(922, 544);
             signoutBut.Margin = new System.Windows.Forms.Padding(0);
             signoutBut.Name = "signoutBut";
-            signoutBut.Size = new System.Drawing.Size(112, 92);
+            signoutBut.Size = new System.Drawing.Size(212, 166);
             signoutBut.TabIndex = 13;
             signoutBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             signoutBut.UseVisualStyleBackColor = false;
+            // 
+            // searchbutton
+            // 
+            searchbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            searchbutton.BackColor = System.Drawing.Color.Transparent;
+            searchbutton.BackgroundImage = global::StudentInformationSheet.Properties.Resources.SearchBut;
+            searchbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            searchbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            searchbutton.FlatAppearance.BorderSize = 0;
+            searchbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            searchbutton.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            searchbutton.ForeColor = System.Drawing.Color.Indigo;
+            searchbutton.Location = new System.Drawing.Point(605, 626);
+            searchbutton.Margin = new System.Windows.Forms.Padding(0);
+            searchbutton.Name = "searchbutton";
+            searchbutton.Size = new System.Drawing.Size(144, 114);
+            searchbutton.TabIndex = 14;
+            searchbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            searchbutton.UseVisualStyleBackColor = false;
             // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.AdminBgFinal;
+            this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.MenuBGadjust_1_;
             this.ClientSize = new System.Drawing.Size(1500, 900);
+            this.Controls.Add(searchbutton);
             this.Controls.Add(signoutBut);
             this.Controls.Add(profileBut);
             this.Controls.Add(filesBut);
