@@ -66,6 +66,12 @@
     <Compile Include="StudentSheetPage1.Designer.cs">
       <DependentUpon>StudentSheetPage1.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentSheetPage2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentSheetPage2.Designer.cs">
+      <DependentUpon>StudentSheetPage2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +90,9 @@
     </Compile>
     <EmbeddedResource Include="StudentSheetPage1.resx">
       <DependentUpon>StudentSheetPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentSheetPage2.resx">
+      <DependentUpon>StudentSheetPage2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
