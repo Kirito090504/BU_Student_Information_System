@@ -51,10 +51,10 @@
             addStudentBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             addStudentBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             addStudentBut.ForeColor = System.Drawing.Color.Indigo;
-            addStudentBut.Location = new System.Drawing.Point(226, 52);
+            addStudentBut.Location = new System.Drawing.Point(229, 87);
             addStudentBut.Margin = new System.Windows.Forms.Padding(0);
             addStudentBut.Name = "addStudentBut";
-            addStudentBut.Size = new System.Drawing.Size(336, 315);
+            addStudentBut.Size = new System.Drawing.Size(386, 215);
             addStudentBut.TabIndex = 10;
             addStudentBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             addStudentBut.UseVisualStyleBackColor = false;
@@ -74,10 +74,10 @@
             filesBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             filesBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             filesBut.ForeColor = System.Drawing.Color.Indigo;
-            filesBut.Location = new System.Drawing.Point(593, 52);
+            filesBut.Location = new System.Drawing.Point(631, 87);
             filesBut.Margin = new System.Windows.Forms.Padding(0);
             filesBut.Name = "filesBut";
-            filesBut.Size = new System.Drawing.Size(537, 315);
+            filesBut.Size = new System.Drawing.Size(210, 215);
             filesBut.TabIndex = 11;
             filesBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             filesBut.UseVisualStyleBackColor = false;
@@ -96,10 +96,10 @@
             profileBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             profileBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             profileBut.ForeColor = System.Drawing.Color.Red;
-            profileBut.Location = new System.Drawing.Point(226, 387);
+            profileBut.Location = new System.Drawing.Point(452, 314);
             profileBut.Margin = new System.Windows.Forms.Padding(0);
             profileBut.Name = "profileBut";
-            profileBut.Size = new System.Drawing.Size(569, 269);
+            profileBut.Size = new System.Drawing.Size(389, 215);
             profileBut.TabIndex = 12;
             profileBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             profileBut.UseVisualStyleBackColor = false;
@@ -118,27 +118,28 @@
             signoutBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             signoutBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             signoutBut.ForeColor = System.Drawing.Color.Indigo;
-            signoutBut.Location = new System.Drawing.Point(822, 387);
+            signoutBut.Location = new System.Drawing.Point(229, 314);
             signoutBut.Margin = new System.Windows.Forms.Padding(0);
             signoutBut.Name = "signoutBut";
-            signoutBut.Size = new System.Drawing.Size(308, 269);
+            signoutBut.Size = new System.Drawing.Size(210, 215);
             signoutBut.TabIndex = 13;
             signoutBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             signoutBut.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(profileBut);
-            this.groupBox1.Controls.Add(signoutBut);
             this.groupBox1.Controls.Add(addStudentBut);
+            this.groupBox1.Controls.Add(signoutBut);
             this.groupBox1.Controls.Add(filesBut);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(319, 102);
+            this.groupBox1.Location = new System.Drawing.Point(70, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1329, 745);
+            this.groupBox1.Size = new System.Drawing.Size(1076, 629);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
@@ -147,8 +148,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            this.ClientSize = new System.Drawing.Size(1920, 1061);
+            this.ClientSize = new System.Drawing.Size(1255, 721);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(1271, 760);
             this.Name = "AdminMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
