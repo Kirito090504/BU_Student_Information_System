@@ -139,6 +139,12 @@
   <data name="framebgfinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\framebgfinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DeleteUserBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUserBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddUserBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddUserBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="StudentSheetPage1(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StudentSheetPage1(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,6 +157,9 @@
   <data name="UploadBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UploadBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EditStudentBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AddStudentBut2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,8 +169,17 @@
   <data name="fileicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fileicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AddStudentBut1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NextBut(2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NextBut(2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditProfileBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditProfileBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditUserBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditUserBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eyeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eyeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,8 +223,11 @@
   <data name="logouticon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logouticon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddStudentBut1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddStudentBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="linephoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\linephoto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditUserBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditUserBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AdminMenuBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AdminMenuBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,13 +235,16 @@
   <data name="LoginBackFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LoginBackFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DeleteUserBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUserBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="loginPhotodesign" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginPhotodesign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FilesIconbut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FilesIconbut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="linephoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\linephoto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EditProfileBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditProfileBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

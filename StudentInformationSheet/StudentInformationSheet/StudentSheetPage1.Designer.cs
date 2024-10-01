@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button uploadBut;
-            System.Windows.Forms.Button button1;
+            System.Windows.Forms.Button nextBut;
+            System.Windows.Forms.Button homeBut;
             this.photoHolder = new System.Windows.Forms.PictureBox();
             this.usernameTb = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -61,11 +62,12 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.birthdatetext = new System.Windows.Forms.DateTimePicker();
-            this.GenderText = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.GenderText = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             uploadBut = new System.Windows.Forms.Button();
-            button1 = new System.Windows.Forms.Button();
+            nextBut = new System.Windows.Forms.Button();
+            homeBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,30 +103,32 @@
             uploadBut.UseVisualStyleBackColor = false;
             uploadBut.Click += new System.EventHandler(this.uploadBut_Click);
             // 
-            // button1
+            // nextBut
             // 
-            button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            button1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.NextBut_2_;
-            button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            button1.ForeColor = System.Drawing.Color.Indigo;
-            button1.Location = new System.Drawing.Point(937, 617);
-            button1.Margin = new System.Windows.Forms.Padding(0);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(187, 55);
-            button1.TabIndex = 13;
-            button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            button1.UseVisualStyleBackColor = false;
+            nextBut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            nextBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            nextBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
+            nextBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            nextBut.Cursor = System.Windows.Forms.Cursors.Hand;
+            nextBut.FlatAppearance.BorderSize = 0;
+            nextBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            nextBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            nextBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nextBut.ForeColor = System.Drawing.Color.Indigo;
+            nextBut.Location = new System.Drawing.Point(937, 617);
+            nextBut.Margin = new System.Windows.Forms.Padding(0);
+            nextBut.Name = "nextBut";
+            nextBut.Size = new System.Drawing.Size(187, 55);
+            nextBut.TabIndex = 13;
+            nextBut.Text = "NEXT";
+            nextBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            nextBut.UseVisualStyleBackColor = false;
+            nextBut.Click += new System.EventHandler(this.nextBut_Click);
             // 
             // photoHolder
             // 
             this.photoHolder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.photoHolder.BackColor = System.Drawing.Color.RoyalBlue;
+            this.photoHolder.BackColor = System.Drawing.Color.AliceBlue;
             this.photoHolder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.photoHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.photoHolder.Location = new System.Drawing.Point(926, 104);
@@ -475,7 +479,7 @@
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.birthdatetext);
-            this.groupBox1.Controls.Add(button1);
+            this.groupBox1.Controls.Add(nextBut);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.pictureBox9);
             this.groupBox1.Controls.Add(uploadBut);
@@ -510,7 +514,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Location = new System.Drawing.Point(58, 53);
+            this.groupBox1.Location = new System.Drawing.Point(58, 84);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1203, 744);
             this.groupBox1.TabIndex = 44;
@@ -526,19 +530,6 @@
             this.birthdatetext.Size = new System.Drawing.Size(290, 43);
             this.birthdatetext.TabIndex = 48;
             // 
-            // GenderText
-            // 
-            this.GenderText.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.GenderText.BackColor = System.Drawing.Color.White;
-            this.GenderText.DisplayMember = "Male, Female";
-            this.GenderText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GenderText.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenderText.FormattingEnabled = true;
-            this.GenderText.Location = new System.Drawing.Point(78, 618);
-            this.GenderText.Name = "GenderText";
-            this.GenderText.Size = new System.Drawing.Size(291, 38);
-            this.GenderText.TabIndex = 47;
-            // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -552,6 +543,19 @@
             this.label12.TabIndex = 46;
             this.label12.Text = "Photo";
             // 
+            // GenderText
+            // 
+            this.GenderText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.GenderText.BackColor = System.Drawing.Color.White;
+            this.GenderText.DisplayMember = "Male, Female";
+            this.GenderText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GenderText.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenderText.FormattingEnabled = true;
+            this.GenderText.Location = new System.Drawing.Point(78, 618);
+            this.GenderText.Name = "GenderText";
+            this.GenderText.Size = new System.Drawing.Size(291, 38);
+            this.GenderText.TabIndex = 47;
+            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -559,11 +563,32 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label11.Location = new System.Drawing.Point(548, 16);
+            this.label11.Location = new System.Drawing.Point(548, 47);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(209, 34);
             this.label11.TabIndex = 45;
             this.label11.Text = "Student Profile";
+            // 
+            // homeBut
+            // 
+            homeBut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            homeBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            homeBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
+            homeBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            homeBut.Cursor = System.Windows.Forms.Cursors.Hand;
+            homeBut.FlatAppearance.BorderSize = 0;
+            homeBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            homeBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            homeBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            homeBut.ForeColor = System.Drawing.Color.Indigo;
+            homeBut.Location = new System.Drawing.Point(582, 831);
+            homeBut.Margin = new System.Windows.Forms.Padding(0);
+            homeBut.Name = "homeBut";
+            homeBut.Size = new System.Drawing.Size(187, 55);
+            homeBut.TabIndex = 49;
+            homeBut.Text = "HOME";
+            homeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            homeBut.UseVisualStyleBackColor = false;
             // 
             // StudentSheetPage1
             // 
@@ -571,12 +596,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            this.ClientSize = new System.Drawing.Size(1350, 830);
+            this.ClientSize = new System.Drawing.Size(1350, 892);
+            this.Controls.Add(homeBut);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(1366, 931);
             this.Name = "StudentSheetPage1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentSheetPage1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

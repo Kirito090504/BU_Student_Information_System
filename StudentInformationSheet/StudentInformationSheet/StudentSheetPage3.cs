@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class StudentSheetPage2 : Form
+    public partial class StudentSheetPage3 : Form
     {
-        public StudentSheetPage2()
+        public StudentSheetPage3()
         {
             InitializeComponent();
         }
@@ -20,15 +20,15 @@ namespace StudentInformationSheet
         private void backBut_Click(object sender, EventArgs e)
         {
             this.Close();
-            StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
-            studentSheetPage1.Show();
+            StudentSheetPage2 studentSheetPage2 = new StudentSheetPage2();
+            studentSheetPage2.Show();
         }
 
         private void nextBut_Click(object sender, EventArgs e)
         {
             this.Close();
-            StudentSheetPage3 studentSheetPage3 = new StudentSheetPage3();
-            studentSheetPage3.Show();
+            StudentSheetPage4 studentSheetPage4 = new StudentSheetPage4();
+            studentSheetPage4.Show();
         }
     }
 }

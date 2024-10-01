@@ -103,6 +103,16 @@ namespace StudentInformationSheet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddUserBut_1_ {
+            get {
+                object obj = ResourceManager.GetObject("AddUserBut(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AdminBgFinal {
             get {
                 object obj = ResourceManager.GetObject("AdminBgFinal", resourceCulture);
@@ -126,6 +136,76 @@ namespace StudentInformationSheet.Properties {
         internal static System.Drawing.Bitmap BackgroundForAll {
             get {
                 object obj = ResourceManager.GetObject("BackgroundForAll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DeleteUserBut {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUserBut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DeleteUserBut_1_ {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUserBut(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditProfileBut {
+            get {
+                object obj = ResourceManager.GetObject("EditProfileBut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditProfileBut_1_ {
+            get {
+                object obj = ResourceManager.GetObject("EditProfileBut(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditStudentBut {
+            get {
+                object obj = ResourceManager.GetObject("EditStudentBut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditUserBut {
+            get {
+                object obj = ResourceManager.GetObject("EditUserBut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditUserBut_1_ {
+            get {
+                object obj = ResourceManager.GetObject("EditUserBut(1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

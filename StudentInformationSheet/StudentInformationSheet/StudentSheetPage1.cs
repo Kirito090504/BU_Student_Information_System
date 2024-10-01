@@ -60,5 +60,12 @@ namespace StudentInformationSheet
         {
 
         }
+
+        private void nextBut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StudentSheetPage2 studentSheetPage2 = new StudentSheetPage2();
+            studentSheetPage2.Show();
+        }
     }
 }
