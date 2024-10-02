@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 02, 2024 at 03:11 PM
+-- Generation Time: Oct 02, 2024 at 05:09 PM
 -- Server version: 9.0.1
 -- PHP Version: 8.2.24
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -43,15 +43,6 @@ CREATE TABLE `cities` (
   `id` int NOT NULL,
   `description` varchar(32) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'A list of valid cities.';
--- --------------------------------------------------------
---
--- Table structure for table `cities_in_provinces`
---
-
-CREATE TABLE `cities_in_provinces` (
-  `city` int NOT NULL COMMENT 'This city is in...',
-  `province` int NOT NULL COMMENT '...this province.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'Contains information about which cities are in which provinces.';
 -- --------------------------------------------------------
 --
 -- Table structure for table `contact_information`
@@ -187,8 +178,28 @@ CREATE TABLE `users` (
   `userpass` varchar(256) NOT NULL COMMENT 'SHA-256 hashed user password.',
   `privilege` int NOT NULL DEFAULT '1' COMMENT 'The privilege level of the user.',
   `full_name` text CHARACTER SET utf8mb4 COMMENT 'The full name of the user.',
-  `photo` blob COMMENT 'The image of the user.'
+  `photo` text COMMENT 'The image of the user.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'A table containing records of authorized users of the system.';
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (
+    `user_id`,
+    `username`,
+    `userpass`,
+    `privilege`,
+    `full_name`,
+    `photo`
+  )
+VALUES (
+    1,
+    'bu_admin',
+    'd24560aa8c38adb31c57edeaa556c1fc82550b3c158968b2c4299a4e31302ef2',
+    2,
+    NULL,
+    NULL
+  );
 --
 -- Indexes for dumped tables
 --
@@ -203,12 +214,6 @@ ADD PRIMARY KEY (`id`);
 --
 ALTER TABLE `cities`
 ADD PRIMARY KEY (`id`);
---
--- Indexes for table `cities_in_provinces`
---
-ALTER TABLE `cities_in_provinces`
-ADD PRIMARY KEY (`city`),
-  ADD KEY `cities_in_provinces_province_provinces_id` (`province`);
 --
 -- Indexes for table `contact_information`
 --
@@ -302,7 +307,8 @@ MODIFY `id` int NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `user_id` int NOT NULL AUTO_INCREMENT;
+MODIFY `user_id` int NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT = 2;
 --
 -- Constraints for dumped tables
 --
@@ -313,12 +319,6 @@ MODIFY `user_id` int NOT NULL AUTO_INCREMENT;
 ALTER TABLE `academic_history`
 ADD CONSTRAINT `academic_history_id_students_student_number` FOREIGN KEY (`id`) REFERENCES `students` (`student_number`) ON DELETE CASCADE ON UPDATE CASCADE;
 --
--- Constraints for table `cities_in_provinces`
---
-ALTER TABLE `cities_in_provinces`
-ADD CONSTRAINT `cities_in_provinces_city_cities_id` FOREIGN KEY (`city`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cities_in_provinces_province_provinces_id` FOREIGN KEY (`province`) REFERENCES `provinces` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
---
 -- Constraints for table `contact_information`
 --
 ALTER TABLE `contact_information`
@@ -328,8 +328,7 @@ ADD CONSTRAINT `contact_information_id_students_student_number` FOREIGN KEY (`id
 --
 ALTER TABLE `permanent_addresses`
 ADD CONSTRAINT `permanent_addresses_city_cities_id` FOREIGN KEY (`city`) REFERENCES `cities` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `permanent_addresses_id_students_student_number` FOREIGN KEY (`id`) REFERENCES `students` (`student_number`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `permanent_addresses_province_provinces_id` FOREIGN KEY (`province`) REFERENCES `provinces` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `permanent_addresses_id_students_student_number` FOREIGN KEY (`id`) REFERENCES `students` (`student_number`) ON DELETE CASCADE ON UPDATE CASCADE;
 --
 -- Constraints for table `personalities`
 --
