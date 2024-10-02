@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,10 @@ namespace StudentInformationSheet.Models
         public int privilege;
         public string? full_name;
         public Image? photo;
+      
+        public void Save()
+        {
+            //TO DO
+        }
     }
 }
