@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace StudentInformationSheet
         public string userpass;
         public int privilege;
         public string full_name;
-        public string photo;
+        public Image photo;
 
         public void Save()
         {
