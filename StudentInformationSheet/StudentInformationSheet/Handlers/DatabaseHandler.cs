@@ -43,6 +43,6 @@ namespace StudentInformationSheet
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public UserModel? Login(string username, string password) { return null; }
+        public UserModel Login(string username, string password) { return new UserModel(); }
     }
 }
