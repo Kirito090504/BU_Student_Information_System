@@ -42,9 +42,9 @@ namespace StudentInformationSheet
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            
             this.Visible = false;
             AdminMenu adminMenu = new AdminMenu();
+            adminMenu.Closed += (s, args) => this.Close();
             adminMenu.Show();
         }
     }
