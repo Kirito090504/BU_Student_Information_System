@@ -29,48 +29,48 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button backBut;
-            System.Windows.Forms.Button nextBut;
+            System.Windows.Forms.Button nextBtn;
             System.Windows.Forms.Button homeBut;
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGuardianName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtContactNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtFatherContactNo = new System.Windows.Forms.TextBox();
+            this.txtFatherName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtMotherName = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMotherContactNo = new System.Windows.Forms.TextBox();
+            this.txtGuardianOccupation = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtGuardianAddress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtFatherAddress = new System.Windows.Forms.TextBox();
+            this.txtFatherOccupation = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMotherOccupation = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtMotherAddress = new System.Windows.Forms.TextBox();
             backBut = new System.Windows.Forms.Button();
-            nextBut = new System.Windows.Forms.Button();
+            nextBtn = new System.Windows.Forms.Button();
             homeBut = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -107,29 +107,50 @@
             backBut.Text = "BACK";
             backBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             backBut.UseVisualStyleBackColor = false;
-            backBut.Click += new System.EventHandler(this.backBut_Click);
+            backBut.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // nextBut
+            // nextBtn
             // 
-            nextBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            nextBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            nextBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            nextBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            nextBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            nextBut.FlatAppearance.BorderSize = 0;
-            nextBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            nextBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            nextBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nextBut.ForeColor = System.Drawing.Color.Indigo;
-            nextBut.Location = new System.Drawing.Point(949, 584);
-            nextBut.Margin = new System.Windows.Forms.Padding(0);
-            nextBut.Name = "nextBut";
-            nextBut.Size = new System.Drawing.Size(187, 55);
-            nextBut.TabIndex = 13;
-            nextBut.Text = "NEXT";
-            nextBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            nextBut.UseVisualStyleBackColor = false;
-            nextBut.Click += new System.EventHandler(this.nextBut_Click);
+            nextBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            nextBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            nextBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
+            nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            nextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            nextBtn.FlatAppearance.BorderSize = 0;
+            nextBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            nextBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nextBtn.ForeColor = System.Drawing.Color.Indigo;
+            nextBtn.Location = new System.Drawing.Point(949, 584);
+            nextBtn.Margin = new System.Windows.Forms.Padding(0);
+            nextBtn.Name = "nextBtn";
+            nextBtn.Size = new System.Drawing.Size(187, 55);
+            nextBtn.TabIndex = 13;
+            nextBtn.Text = "NEXT";
+            nextBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            nextBtn.UseVisualStyleBackColor = false;
+            nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
+            // 
+            // homeBut
+            // 
+            homeBut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            homeBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            homeBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
+            homeBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            homeBut.Cursor = System.Windows.Forms.Cursors.Hand;
+            homeBut.FlatAppearance.BorderSize = 0;
+            homeBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            homeBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            homeBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            homeBut.ForeColor = System.Drawing.Color.Indigo;
+            homeBut.Location = new System.Drawing.Point(602, 740);
+            homeBut.Margin = new System.Windows.Forms.Padding(0);
+            homeBut.Name = "homeBut";
+            homeBut.Size = new System.Drawing.Size(187, 55);
+            homeBut.TabIndex = 51;
+            homeBut.Text = "HOME";
+            homeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            homeBut.UseVisualStyleBackColor = false;
             // 
             // label11
             // 
@@ -138,7 +159,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label11.Location = new System.Drawing.Point(565, 72);
+            this.label11.Location = new System.Drawing.Point(565, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(209, 34);
             this.label11.TabIndex = 48;
@@ -150,62 +171,62 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtGuardianName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.txtContactNo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.txtFatherContactNo);
+            this.groupBox1.Controls.Add(this.txtFatherName);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox8);
             this.groupBox1.Controls.Add(this.pictureBox9);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox11);
+            this.groupBox1.Controls.Add(this.txtMotherName);
             this.groupBox1.Controls.Add(this.pictureBox10);
             this.groupBox1.Controls.Add(this.pictureBox12);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.txtMotherContactNo);
             this.groupBox1.Controls.Add(backBut);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtGuardianOccupation);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.pictureBox11);
-            this.groupBox1.Controls.Add(nextBut);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(nextBtn);
+            this.groupBox1.Controls.Add(this.txtGuardianAddress);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtFatherAddress);
+            this.groupBox1.Controls.Add(this.txtFatherOccupation);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.pictureBox6);
             this.groupBox1.Controls.Add(this.pictureBox7);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtMotherOccupation);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtMotherAddress);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Location = new System.Drawing.Point(82, 120);
+            this.groupBox1.Location = new System.Drawing.Point(82, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1203, 682);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             // 
-            // textBox1
+            // txtGuardianName
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(825, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 34);
-            this.textBox1.TabIndex = 73;
+            this.txtGuardianName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGuardianName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGuardianName.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardianName.ForeColor = System.Drawing.Color.Black;
+            this.txtGuardianName.Location = new System.Drawing.Point(825, 73);
+            this.txtGuardianName.Name = "txtGuardianName";
+            this.txtGuardianName.Size = new System.Drawing.Size(300, 34);
+            this.txtGuardianName.TabIndex = 73;
             // 
             // label1
             // 
@@ -231,16 +252,16 @@
             this.pictureBox2.TabIndex = 75;
             this.pictureBox2.TabStop = false;
             // 
-            // textBox8
+            // txtContactNo
             // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ForeColor = System.Drawing.Color.Black;
-            this.textBox8.Location = new System.Drawing.Point(825, 348);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(300, 34);
-            this.textBox8.TabIndex = 62;
+            this.txtContactNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtContactNo.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactNo.ForeColor = System.Drawing.Color.Black;
+            this.txtContactNo.Location = new System.Drawing.Point(825, 348);
+            this.txtContactNo.Name = "txtContactNo";
+            this.txtContactNo.Size = new System.Drawing.Size(300, 34);
+            this.txtContactNo.TabIndex = 62;
             // 
             // label2
             // 
@@ -255,27 +276,27 @@
             this.label2.TabIndex = 67;
             this.label2.Text = "Contact No.";
             // 
-            // textBox9
+            // txtFatherContactNo
             // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ForeColor = System.Drawing.Color.Black;
-            this.textBox9.Location = new System.Drawing.Point(453, 348);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(300, 34);
-            this.textBox9.TabIndex = 61;
+            this.txtFatherContactNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFatherContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFatherContactNo.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherContactNo.ForeColor = System.Drawing.Color.Black;
+            this.txtFatherContactNo.Location = new System.Drawing.Point(453, 348);
+            this.txtFatherContactNo.Name = "txtFatherContactNo";
+            this.txtFatherContactNo.Size = new System.Drawing.Size(300, 34);
+            this.txtFatherContactNo.TabIndex = 61;
             // 
-            // textBox10
+            // txtFatherName
             // 
-            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.ForeColor = System.Drawing.Color.Black;
-            this.textBox10.Location = new System.Drawing.Point(452, 73);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(300, 34);
-            this.textBox10.TabIndex = 60;
+            this.txtFatherName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFatherName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFatherName.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherName.ForeColor = System.Drawing.Color.Black;
+            this.txtFatherName.Location = new System.Drawing.Point(452, 73);
+            this.txtFatherName.Name = "txtFatherName";
+            this.txtFatherName.Size = new System.Drawing.Size(300, 34);
+            this.txtFatherName.TabIndex = 60;
             // 
             // label5
             // 
@@ -349,16 +370,16 @@
             this.label7.TabIndex = 63;
             this.label7.Text = "Mother\'s Name";
             // 
-            // textBox11
+            // txtMotherName
             // 
-            this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.ForeColor = System.Drawing.Color.Black;
-            this.textBox11.Location = new System.Drawing.Point(66, 73);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(300, 34);
-            this.textBox11.TabIndex = 58;
+            this.txtMotherName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMotherName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMotherName.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherName.ForeColor = System.Drawing.Color.Black;
+            this.txtMotherName.Location = new System.Drawing.Point(66, 73);
+            this.txtMotherName.Name = "txtMotherName";
+            this.txtMotherName.Size = new System.Drawing.Size(300, 34);
+            this.txtMotherName.TabIndex = 58;
             // 
             // pictureBox10
             // 
@@ -395,27 +416,27 @@
             this.label12.TabIndex = 64;
             this.label12.Text = "Contact No.";
             // 
-            // textBox12
+            // txtMotherContactNo
             // 
-            this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.ForeColor = System.Drawing.Color.Black;
-            this.textBox12.Location = new System.Drawing.Point(66, 348);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(300, 34);
-            this.textBox12.TabIndex = 59;
+            this.txtMotherContactNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMotherContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMotherContactNo.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherContactNo.ForeColor = System.Drawing.Color.Black;
+            this.txtMotherContactNo.Location = new System.Drawing.Point(66, 348);
+            this.txtMotherContactNo.Name = "txtMotherContactNo";
+            this.txtMotherContactNo.Size = new System.Drawing.Size(300, 34);
+            this.txtMotherContactNo.TabIndex = 59;
             // 
-            // textBox4
+            // txtGuardianOccupation
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(826, 206);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(300, 34);
-            this.textBox4.TabIndex = 50;
+            this.txtGuardianOccupation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGuardianOccupation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGuardianOccupation.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardianOccupation.ForeColor = System.Drawing.Color.Black;
+            this.txtGuardianOccupation.Location = new System.Drawing.Point(826, 206);
+            this.txtGuardianOccupation.Name = "txtGuardianOccupation";
+            this.txtGuardianOccupation.Size = new System.Drawing.Size(300, 34);
+            this.txtGuardianOccupation.TabIndex = 50;
             // 
             // label13
             // 
@@ -441,16 +462,16 @@
             this.pictureBox11.TabIndex = 52;
             this.pictureBox11.TabStop = false;
             // 
-            // textBox5
+            // txtGuardianAddress
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.Black;
-            this.textBox5.Location = new System.Drawing.Point(825, 481);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(300, 34);
-            this.textBox5.TabIndex = 23;
+            this.txtGuardianAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGuardianAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGuardianAddress.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardianAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtGuardianAddress.Location = new System.Drawing.Point(825, 481);
+            this.txtGuardianAddress.Name = "txtGuardianAddress";
+            this.txtGuardianAddress.Size = new System.Drawing.Size(300, 34);
+            this.txtGuardianAddress.TabIndex = 23;
             // 
             // label10
             // 
@@ -465,27 +486,27 @@
             this.label10.TabIndex = 33;
             this.label10.Text = "Address";
             // 
-            // textBox6
+            // txtFatherAddress
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.Black;
-            this.textBox6.Location = new System.Drawing.Point(453, 481);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(300, 34);
-            this.textBox6.TabIndex = 22;
+            this.txtFatherAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFatherAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFatherAddress.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtFatherAddress.Location = new System.Drawing.Point(453, 481);
+            this.txtFatherAddress.Name = "txtFatherAddress";
+            this.txtFatherAddress.Size = new System.Drawing.Size(300, 34);
+            this.txtFatherAddress.TabIndex = 22;
             // 
-            // textBox7
+            // txtFatherOccupation
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.Black;
-            this.textBox7.Location = new System.Drawing.Point(452, 206);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(300, 34);
-            this.textBox7.TabIndex = 21;
+            this.txtFatherOccupation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFatherOccupation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFatherOccupation.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherOccupation.ForeColor = System.Drawing.Color.Black;
+            this.txtFatherOccupation.Location = new System.Drawing.Point(452, 206);
+            this.txtFatherOccupation.Name = "txtFatherOccupation";
+            this.txtFatherOccupation.Size = new System.Drawing.Size(300, 34);
+            this.txtFatherOccupation.TabIndex = 21;
             // 
             // label9
             // 
@@ -559,16 +580,16 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Occupation";
             // 
-            // textBox2
+            // txtMotherOccupation
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(66, 206);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 34);
-            this.textBox2.TabIndex = 16;
+            this.txtMotherOccupation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMotherOccupation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMotherOccupation.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherOccupation.ForeColor = System.Drawing.Color.Black;
+            this.txtMotherOccupation.Location = new System.Drawing.Point(66, 206);
+            this.txtMotherOccupation.Name = "txtMotherOccupation";
+            this.txtMotherOccupation.Size = new System.Drawing.Size(300, 34);
+            this.txtMotherOccupation.TabIndex = 16;
             // 
             // pictureBox4
             // 
@@ -605,37 +626,16 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Address";
             // 
-            // textBox3
+            // txtMotherAddress
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(66, 481);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(300, 34);
-            this.textBox3.TabIndex = 17;
-            // 
-            // homeBut
-            // 
-            homeBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            homeBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            homeBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
-            homeBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            homeBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            homeBut.FlatAppearance.BorderSize = 0;
-            homeBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            homeBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            homeBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            homeBut.ForeColor = System.Drawing.Color.Indigo;
-            homeBut.Location = new System.Drawing.Point(602, 805);
-            homeBut.Margin = new System.Windows.Forms.Padding(0);
-            homeBut.Name = "homeBut";
-            homeBut.Size = new System.Drawing.Size(187, 55);
-            homeBut.TabIndex = 51;
-            homeBut.Text = "HOME";
-            homeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            homeBut.UseVisualStyleBackColor = false;
+            this.txtMotherAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMotherAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMotherAddress.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtMotherAddress.Location = new System.Drawing.Point(66, 481);
+            this.txtMotherAddress.Name = "txtMotherAddress";
+            this.txtMotherAddress.Size = new System.Drawing.Size(300, 34);
+            this.txtMotherAddress.TabIndex = 17;
             // 
             // StudentSheetPage3
             // 
@@ -643,12 +643,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1350, 879);
+            this.ClientSize = new System.Drawing.Size(1350, 749);
             this.Controls.Add(homeBut);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
-            this.MinimumSize = new System.Drawing.Size(1366, 918);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "StudentSheetPage3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentSheetPage3";
@@ -676,41 +676,41 @@
 
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtGuardianOccupation;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtGuardianAddress;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtFatherAddress;
+        private System.Windows.Forms.TextBox txtFatherOccupation;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMotherOccupation;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMotherAddress;
+        private System.Windows.Forms.TextBox txtGuardianName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtContactNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtFatherContactNo;
+        private System.Windows.Forms.TextBox txtFatherName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtMotherName;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtMotherContactNo;
     }
 }

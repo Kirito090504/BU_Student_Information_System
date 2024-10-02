@@ -28,180 +28,180 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button addStudentBut;
-            System.Windows.Forms.Button editStudentBut;
-            System.Windows.Forms.Button addUserBut;
-            System.Windows.Forms.Button editUserBut;
-            System.Windows.Forms.Button deleteUserBut;
-            System.Windows.Forms.Button allFilesBut;
-            System.Windows.Forms.Button adminProfileBut;
+            System.Windows.Forms.Button addStudentBtn;
+            System.Windows.Forms.Button editStudentBtn;
+            System.Windows.Forms.Button addUserBtn;
+            System.Windows.Forms.Button editUserBtn;
+            System.Windows.Forms.Button deleteUserBtn;
+            System.Windows.Forms.Button allFilesBtn;
+            System.Windows.Forms.Button adminProfileBtn;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            addStudentBut = new System.Windows.Forms.Button();
-            editStudentBut = new System.Windows.Forms.Button();
-            addUserBut = new System.Windows.Forms.Button();
-            editUserBut = new System.Windows.Forms.Button();
-            deleteUserBut = new System.Windows.Forms.Button();
-            allFilesBut = new System.Windows.Forms.Button();
-            adminProfileBut = new System.Windows.Forms.Button();
+            addStudentBtn = new System.Windows.Forms.Button();
+            editStudentBtn = new System.Windows.Forms.Button();
+            addUserBtn = new System.Windows.Forms.Button();
+            editUserBtn = new System.Windows.Forms.Button();
+            deleteUserBtn = new System.Windows.Forms.Button();
+            allFilesBtn = new System.Windows.Forms.Button();
+            adminProfileBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // addStudentBut
+            // addStudentBtn
             // 
-            addStudentBut.BackColor = System.Drawing.Color.Purple;
-            addStudentBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.AddStudentBut2;
-            addStudentBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            addStudentBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            addStudentBut.FlatAppearance.BorderSize = 0;
-            addStudentBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            addStudentBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            addStudentBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            addStudentBut.ForeColor = System.Drawing.Color.Indigo;
-            addStudentBut.Location = new System.Drawing.Point(174, 82);
-            addStudentBut.Margin = new System.Windows.Forms.Padding(0);
-            addStudentBut.Name = "addStudentBut";
-            addStudentBut.Size = new System.Drawing.Size(560, 300);
-            addStudentBut.TabIndex = 10;
-            addStudentBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            addStudentBut.UseVisualStyleBackColor = false;
-            addStudentBut.Click += new System.EventHandler(this.addStudentBut_Click);
+            addStudentBtn.BackColor = System.Drawing.Color.Purple;
+            addStudentBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.AddStudentBut2;
+            addStudentBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            addStudentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            addStudentBtn.FlatAppearance.BorderSize = 0;
+            addStudentBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            addStudentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            addStudentBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            addStudentBtn.ForeColor = System.Drawing.Color.Indigo;
+            addStudentBtn.Location = new System.Drawing.Point(161, 78);
+            addStudentBtn.Margin = new System.Windows.Forms.Padding(0);
+            addStudentBtn.Name = "addStudentBtn";
+            addStudentBtn.Size = new System.Drawing.Size(560, 315);
+            addStudentBtn.TabIndex = 10;
+            addStudentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            addStudentBtn.UseVisualStyleBackColor = false;
+            addStudentBtn.Click += new System.EventHandler(this.addStudentBtn_Click);
             // 
-            // editStudentBut
+            // editStudentBtn
             // 
-            editStudentBut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            editStudentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            editStudentBut.BackColor = System.Drawing.Color.Purple;
-            editStudentBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.EditStudentBut;
-            editStudentBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            editStudentBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            editStudentBut.FlatAppearance.BorderSize = 0;
-            editStudentBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            editStudentBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            editStudentBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            editStudentBut.ForeColor = System.Drawing.Color.Indigo;
-            editStudentBut.Location = new System.Drawing.Point(367, 414);
-            editStudentBut.Margin = new System.Windows.Forms.Padding(0);
-            editStudentBut.Name = "editStudentBut";
-            editStudentBut.Size = new System.Drawing.Size(173, 148);
-            editStudentBut.TabIndex = 11;
-            editStudentBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            editStudentBut.UseVisualStyleBackColor = false;
-            editStudentBut.Click += new System.EventHandler(this.editStudentBut_Click);
+            editStudentBtn.BackColor = System.Drawing.Color.Purple;
+            editStudentBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.EditStudentBut;
+            editStudentBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            editStudentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            editStudentBtn.FlatAppearance.BorderSize = 0;
+            editStudentBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            editStudentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            editStudentBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            editStudentBtn.ForeColor = System.Drawing.Color.Indigo;
+            editStudentBtn.Location = new System.Drawing.Point(354, 410);
+            editStudentBtn.Margin = new System.Windows.Forms.Padding(0);
+            editStudentBtn.Name = "editStudentBtn";
+            editStudentBtn.Size = new System.Drawing.Size(173, 148);
+            editStudentBtn.TabIndex = 11;
+            editStudentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            editStudentBtn.UseVisualStyleBackColor = false;
+            editStudentBtn.Click += new System.EventHandler(this.editStudentBtn_Click);
             // 
-            // addUserBut
+            // addUserBtn
             // 
-            addUserBut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            addUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            addUserBut.BackColor = System.Drawing.Color.Purple;
-            addUserBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.AddUserBut_1_;
-            addUserBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            addUserBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            addUserBut.FlatAppearance.BorderSize = 0;
-            addUserBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            addUserBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            addUserBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            addUserBut.ForeColor = System.Drawing.Color.Red;
-            addUserBut.Location = new System.Drawing.Point(765, 82);
-            addUserBut.Margin = new System.Windows.Forms.Padding(0);
-            addUserBut.Name = "addUserBut";
-            addUserBut.Size = new System.Drawing.Size(173, 144);
-            addUserBut.TabIndex = 12;
-            addUserBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            addUserBut.UseVisualStyleBackColor = false;
-            addUserBut.Click += new System.EventHandler(this.addUserBut_Click);
+            addUserBtn.BackColor = System.Drawing.Color.Purple;
+            addUserBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.AddUserBut_1_;
+            addUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            addUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            addUserBtn.FlatAppearance.BorderSize = 0;
+            addUserBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            addUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            addUserBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            addUserBtn.ForeColor = System.Drawing.Color.Red;
+            addUserBtn.Location = new System.Drawing.Point(744, 78);
+            addUserBtn.Margin = new System.Windows.Forms.Padding(0);
+            addUserBtn.Name = "addUserBtn";
+            addUserBtn.Size = new System.Drawing.Size(173, 144);
+            addUserBtn.TabIndex = 12;
+            addUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            addUserBtn.UseVisualStyleBackColor = false;
+            addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
             // 
-            // editUserBut
+            // editUserBtn
             // 
-            editUserBut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            editUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            editUserBut.BackColor = System.Drawing.Color.Purple;
-            editUserBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.EditUserBut_1_;
-            editUserBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            editUserBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            editUserBut.FlatAppearance.BorderSize = 0;
-            editUserBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            editUserBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            editUserBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            editUserBut.ForeColor = System.Drawing.Color.Indigo;
-            editUserBut.Location = new System.Drawing.Point(765, 244);
-            editUserBut.Margin = new System.Windows.Forms.Padding(0);
-            editUserBut.Name = "editUserBut";
-            editUserBut.Size = new System.Drawing.Size(173, 153);
-            editUserBut.TabIndex = 13;
-            editUserBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            editUserBut.UseVisualStyleBackColor = false;
-            editUserBut.Click += new System.EventHandler(this.editUserBut_Click);
+            editUserBtn.BackColor = System.Drawing.Color.Purple;
+            editUserBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.EditUserBut_1_;
+            editUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            editUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            editUserBtn.FlatAppearance.BorderSize = 0;
+            editUserBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            editUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            editUserBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            editUserBtn.ForeColor = System.Drawing.Color.Indigo;
+            editUserBtn.Location = new System.Drawing.Point(744, 240);
+            editUserBtn.Margin = new System.Windows.Forms.Padding(0);
+            editUserBtn.Name = "editUserBtn";
+            editUserBtn.Size = new System.Drawing.Size(173, 153);
+            editUserBtn.TabIndex = 13;
+            editUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            editUserBtn.UseVisualStyleBackColor = false;
+            editUserBtn.Click += new System.EventHandler(this.editUserBtn_Click);
             // 
-            // deleteUserBut
+            // deleteUserBtn
             // 
-            deleteUserBut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            deleteUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            deleteUserBut.BackColor = System.Drawing.Color.Purple;
-            deleteUserBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.DeleteUserBut_1_;
-            deleteUserBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            deleteUserBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            deleteUserBut.FlatAppearance.BorderSize = 0;
-            deleteUserBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            deleteUserBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            deleteUserBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            deleteUserBut.ForeColor = System.Drawing.Color.Red;
-            deleteUserBut.Location = new System.Drawing.Point(765, 416);
-            deleteUserBut.Margin = new System.Windows.Forms.Padding(0);
-            deleteUserBut.Name = "deleteUserBut";
-            deleteUserBut.Size = new System.Drawing.Size(173, 144);
-            deleteUserBut.TabIndex = 14;
-            deleteUserBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            deleteUserBut.UseVisualStyleBackColor = false;
-            deleteUserBut.Click += new System.EventHandler(this.deleteUserBut_Click);
+            deleteUserBtn.BackColor = System.Drawing.Color.Purple;
+            deleteUserBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.DeleteUserBut_1_;
+            deleteUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            deleteUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            deleteUserBtn.FlatAppearance.BorderSize = 0;
+            deleteUserBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            deleteUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            deleteUserBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            deleteUserBtn.ForeColor = System.Drawing.Color.Red;
+            deleteUserBtn.Location = new System.Drawing.Point(744, 412);
+            deleteUserBtn.Margin = new System.Windows.Forms.Padding(0);
+            deleteUserBtn.Name = "deleteUserBtn";
+            deleteUserBtn.Size = new System.Drawing.Size(173, 144);
+            deleteUserBtn.TabIndex = 14;
+            deleteUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            deleteUserBtn.UseVisualStyleBackColor = false;
+            deleteUserBtn.Click += new System.EventHandler(this.deleteUserBtn_Click);
             // 
-            // allFilesBut
+            // allFilesBtn
             // 
-            allFilesBut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            allFilesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            allFilesBut.BackColor = System.Drawing.Color.Purple;
-            allFilesBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.FilesIconbut;
-            allFilesBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            allFilesBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            allFilesBut.FlatAppearance.BorderSize = 0;
-            allFilesBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            allFilesBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            allFilesBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            allFilesBut.ForeColor = System.Drawing.Color.Indigo;
-            allFilesBut.Location = new System.Drawing.Point(563, 416);
-            allFilesBut.Margin = new System.Windows.Forms.Padding(0);
-            allFilesBut.Name = "allFilesBut";
-            allFilesBut.Size = new System.Drawing.Size(171, 144);
-            allFilesBut.TabIndex = 15;
-            allFilesBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            allFilesBut.UseVisualStyleBackColor = false;
+            allFilesBtn.BackColor = System.Drawing.Color.Purple;
+            allFilesBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.FilesIconbut;
+            allFilesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            allFilesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            allFilesBtn.FlatAppearance.BorderSize = 0;
+            allFilesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            allFilesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            allFilesBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            allFilesBtn.ForeColor = System.Drawing.Color.Indigo;
+            allFilesBtn.Location = new System.Drawing.Point(550, 412);
+            allFilesBtn.Margin = new System.Windows.Forms.Padding(0);
+            allFilesBtn.Name = "allFilesBtn";
+            allFilesBtn.Size = new System.Drawing.Size(171, 144);
+            allFilesBtn.TabIndex = 15;
+            allFilesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            allFilesBtn.UseVisualStyleBackColor = false;
             // 
-            // adminProfileBut
+            // adminProfileBtn
             // 
-            adminProfileBut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            adminProfileBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            adminProfileBut.BackColor = System.Drawing.Color.Purple;
-            adminProfileBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.EditProfileBut_1_;
-            adminProfileBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            adminProfileBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            adminProfileBut.FlatAppearance.BorderSize = 0;
-            adminProfileBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            adminProfileBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            adminProfileBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            adminProfileBut.ForeColor = System.Drawing.Color.Indigo;
-            adminProfileBut.Location = new System.Drawing.Point(174, 414);
-            adminProfileBut.Margin = new System.Windows.Forms.Padding(0);
-            adminProfileBut.Name = "adminProfileBut";
-            adminProfileBut.Size = new System.Drawing.Size(173, 148);
-            adminProfileBut.TabIndex = 16;
-            adminProfileBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            adminProfileBut.UseVisualStyleBackColor = false;
-            adminProfileBut.Click += new System.EventHandler(this.adminProfileBut_Click);
+            adminProfileBtn.BackColor = System.Drawing.Color.Purple;
+            adminProfileBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.EditProfileBut_1_;
+            adminProfileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            adminProfileBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            adminProfileBtn.FlatAppearance.BorderSize = 0;
+            adminProfileBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            adminProfileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            adminProfileBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            adminProfileBtn.ForeColor = System.Drawing.Color.Indigo;
+            adminProfileBtn.Location = new System.Drawing.Point(161, 410);
+            adminProfileBtn.Margin = new System.Windows.Forms.Padding(0);
+            adminProfileBtn.Name = "adminProfileBtn";
+            adminProfileBtn.Size = new System.Drawing.Size(173, 148);
+            adminProfileBtn.TabIndex = 16;
+            adminProfileBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            adminProfileBtn.UseVisualStyleBackColor = false;
+            adminProfileBtn.Click += new System.EventHandler(this.adminProfileBtn_Click);
             // 
             // groupBox1
             // 
@@ -209,15 +209,15 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Controls.Add(adminProfileBut);
-            this.groupBox1.Controls.Add(allFilesBut);
-            this.groupBox1.Controls.Add(deleteUserBut);
-            this.groupBox1.Controls.Add(addUserBut);
-            this.groupBox1.Controls.Add(addStudentBut);
-            this.groupBox1.Controls.Add(editUserBut);
-            this.groupBox1.Controls.Add(editStudentBut);
+            this.groupBox1.Controls.Add(adminProfileBtn);
+            this.groupBox1.Controls.Add(allFilesBtn);
+            this.groupBox1.Controls.Add(deleteUserBtn);
+            this.groupBox1.Controls.Add(addUserBtn);
+            this.groupBox1.Controls.Add(addStudentBtn);
+            this.groupBox1.Controls.Add(editUserBtn);
+            this.groupBox1.Controls.Add(editStudentBtn);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(70, 41);
+            this.groupBox1.Location = new System.Drawing.Point(85, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1076, 629);
             this.groupBox1.TabIndex = 14;
@@ -230,7 +230,7 @@
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
             this.ClientSize = new System.Drawing.Size(1255, 721);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(1271, 760);
+            this.MinimumSize = new System.Drawing.Size(1271, 726);
             this.Name = "AdminMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";

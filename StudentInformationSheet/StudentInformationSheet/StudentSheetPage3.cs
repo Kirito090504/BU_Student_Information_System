@@ -17,14 +17,14 @@ namespace StudentInformationSheet
             InitializeComponent();
         }
 
-        private void backBut_Click(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentSheetPage2 studentSheetPage2 = new StudentSheetPage2();
             studentSheetPage2.Show();
         }
 
-        private void nextBut_Click(object sender, EventArgs e)
+        private void nextBtn_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentSheetPage4 studentSheetPage4 = new StudentSheetPage4();

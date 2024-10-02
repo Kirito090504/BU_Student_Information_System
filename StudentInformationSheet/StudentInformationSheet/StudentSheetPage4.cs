@@ -17,7 +17,7 @@ namespace StudentInformationSheet
             InitializeComponent();
         }
 
-        private void backBut_Click(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentSheetPage3 studentSheetPage3 = new StudentSheetPage3();

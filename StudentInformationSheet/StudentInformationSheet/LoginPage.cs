@@ -19,27 +19,28 @@ namespace StudentInformationSheet
 
         private void EchoPassword_Click(object sender, EventArgs e)
         {
-                passwordTb.UseSystemPasswordChar = true; // Show password
+
+                txtPassword.UseSystemPasswordChar = true; // show password
                 eyesclosedicon.Visible = true;
             
         }
 
-        private void passwordTb_TextChanged(object sender, EventArgs e)
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            passwordTb.UseSystemPasswordChar = true;
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void eyesclosedicon_Click(object sender, EventArgs e)
         {
     
-                passwordTb.UseSystemPasswordChar = false; // mask password
+                txtPassword.UseSystemPasswordChar = false; // mask password
                 eyesclosedicon.Visible = false;
                 EchoPassword.Visible = true;
             
 
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void loginBtn_Click(object sender, EventArgs e)
         {
             
             this.Visible = false;

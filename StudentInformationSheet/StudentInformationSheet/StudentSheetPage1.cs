@@ -19,7 +19,7 @@ namespace StudentInformationSheet
             GenderText.Items.Add("Female");
         }
 
-        private void uploadBut_Click(object sender, EventArgs e)
+        private void uploadBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
@@ -31,37 +31,7 @@ namespace StudentInformationSheet
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nextBut_Click(object sender, EventArgs e)
+        private void nextBtn_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentSheetPage2 studentSheetPage2 = new StudentSheetPage2();

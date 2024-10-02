@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button uploadBut;
-            System.Windows.Forms.Button nextBut;
+            System.Windows.Forms.Button uploadBtn;
+            System.Windows.Forms.Button nextBtn;
             System.Windows.Forms.Button homeBut;
             this.photoHolder = new System.Windows.Forms.PictureBox();
-            this.usernameTb = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.studentNoTb = new System.Windows.Forms.TextBox();
+            this.firstNameTb = new System.Windows.Forms.TextBox();
+            this.middleNameTb = new System.Windows.Forms.TextBox();
+            this.lastNameTb = new System.Windows.Forms.TextBox();
+            this.txtCitizenship = new System.Windows.Forms.TextBox();
+            this.txtNationality = new System.Windows.Forms.TextBox();
+            this.txtBirthAddress = new System.Windows.Forms.TextBox();
+            this.txtReligion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,12 +61,12 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.birthdatetext = new System.Windows.Forms.DateTimePicker();
+            this.birthDateText = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.GenderText = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            uploadBut = new System.Windows.Forms.Button();
-            nextBut = new System.Windows.Forms.Button();
+            uploadBtn = new System.Windows.Forms.Button();
+            nextBtn = new System.Windows.Forms.Button();
             homeBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -82,48 +82,69 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // uploadBut
+            // uploadBtn
             // 
-            uploadBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            uploadBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            uploadBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            uploadBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            uploadBut.FlatAppearance.BorderSize = 0;
-            uploadBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            uploadBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            uploadBut.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            uploadBut.ForeColor = System.Drawing.Color.Indigo;
-            uploadBut.Location = new System.Drawing.Point(955, 270);
-            uploadBut.Margin = new System.Windows.Forms.Padding(0);
-            uploadBut.Name = "uploadBut";
-            uploadBut.Size = new System.Drawing.Size(141, 54);
-            uploadBut.TabIndex = 12;
-            uploadBut.Text = "Upload";
-            uploadBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            uploadBut.UseVisualStyleBackColor = false;
-            uploadBut.Click += new System.EventHandler(this.uploadBut_Click);
+            uploadBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            uploadBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            uploadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            uploadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            uploadBtn.FlatAppearance.BorderSize = 0;
+            uploadBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            uploadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            uploadBtn.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            uploadBtn.ForeColor = System.Drawing.Color.Indigo;
+            uploadBtn.Location = new System.Drawing.Point(955, 270);
+            uploadBtn.Margin = new System.Windows.Forms.Padding(0);
+            uploadBtn.Name = "uploadBtn";
+            uploadBtn.Size = new System.Drawing.Size(141, 54);
+            uploadBtn.TabIndex = 12;
+            uploadBtn.Text = "Upload";
+            uploadBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            uploadBtn.UseVisualStyleBackColor = false;
+            uploadBtn.Click += new System.EventHandler(this.uploadBtn_Click);
             // 
-            // nextBut
+            // nextBtn
             // 
-            nextBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            nextBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            nextBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            nextBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            nextBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            nextBut.FlatAppearance.BorderSize = 0;
-            nextBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            nextBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            nextBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nextBut.ForeColor = System.Drawing.Color.Indigo;
-            nextBut.Location = new System.Drawing.Point(937, 617);
-            nextBut.Margin = new System.Windows.Forms.Padding(0);
-            nextBut.Name = "nextBut";
-            nextBut.Size = new System.Drawing.Size(187, 55);
-            nextBut.TabIndex = 13;
-            nextBut.Text = "NEXT";
-            nextBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            nextBut.UseVisualStyleBackColor = false;
-            nextBut.Click += new System.EventHandler(this.nextBut_Click);
+            nextBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            nextBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            nextBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
+            nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            nextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            nextBtn.FlatAppearance.BorderSize = 0;
+            nextBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            nextBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nextBtn.ForeColor = System.Drawing.Color.Indigo;
+            nextBtn.Location = new System.Drawing.Point(937, 617);
+            nextBtn.Margin = new System.Windows.Forms.Padding(0);
+            nextBtn.Name = "nextBtn";
+            nextBtn.Size = new System.Drawing.Size(187, 55);
+            nextBtn.TabIndex = 13;
+            nextBtn.Text = "NEXT";
+            nextBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            nextBtn.UseVisualStyleBackColor = false;
+            nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
+            // 
+            // homeBut
+            // 
+            homeBut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            homeBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            homeBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
+            homeBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            homeBut.Cursor = System.Windows.Forms.Cursors.Hand;
+            homeBut.FlatAppearance.BorderSize = 0;
+            homeBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            homeBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            homeBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            homeBut.ForeColor = System.Drawing.Color.Indigo;
+            homeBut.Location = new System.Drawing.Point(582, 759);
+            homeBut.Margin = new System.Windows.Forms.Padding(0);
+            homeBut.Name = "homeBut";
+            homeBut.Size = new System.Drawing.Size(187, 55);
+            homeBut.TabIndex = 49;
+            homeBut.Text = "HOME";
+            homeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            homeBut.UseVisualStyleBackColor = false;
             // 
             // photoHolder
             // 
@@ -138,93 +159,93 @@
             this.photoHolder.TabIndex = 11;
             this.photoHolder.TabStop = false;
             // 
-            // usernameTb
+            // studentNoTb
             // 
-            this.usernameTb.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.usernameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTb.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTb.ForeColor = System.Drawing.Color.Black;
-            this.usernameTb.Location = new System.Drawing.Point(80, 104);
-            this.usernameTb.Name = "usernameTb";
-            this.usernameTb.Size = new System.Drawing.Size(300, 34);
-            this.usernameTb.TabIndex = 14;
+            this.studentNoTb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.studentNoTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.studentNoTb.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentNoTb.ForeColor = System.Drawing.Color.Black;
+            this.studentNoTb.Location = new System.Drawing.Point(80, 104);
+            this.studentNoTb.Name = "studentNoTb";
+            this.studentNoTb.Size = new System.Drawing.Size(300, 34);
+            this.studentNoTb.TabIndex = 14;
             // 
-            // textBox1
+            // firstNameTb
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(79, 246);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 34);
-            this.textBox1.TabIndex = 15;
+            this.firstNameTb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.firstNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.firstNameTb.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTb.ForeColor = System.Drawing.Color.Black;
+            this.firstNameTb.Location = new System.Drawing.Point(79, 246);
+            this.firstNameTb.Name = "firstNameTb";
+            this.firstNameTb.Size = new System.Drawing.Size(300, 34);
+            this.firstNameTb.TabIndex = 15;
             // 
-            // textBox2
+            // middleNameTb
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(79, 378);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 34);
-            this.textBox2.TabIndex = 16;
+            this.middleNameTb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.middleNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.middleNameTb.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleNameTb.ForeColor = System.Drawing.Color.Black;
+            this.middleNameTb.Location = new System.Drawing.Point(79, 378);
+            this.middleNameTb.Name = "middleNameTb";
+            this.middleNameTb.Size = new System.Drawing.Size(300, 34);
+            this.middleNameTb.TabIndex = 16;
             // 
-            // textBox3
+            // lastNameTb
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(80, 503);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(300, 34);
-            this.textBox3.TabIndex = 17;
+            this.lastNameTb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lastNameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastNameTb.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTb.ForeColor = System.Drawing.Color.Black;
+            this.lastNameTb.Location = new System.Drawing.Point(80, 503);
+            this.lastNameTb.Name = "lastNameTb";
+            this.lastNameTb.Size = new System.Drawing.Size(300, 34);
+            this.lastNameTb.TabIndex = 17;
             // 
-            // textBox5
+            // txtCitizenship
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.Black;
-            this.textBox5.Location = new System.Drawing.Point(497, 621);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(300, 34);
-            this.textBox5.TabIndex = 23;
+            this.txtCitizenship.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCitizenship.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCitizenship.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCitizenship.ForeColor = System.Drawing.Color.Black;
+            this.txtCitizenship.Location = new System.Drawing.Point(497, 621);
+            this.txtCitizenship.Name = "txtCitizenship";
+            this.txtCitizenship.Size = new System.Drawing.Size(300, 34);
+            this.txtCitizenship.TabIndex = 23;
             // 
-            // textBox6
+            // txtNationality
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.Black;
-            this.textBox6.Location = new System.Drawing.Point(497, 519);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(300, 34);
-            this.textBox6.TabIndex = 22;
+            this.txtNationality.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNationality.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNationality.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNationality.ForeColor = System.Drawing.Color.Black;
+            this.txtNationality.Location = new System.Drawing.Point(497, 519);
+            this.txtNationality.Name = "txtNationality";
+            this.txtNationality.Size = new System.Drawing.Size(300, 34);
+            this.txtNationality.TabIndex = 22;
             // 
-            // textBox7
+            // txtBirthAddress
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.Black;
-            this.textBox7.Location = new System.Drawing.Point(497, 378);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(300, 34);
-            this.textBox7.TabIndex = 21;
+            this.txtBirthAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBirthAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBirthAddress.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBirthAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtBirthAddress.Location = new System.Drawing.Point(497, 378);
+            this.txtBirthAddress.Name = "txtBirthAddress";
+            this.txtBirthAddress.Size = new System.Drawing.Size(300, 34);
+            this.txtBirthAddress.TabIndex = 21;
             // 
-            // textBox9
+            // txtReligion
             // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ForeColor = System.Drawing.Color.Black;
-            this.textBox9.Location = new System.Drawing.Point(497, 104);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(300, 34);
-            this.textBox9.TabIndex = 19;
+            this.txtReligion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtReligion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtReligion.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReligion.ForeColor = System.Drawing.Color.Black;
+            this.txtReligion.Location = new System.Drawing.Point(497, 104);
+            this.txtReligion.Name = "txtReligion";
+            this.txtReligion.Size = new System.Drawing.Size(300, 34);
+            this.txtReligion.TabIndex = 19;
             // 
             // label2
             // 
@@ -238,7 +259,6 @@
             this.label2.Size = new System.Drawing.Size(153, 30);
             this.label2.TabIndex = 24;
             this.label2.Text = "Student No.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -304,7 +324,6 @@
             this.label6.Size = new System.Drawing.Size(114, 30);
             this.label6.TabIndex = 29;
             this.label6.Text = "Religion";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -318,7 +337,6 @@
             this.label7.Size = new System.Drawing.Size(135, 30);
             this.label7.TabIndex = 30;
             this.label7.Text = "Birth Date";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -332,7 +350,6 @@
             this.label8.Size = new System.Drawing.Size(176, 30);
             this.label8.TabIndex = 31;
             this.label8.Text = "Birth Address";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -346,7 +363,6 @@
             this.label9.Size = new System.Drawing.Size(145, 30);
             this.label9.TabIndex = 32;
             this.label9.Text = "Nationality";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -360,7 +376,6 @@
             this.label10.Size = new System.Drawing.Size(146, 30);
             this.label10.TabIndex = 33;
             this.label10.Text = "Citizenship";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // pictureBox2
             // 
@@ -478,22 +493,22 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Controls.Add(this.birthdatetext);
-            this.groupBox1.Controls.Add(nextBut);
+            this.groupBox1.Controls.Add(this.birthDateText);
+            this.groupBox1.Controls.Add(nextBtn);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.pictureBox9);
-            this.groupBox1.Controls.Add(uploadBut);
+            this.groupBox1.Controls.Add(uploadBtn);
             this.groupBox1.Controls.Add(this.GenderText);
             this.groupBox1.Controls.Add(this.photoHolder);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtCitizenship);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtNationality);
             this.groupBox1.Controls.Add(this.pictureBox10);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtBirthAddress);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.usernameTb);
+            this.groupBox1.Controls.Add(this.txtReligion);
+            this.groupBox1.Controls.Add(this.studentNoTb);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.label7);
@@ -501,34 +516,34 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pictureBox6);
             this.groupBox1.Controls.Add(this.pictureBox7);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.firstNameTb);
             this.groupBox1.Controls.Add(this.pictureBox8);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.middleNameTb);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.lastNameTb);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Location = new System.Drawing.Point(58, 84);
+            this.groupBox1.Location = new System.Drawing.Point(58, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1203, 744);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
-            // birthdatetext
+            // birthDateText
             // 
-            this.birthdatetext.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.birthdatetext.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdatetext.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.birthdatetext.Location = new System.Drawing.Point(497, 239);
-            this.birthdatetext.Name = "birthdatetext";
-            this.birthdatetext.Size = new System.Drawing.Size(290, 43);
-            this.birthdatetext.TabIndex = 48;
+            this.birthDateText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.birthDateText.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthDateText.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.birthDateText.Location = new System.Drawing.Point(497, 239);
+            this.birthDateText.Name = "birthDateText";
+            this.birthDateText.Size = new System.Drawing.Size(290, 43);
+            this.birthDateText.TabIndex = 48;
             // 
             // label12
             // 
@@ -563,32 +578,11 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label11.Location = new System.Drawing.Point(548, 47);
+            this.label11.Location = new System.Drawing.Point(548, -25);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(209, 34);
             this.label11.TabIndex = 45;
             this.label11.Text = "Student Profile";
-            // 
-            // homeBut
-            // 
-            homeBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            homeBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            homeBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
-            homeBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            homeBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            homeBut.FlatAppearance.BorderSize = 0;
-            homeBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            homeBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            homeBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            homeBut.ForeColor = System.Drawing.Color.Indigo;
-            homeBut.Location = new System.Drawing.Point(582, 831);
-            homeBut.Margin = new System.Windows.Forms.Padding(0);
-            homeBut.Name = "homeBut";
-            homeBut.Size = new System.Drawing.Size(187, 55);
-            homeBut.TabIndex = 49;
-            homeBut.Text = "HOME";
-            homeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            homeBut.UseVisualStyleBackColor = false;
             // 
             // StudentSheetPage1
             // 
@@ -596,11 +590,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            this.ClientSize = new System.Drawing.Size(1350, 892);
+            this.ClientSize = new System.Drawing.Size(1350, 749);
             this.Controls.Add(homeBut);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(1366, 931);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "StudentSheetPage1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentSheetPage1";
@@ -626,14 +620,14 @@
         #endregion
 
         private System.Windows.Forms.PictureBox photoHolder;
-        private System.Windows.Forms.TextBox usernameTb;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox studentNoTb;
+        private System.Windows.Forms.TextBox firstNameTb;
+        private System.Windows.Forms.TextBox middleNameTb;
+        private System.Windows.Forms.TextBox lastNameTb;
+        private System.Windows.Forms.TextBox txtCitizenship;
+        private System.Windows.Forms.TextBox txtNationality;
+        private System.Windows.Forms.TextBox txtBirthAddress;
+        private System.Windows.Forms.TextBox txtReligion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -657,7 +651,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker birthdatetext;
+        private System.Windows.Forms.DateTimePicker birthDateText;
         private System.Windows.Forms.ComboBox GenderText;
     }
 }
