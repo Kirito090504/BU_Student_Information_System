@@ -179,6 +179,7 @@
     <Compile Include="Views\UserMyProfile.Designer.cs">
       <DependentUpon>UserMyProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserModel.cs" />
     <EmbeddedResource Include="Views\AddUserPage.resx">
       <DependentUpon>AddUserPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,8 +366,6 @@
   <ItemGroup>
     <None Include="Resources\EditProfileBut%281%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
