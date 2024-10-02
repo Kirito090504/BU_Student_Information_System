@@ -19,9 +19,8 @@ namespace StudentInformationSheet
 
         private void EchoPassword_Click(object sender, EventArgs e)
         {
-                passwordTb.UseSystemPasswordChar = true; // Show password
-                eyesclosedicon.Visible = true;
-            
+            passwordTb.UseSystemPasswordChar = true; // Show password
+            eyesclosedicon.Visible = true;
         }
 
         private void passwordTb_TextChanged(object sender, EventArgs e)
@@ -31,19 +30,16 @@ namespace StudentInformationSheet
 
         private void eyesclosedicon_Click(object sender, EventArgs e)
         {
-    
-                passwordTb.UseSystemPasswordChar = false; // mask password
-                eyesclosedicon.Visible = false;
-                EchoPassword.Visible = true;
-            
-
+            passwordTb.UseSystemPasswordChar = false; // mask password
+            eyesclosedicon.Visible = false;
+            EchoPassword.Visible = true;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            
             this.Visible = false;
             AdminMenu adminMenu = new AdminMenu();
+            adminMenu.Closed += (s, args) => this.Close();
             adminMenu.Show();
         }
     }
