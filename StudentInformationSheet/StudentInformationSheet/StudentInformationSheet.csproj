@@ -51,8 +51,12 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.9.0.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="ReaLTaiizor, Version=3.7.8.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.7.8.5\lib\net472\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -63,6 +67,7 @@
       <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -98,11 +103,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUserPage.cs">
+    <Compile Include="AddUserAccPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUserPage.Designer.cs">
-      <DependentUpon>AddUserPage.cs</DependentUpon>
+    <Compile Include="AddUserAccPage.Designer.cs">
+      <DependentUpon>AddUserAccPage.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminMenu.cs">
       <SubType>Form</SubType>
@@ -116,11 +121,11 @@
     <Compile Include="AdminMyProfile.Designer.cs">
       <DependentUpon>AdminMyProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteUserPage.cs">
+    <Compile Include="DeleteUserProfilePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteUserPage.Designer.cs">
-      <DependentUpon>DeleteUserPage.cs</DependentUpon>
+    <Compile Include="DeleteUserProfilePage.Designer.cs">
+      <DependentUpon>DeleteUserProfilePage.cs</DependentUpon>
     </Compile>
     <Compile Include="EditStudentPage.cs">
       <SubType>Form</SubType>
@@ -128,13 +133,13 @@
     <Compile Include="EditStudentPage.Designer.cs">
       <DependentUpon>EditStudentPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditUserPage.cs">
+    <Compile Include="DatabaseHandler.cs" />
+    <Compile Include="EditUserProfilePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditUserPage.Designer.cs">
-      <DependentUpon>EditUserPage.cs</DependentUpon>
+    <Compile Include="EditUserProfilePage.Designer.cs">
+      <DependentUpon>EditUserProfilePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHandler.cs" />
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +159,30 @@
     </Compile>
     <Compile Include="StudentSheetPage2.Designer.cs">
       <DependentUpon>StudentSheetPage2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSheetPg1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentSheetPg1.Designer.cs">
+      <DependentUpon>StudentSheetPg1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSheetPg2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentSheetPg2.Designer.cs">
+      <DependentUpon>StudentSheetPg2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSheetPg3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentSheetPg3.Designer.cs">
+      <DependentUpon>StudentSheetPg3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSheetPg4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentSheetPg4.Designer.cs">
+      <DependentUpon>StudentSheetPg4.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="StudentSheetPage3.cs">
@@ -180,8 +209,8 @@
     <Compile Include="UserMyProfile.Designer.cs">
       <DependentUpon>UserMyProfile.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddUserPage.resx">
-      <DependentUpon>AddUserPage.cs</DependentUpon>
+    <EmbeddedResource Include="AddUserAccPage.resx">
+      <DependentUpon>AddUserAccPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
@@ -189,14 +218,14 @@
     <EmbeddedResource Include="AdminMyProfile.resx">
       <DependentUpon>AdminMyProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteUserPage.resx">
-      <DependentUpon>DeleteUserPage.cs</DependentUpon>
+    <EmbeddedResource Include="DeleteUserProfilePage.resx">
+      <DependentUpon>DeleteUserProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditStudentPage.resx">
       <DependentUpon>EditStudentPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUserPage.resx">
-      <DependentUpon>EditUserPage.cs</DependentUpon>
+    <EmbeddedResource Include="EditUserProfilePage.resx">
+      <DependentUpon>EditUserProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
@@ -222,6 +251,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentSheetPage4.resx">
       <DependentUpon>StudentSheetPage4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentSheetPg1.resx">
+      <DependentUpon>StudentSheetPg1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentSheetPg2.resx">
+      <DependentUpon>StudentSheetPg2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentSheetPg3.resx">
+      <DependentUpon>StudentSheetPg3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentSheetPg4.resx">
+      <DependentUpon>StudentSheetPg4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenuPage.resx">
       <DependentUpon>UserMenuPage.cs</DependentUpon>
@@ -365,6 +406,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EditProfileBut%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line textbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

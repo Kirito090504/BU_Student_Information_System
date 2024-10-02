@@ -10,29 +10,13 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class AdminMyProfile : Form
+    public partial class StudentSheetPg1 : Form
     {
-        public AdminMyProfile()
+        public StudentSheetPg1()
         {
             InitializeComponent();
-        }
-
-        private void eyesclosedicon_Click(object sender, EventArgs e)
-        {
-            txtPassword.UseSystemPasswordChar = false; // mask password
-            eyesclosedicon.Visible = false;
-            EchoPassword.Visible = true;
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-            txtPassword.UseSystemPasswordChar = true;
-        }
-
-        private void EchoPassword_Click(object sender, EventArgs e)
-        {
-            txtPassword.UseSystemPasswordChar = true; // show password
-            eyesclosedicon.Visible = true;
+            cboGender.Items.Add("Male");
+            cboGender.Items.Add("Female");
         }
 
         private void uploadBtn_Click(object sender, EventArgs e)
@@ -45,6 +29,14 @@ namespace StudentInformationSheet
             {
                 photoHolder.Image = new Bitmap(openFileDialog.FileName);
             }
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentSheetPg2 studentSheetPg2 = new StudentSheetPg2();
+            studentSheetPg2.ShowDialog();
+            this.Close();
         }
     }
 }

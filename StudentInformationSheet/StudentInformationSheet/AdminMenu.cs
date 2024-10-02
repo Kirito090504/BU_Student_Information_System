@@ -19,44 +19,56 @@ namespace StudentInformationSheet
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
-            studentSheetPage1.Show();
+            
+            StudentSheetPg1 studentSheetPg1 = new StudentSheetPg1();
+            this.Hide();
+            studentSheetPg1.ShowDialog();
+            this.Show();
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            AddUserPage addUserPage = new AddUserPage();
-            addUserPage.Show();
+            
+            AddUserAccPage addUserAccPage = new AddUserAccPage();
+            this.Hide();
+            addUserAccPage.ShowDialog();
+            this.Show();
         }
 
         private void editUserBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            EditUserPage editUserPage = new EditUserPage();
-            editUserPage.Show();
+            
+            EditUserProfilePage editUserProfilePage = new EditUserProfilePage();
+            this.Hide();
+            editUserProfilePage.ShowDialog();
+            this.Show();
         }
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            DeleteUserPage deleteUserPage = new DeleteUserPage();
-            deleteUserPage.Show();
+            
+            DeleteUserProfilePage deleteUserProfilePage = new DeleteUserProfilePage();
+            this.Hide();
+            deleteUserProfilePage.ShowDialog();
+            this.Show();
         }
 
         private void editStudentBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             EditStudentPage editStudentPage = new EditStudentPage();
-            editStudentPage.Show();
+            this.Hide();
+            editStudentPage.ShowDialog();
+            this.Show();
         }
 
         private void adminProfileBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             AdminMyProfile adminMyProfile = new AdminMyProfile();
-            adminMyProfile.Show();
+            this.Hide();
+            adminMyProfile.ShowDialog();
+            this.Show();
         }
     }
 }

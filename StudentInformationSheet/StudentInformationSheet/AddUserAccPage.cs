@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class AddUserPage : Form
+    public partial class AddUserAccPage : Form
     {
-        public AddUserPage()
+        public AddUserAccPage()
         {
             InitializeComponent();
+            UserType.Items.Add("Super admin");
             UserType.Items.Add("Admin");
-            UserType.Items.Add("User");
         }
 
         private void EchoPassword_Click(object sender, EventArgs e)
@@ -39,6 +39,19 @@ namespace StudentInformationSheet
             eyesclosedicon.Visible = false;
             EchoPassword.Visible = true;
 
+
+        }
+
+        private void uploadBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select a Photo";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                photoHolder.Image = new Bitmap(openFileDialog.FileName);
+            }
         }
     }
 }
