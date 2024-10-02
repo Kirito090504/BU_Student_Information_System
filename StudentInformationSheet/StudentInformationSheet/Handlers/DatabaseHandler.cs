@@ -9,7 +9,7 @@ namespace StudentInformationSheet
 {
     internal class DatabaseHandler
     {
-        private string connection_string;
+        private readonly string connection_string;
 
         /// <summary>
         /// Get a connection to the database.
@@ -27,7 +27,6 @@ namespace StudentInformationSheet
             string password = ""
         )
         {
-            connection_string = "server=127.0.0.1;uid=root;pwd=12345;database=test";
             this.connection_string =
                 $"server={host};port={port};uid={username};pwd={password};database={db_name}";
         }
@@ -36,6 +35,14 @@ namespace StudentInformationSheet
         /// Acquire a new connection to the database.
         /// </summary>
         /// <returns>A new MySQL connection.</returns>
-        public MySqlConnection GetNewConnection() => new MySqlConnection(connection_string);
+        private MySqlConnection GetNewConnection() => new MySqlConnection(connection_string);
+
+        /// <summary>
+        /// Attempt to login a user. If the user's credentials are correct, return the user's information.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public UserModel? Login(string username, string password) { return null; }
     }
 }
