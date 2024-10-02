@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Views\AddUserPage.cs">
       <SubType>Form</SubType>
     </Compile>
