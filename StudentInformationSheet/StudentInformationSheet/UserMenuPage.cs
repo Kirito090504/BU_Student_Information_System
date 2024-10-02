@@ -10,25 +10,25 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class StudentSheetPage2 : Form
+    public partial class UserMenuPage : Form
     {
-        public StudentSheetPage2()
+        public UserMenuPage()
         {
             InitializeComponent();
         }
 
-        private void backBut_Click(object sender, EventArgs e)
+        private void addStudentBut_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
             studentSheetPage1.Show();
         }
 
-        private void nextBut_Click(object sender, EventArgs e)
+        private void editStudentBut_Click(object sender, EventArgs e)
         {
             this.Close();
-            StudentSheetPage3 studentSheetPage3 = new StudentSheetPage3();
-            studentSheetPage3.Show();
+            EditStudentPage editStudentPage = new EditStudentPage();
+            editStudentPage.Show();
         }
     }
 }

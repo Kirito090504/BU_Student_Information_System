@@ -23,5 +23,40 @@ namespace StudentInformationSheet
             StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
             studentSheetPage1.Show();
         }
+
+        private void addUserBut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddUserPage addUserPage = new AddUserPage();
+            addUserPage.Show();
+        }
+
+        private void editUserBut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            EditUserPage editUserPage = new EditUserPage();
+            editUserPage.Show();
+        }
+
+        private void deleteUserBut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DeleteUserPage deleteUserPage = new DeleteUserPage();
+            deleteUserPage.Show();
+        }
+
+        private void editStudentBut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            EditStudentPage editStudentPage = new EditStudentPage();
+            editStudentPage.Show();
+        }
+
+        private void adminProfileBut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminMyProfile adminMyProfile = new AdminMyProfile();
+            adminMyProfile.Show();
+        }
     }
 }

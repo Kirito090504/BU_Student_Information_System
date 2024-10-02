@@ -10,21 +10,14 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class StudentSheetPage2 : Form
+    public partial class StudentSheetPage4 : Form
     {
-        public StudentSheetPage2()
+        public StudentSheetPage4()
         {
             InitializeComponent();
         }
 
         private void backBut_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
-            studentSheetPage1.Show();
-        }
-
-        private void nextBut_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentSheetPage3 studentSheetPage3 = new StudentSheetPage3();
