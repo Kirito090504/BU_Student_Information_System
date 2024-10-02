@@ -25,22 +25,22 @@ CREATE TABLE students (
     name_first TEXT NOT NULL COMMENT 'The first name of the student.',
     name_middle TEXT COMMENT 'The middle name of the user.',
     name_last TEXT NOT NULL COMMENT 'The last name of the user.',
-    photo BLOB COMMENT 'The image data of the students photo.',
+    photo BLOB COMMENT "The image data of the student's photo.",
     gender INT NOT NULL COMMENT 'The gender of the student.',
     birth_date DATE NOT NULL COMMENT 'The birth date of the student.',
     birth_address TEXT COMMENT 'The address where the student was born.',
-    nationality INT NOT NULL COMMENT 'The students nationality.',
+    nationality INT NOT NULL COMMENT "The student's nationality.",
     citizenship INT NOT NULL COMMENT 'The legal citizenship of the student.',
     religion INT COMMENT 'The religion of the student.'
-) COMMENT = 'The table containing students personal information.';
+) COMMENT = "The table containing students' personal information.";
 CREATE TABLE genders (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    description VARCHAR(32) NOT NULL UNIQUE
+    description TEXT NOT NULL UNIQUE
 );
 CREATE TABLE nationalities (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     description VARCHAR(32) NOT NULL UNIQUE
-) COMMENT = 'A table containing valid values for the students nationality.';
+) COMMENT = "A table containing valid values for the students' nationality.";
 CREATE TABLE religions (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     description VARCHAR(64) NOT NULL UNIQUE
@@ -60,50 +60,50 @@ CREATE TABLE cities_in_provinces (
 ) COMMENT = 'Contains information about which cities are in which provinces.';
 CREATE TABLE contact_information (
     id VARCHAR(10) PRIMARY KEY NOT NULL,
-    contact_number VARCHAR(16) COMMENT 'The students contact number with country code.',
-    email_address TEXT COMMENT 'The students email address.'
-) COMMENT = 'Students contact information';
+    contact_number VARCHAR(16) COMMENT "The student's contact number with country code.",
+    email_address TEXT COMMENT "The student's email address."
+) COMMENT = "Students' contact information";
 CREATE TABLE present_addresses (
     id VARCHAR(10) NOT NULL,
     line1 TEXT COMMENT 'No./Street/Barangay',
-    city INT NOT NULL COMMENT 'The city of the students present address.',
-    province INT NOT NULL COMMENT 'The province of the students present address.',
+    city INT NOT NULL COMMENT "The city of the student's present address.",
+    province INT NOT NULL COMMENT "The province of the student's present address.",
     PRIMARY KEY (id, city, province)
 ) COMMENT = 'The present addresses of the students.';
 CREATE TABLE permanent_addresses (
     id VARCHAR(10) PRIMARY KEY NOT NULL,
     line1 TEXT COMMENT 'No./Street/Barangay',
-    city INT NOT NULL COMMENT 'The city of the students permanent address.',
-    province INT NOT NULL COMMENT 'The province of the students permanent address.'
+    city INT NOT NULL COMMENT "The city of the student's permanent address.",
+    province INT NOT NULL COMMENT "The province of the student's permanent address."
 ) COMMENT = 'The permanent addresses of the students.';
 CREATE TABLE student_family (
     id VARCHAR(10) PRIMARY KEY NOT NULL,
-    mother_name VARCHAR(128) COMMENT 'The mothers full name.',
-    mother_occupation TEXT COMMENT 'The mothers occupation.',
-    mother_contact_number VARCHAR(16) COMMENT 'The mothers contact number with country code.',
-    mother_address TEXT COMMENT 'The mothers address.',
-    father_name VARCHAR(128) COMMENT 'The fathers full name.',
-    father_occupation TEXT COMMENT 'The fathers occupation.',
-    father_contact_number VARCHAR(16) COMMENT 'The fathers contact number with country code.',
-    father_address TEXT COMMENT 'The fathers address.',
-    guardian_name VARCHAR(128) COMMENT 'The guardians full name.',
-    guardian_occupation TEXT COMMENT 'The guardians occupation.',
-    guardian_contact_number VARCHAR(16) COMMENT 'The guardians contact number with country code.',
-    guardian_address TEXT COMMENT 'The guardians address.'
-) COMMENT = 'A table containing the students mother, father, and guardian.';
+    mother_name VARCHAR(128) COMMENT "The mother's full name.",
+    mother_occupation TEXT COMMENT "The mother's occupation.",
+    mother_contact_number VARCHAR(16) COMMENT "The mother's contact number with country code.",
+    mother_address TEXT COMMENT "The mother's address.",
+    father_name VARCHAR(128) COMMENT "The father's full name.",
+    father_occupation TEXT COMMENT "The father's occupation.",
+    father_contact_number VARCHAR(16) COMMENT "The father's contact number with country code.",
+    father_address TEXT COMMENT "The father's address.",
+    guardian_name VARCHAR(128) COMMENT "The guardian's full name.",
+    guardian_occupation TEXT COMMENT "The guardian's occupation.",
+    guardian_contact_number VARCHAR(16) COMMENT "The guardian's contact number with country code.",
+    guardian_address TEXT COMMENT "The guardian's address."
+) COMMENT = "A table containing the students' mother, father, and guardian.";
 CREATE TABLE academic_history (
     id VARCHAR(10) PRIMARY KEY NOT NULL,
     last_school_attended TEXT COMMENT 'The last school the student attended to.',
     last_school_attended_year YEAR COMMENT 'The year the student last attended their previous school.',
-    secondary_school TEXT COMMENT 'The name of the students secondary school.',
+    secondary_school TEXT COMMENT "The name of the student's secondary school.",
     secondary_school_year YEAR COMMENT 'The year the student last attended their secondary school.',
     awards_received TEXT COMMENT 'JSON list containing honors/awards received by the student.'
-) COMMENT = 'Information about the students academic history.';
+) COMMENT = "Information about the students' academic history.";
 CREATE TABLE personalities (
     id VARCHAR(10) PRIMARY KEY NOT NULL,
-    hobbies TEXT COMMENT 'JSON list containing the students hobbies.',
-    skills TEXT COMMENT 'JSON list containing students talents/skills.'
-) COMMENT = 'A table containing the students personalities.';
+    hobbies TEXT COMMENT "JSON list containing the students' hobbies.",
+    skills TEXT COMMENT "JSON list containing students' talents/skills."
+) COMMENT = "A table containing the students' personalities.";
 ALTER TABLE students
 ADD CONSTRAINT students_gender_genders_id FOREIGN KEY (gender) REFERENCES genders(id) ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE students

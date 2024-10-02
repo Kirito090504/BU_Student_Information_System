@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button loginButton;
+            System.Windows.Forms.Button saveBtn;
             System.Windows.Forms.Button homeBut;
-            System.Windows.Forms.Button uploadBut;
+            System.Windows.Forms.Button uploadBtn;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFullname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.UserType = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -47,14 +49,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.passwordTb = new System.Windows.Forms.TextBox();
-            this.usernameTb = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            loginButton = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            saveBtn = new System.Windows.Forms.Button();
             homeBut = new System.Windows.Forms.Button();
-            uploadBut = new System.Windows.Forms.Button();
+            uploadBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -62,28 +63,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.eyesclosedicon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EchoPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
-            // loginButton
+            // saveBtn
             // 
-            loginButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            loginButton.BackColor = System.Drawing.Color.Plum;
-            loginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            loginButton.FlatAppearance.BorderSize = 0;
-            loginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            loginButton.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            loginButton.ForeColor = System.Drawing.Color.Indigo;
-            loginButton.Location = new System.Drawing.Point(795, 472);
-            loginButton.Margin = new System.Windows.Forms.Padding(0);
-            loginButton.Name = "loginButton";
-            loginButton.Size = new System.Drawing.Size(130, 49);
-            loginButton.TabIndex = 4;
-            loginButton.Text = "SAVE";
-            loginButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            loginButton.UseVisualStyleBackColor = false;
+            saveBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            saveBtn.BackColor = System.Drawing.Color.Plum;
+            saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            saveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            saveBtn.FlatAppearance.BorderSize = 0;
+            saveBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            saveBtn.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            saveBtn.ForeColor = System.Drawing.Color.Indigo;
+            saveBtn.Location = new System.Drawing.Point(795, 472);
+            saveBtn.Margin = new System.Windows.Forms.Padding(0);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new System.Drawing.Size(130, 49);
+            saveBtn.TabIndex = 4;
+            saveBtn.Text = "SAVE";
+            saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            saveBtn.UseVisualStyleBackColor = false;
             // 
             // homeBut
             // 
@@ -97,7 +97,7 @@
             homeBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             homeBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             homeBut.ForeColor = System.Drawing.Color.Indigo;
-            homeBut.Location = new System.Drawing.Point(513, 863);
+            homeBut.Location = new System.Drawing.Point(513, 769);
             homeBut.Margin = new System.Windows.Forms.Padding(0);
             homeBut.Name = "homeBut";
             homeBut.Size = new System.Drawing.Size(187, 55);
@@ -106,26 +106,26 @@
             homeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             homeBut.UseVisualStyleBackColor = false;
             // 
-            // uploadBut
+            // uploadBtn
             // 
-            uploadBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            uploadBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            uploadBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            uploadBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            uploadBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            uploadBut.FlatAppearance.BorderSize = 0;
-            uploadBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            uploadBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            uploadBut.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            uploadBut.ForeColor = System.Drawing.Color.Indigo;
-            uploadBut.Location = new System.Drawing.Point(805, 384);
-            uploadBut.Margin = new System.Windows.Forms.Padding(0);
-            uploadBut.Name = "uploadBut";
-            uploadBut.Size = new System.Drawing.Size(106, 27);
-            uploadBut.TabIndex = 50;
-            uploadBut.Text = "Upload";
-            uploadBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            uploadBut.UseVisualStyleBackColor = false;
+            uploadBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            uploadBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            uploadBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
+            uploadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            uploadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            uploadBtn.FlatAppearance.BorderSize = 0;
+            uploadBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            uploadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            uploadBtn.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            uploadBtn.ForeColor = System.Drawing.Color.Indigo;
+            uploadBtn.Location = new System.Drawing.Point(805, 384);
+            uploadBtn.Margin = new System.Windows.Forms.Padding(0);
+            uploadBtn.Name = "uploadBtn";
+            uploadBtn.Size = new System.Drawing.Size(106, 27);
+            uploadBtn.TabIndex = 50;
+            uploadBtn.Text = "Upload";
+            uploadBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            uploadBtn.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -134,17 +134,17 @@
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.pictureBox6);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(uploadBut);
+            this.groupBox1.Controls.Add(this.txtFullname);
+            this.groupBox1.Controls.Add(uploadBtn);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.UserType);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(loginButton);
+            this.groupBox1.Controls.Add(saveBtn);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.eyesclosedicon);
             this.groupBox1.Controls.Add(this.EchoPassword);
@@ -152,14 +152,39 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.passwordTb);
-            this.groupBox1.Controls.Add(this.usernameTb);
+            this.groupBox1.Controls.Add(this.txtPassword);
+            this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(60, 74);
+            this.groupBox1.Location = new System.Drawing.Point(60, -20);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1076, 765);
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImage = global::StudentInformationSheet.Properties.Resources.SearchBut;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.Image = global::StudentInformationSheet.Properties.Resources.SearchBut;
+            this.pictureBox6.Location = new System.Drawing.Point(773, 114);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(47, 43);
+            this.pictureBox6.TabIndex = 55;
+            this.pictureBox6.TabStop = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.Fuchsia;
+            this.txtSearch.Location = new System.Drawing.Point(824, 114);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(192, 43);
+            this.txtSearch.TabIndex = 54;
             // 
             // pictureBox5
             // 
@@ -185,16 +210,16 @@
             this.label6.TabIndex = 52;
             this.label6.Text = "Full Name";
             // 
-            // textBox1
+            // txtFullname
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Fuchsia;
-            this.textBox1.Location = new System.Drawing.Point(94, 611);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(546, 36);
-            this.textBox1.TabIndex = 51;
+            this.txtFullname.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtFullname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFullname.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFullname.ForeColor = System.Drawing.Color.Fuchsia;
+            this.txtFullname.Location = new System.Drawing.Point(94, 611);
+            this.txtFullname.Name = "txtFullname";
+            this.txtFullname.Size = new System.Drawing.Size(546, 36);
+            this.txtFullname.TabIndex = 51;
             // 
             // label5
             // 
@@ -345,68 +370,44 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Edit User Profile";
             // 
-            // passwordTb
+            // txtPassword
             // 
-            this.passwordTb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.passwordTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordTb.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTb.ForeColor = System.Drawing.Color.Fuchsia;
-            this.passwordTb.Location = new System.Drawing.Point(94, 485);
-            this.passwordTb.Name = "passwordTb";
-            this.passwordTb.Size = new System.Drawing.Size(546, 36);
-            this.passwordTb.TabIndex = 3;
+            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.Fuchsia;
+            this.txtPassword.Location = new System.Drawing.Point(94, 485);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(546, 36);
+            this.txtPassword.TabIndex = 3;
             // 
-            // usernameTb
+            // txtUsername
             // 
-            this.usernameTb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.usernameTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTb.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTb.ForeColor = System.Drawing.Color.Fuchsia;
-            this.usernameTb.Location = new System.Drawing.Point(94, 356);
-            this.usernameTb.Name = "usernameTb";
-            this.usernameTb.Size = new System.Drawing.Size(546, 36);
-            this.usernameTb.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Fuchsia;
-            this.textBox2.Location = new System.Drawing.Point(824, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 43);
-            this.textBox2.TabIndex = 54;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.BackgroundImage = global::StudentInformationSheet.Properties.Resources.SearchBut;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Image = global::StudentInformationSheet.Properties.Resources.SearchBut;
-            this.pictureBox6.Location = new System.Drawing.Point(773, 114);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(47, 43);
-            this.pictureBox6.TabIndex = 55;
-            this.pictureBox6.TabStop = false;
+            this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsername.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.Fuchsia;
+            this.txtUsername.Location = new System.Drawing.Point(94, 356);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(546, 36);
+            this.txtUsername.TabIndex = 2;
             // 
             // EditUserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            this.ClientSize = new System.Drawing.Size(1184, 937);
+            this.ClientSize = new System.Drawing.Size(1184, 749);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(homeBut);
-            this.MinimumSize = new System.Drawing.Size(1200, 976);
+            this.MinimumSize = new System.Drawing.Size(1200, 726);
             this.Name = "EditUserPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditUserPage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -414,7 +415,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.eyesclosedicon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EchoPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,12 +434,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox passwordTb;
-        private System.Windows.Forms.TextBox usernameTb;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtFullname;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

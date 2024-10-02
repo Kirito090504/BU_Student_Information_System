@@ -155,7 +155,6 @@
     <Compile Include="StudentSheetPage2.Designer.cs">
       <DependentUpon>StudentSheetPage2.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
     <Compile Include="StudentSheetPage3.cs">
       <SubType>Form</SubType>
     </Compile>

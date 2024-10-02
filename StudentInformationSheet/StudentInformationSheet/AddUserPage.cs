@@ -19,8 +19,25 @@ namespace StudentInformationSheet
             UserType.Items.Add("User");
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void EchoPassword_Click(object sender, EventArgs e)
         {
+
+            txtPassword.UseSystemPasswordChar = true; // show password
+            eyesclosedicon.Visible = true;
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void eyesclosedicon_Click(object sender, EventArgs e)
+        {
+
+            txtPassword.UseSystemPasswordChar = false; // mask password
+            eyesclosedicon.Visible = false;
+            EchoPassword.Visible = true;
 
         }
     }
