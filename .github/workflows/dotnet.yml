@@ -1,27 +1,22 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
-
-on:
-  ["push", "pull_request"]
-
 jobs:
-  build:
-    runs-on: windows-latest
+    build-VS:
+        runs-on: windows-latest
 
-    steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      working-directory: ./StudentInformationSheet
-      run: dotnet restore
-    - name: Build
-      working-directory: ./StudentInformationSheet
-      run: dotnet build --no-restore
-    - name: Test
-      working-directory: ./StudentInformationSheet
-      run: dotnet test --no-build --verbosity normal
+strategy:
+    matrix:
+        configuration: [Release, Debug]
+
+steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.3
+
+    - name: Use NuGet 5.2.0
+      uses: nuget/setup-nuget@v1
+
+    - name: Restore NuGet Packages
+      run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64 /t:restore
+
+    - name: Build Solution
+      run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64
