@@ -20,7 +20,7 @@ jobs:
               run: nuget restore ./StudentInformationSheet/StudentInformationSheet.sln
 
             - name: Build and Publish App
-              run: msbuild ./StudentInformationSheet/StudentInformationSheet.sln /p:Configuration=Release /p:PublishSingleFile=true
+              run: msbuild ./StudentInformationSheet/StudentInformationSheet.sln -p:Configuration=Release -p:PublishSingleFile=true --self-contained false
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
