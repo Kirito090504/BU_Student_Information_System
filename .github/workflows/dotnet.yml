@@ -1,14 +1,14 @@
-name: Build WinForms App
+name: Build App
 
-on: [push]
+on: ["push", "pull_request"]
 
 jobs:
     build:
         runs-on: windows-latest
 
         steps:
-            - uses: actions/checkout@v4
-              name: Checkout Code
+            - name: Checkout Code
+              uses: actions/checkout@v4
 
             - name: Setup MSBuild
               uses: microsoft/Setup-MSBuild@v2
@@ -19,11 +19,11 @@ jobs:
             - name: Restore NuGet Packages
               run: nuget restore ./StudentInformationSheet/StudentInformationSheet.sln
 
-            - name: Build and Publish Web App
+            - name: Build and Publish App
               run: msbuild ./StudentInformationSheet/StudentInformationSheet.sln /p:Configuration=Release /p:PublishSingleFile=true
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
               with:
                   name: StudentInformationSheet win-x64
-                  path: ./StudentInformationSheet/bin/Release/Publish
+                  path: ./StudentInformationSheet/StudentInformationSheet/bin/Release/Publish
