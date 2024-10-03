@@ -20,7 +20,7 @@ jobs:
               uses: nuget/setup-nuget@v1
 
             - name: Restore NuGet Packages
-              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64 /t:restore
+              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /t:restore
 
             - name: Build Solution
-              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64
+              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }}
