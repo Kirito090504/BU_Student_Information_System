@@ -26,8 +26,9 @@ namespace StudentInformationSheet
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            AddUserPage addUserPage = new AddUserPage();
+            var addUserPage = new AddUserPage(this);
+            addUserPage.Closed += (s, args) => this.Close();
+            this.Visible = false;
             addUserPage.Show();
         }
 

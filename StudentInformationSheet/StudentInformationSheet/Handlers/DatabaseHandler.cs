@@ -47,7 +47,8 @@ namespace StudentInformationSheet
         /// <param name="username">The username of the user to log in as.</param>
         /// <param name="password">The password of the user to log in as.</param>
         /// <returns>Returns a UserModel object if the user exists and the credentials are correct. Otherwise, return null.</returns>
-        public UserModel? Login(string username, string password) {
+        public UserModel? Login(string username, string password)
+        {
             password = PasswordHandler.SHA256(password);
             using (MySqlConnection connection = GetNewConnection())
             {
@@ -72,7 +73,8 @@ namespace StudentInformationSheet
         /// </summary>
         /// <param name="id">The user ID.</param>
         /// <returns>Returns a UserModel object if the user with the specified ID exists. Otherwise, return null.</returns>
-        public UserModel? GetUser(int id) {
+        public UserModel? GetUser(int id)
+        {
             using (MySqlConnection connection = GetNewConnection())
             {
                 connection.Open();
@@ -88,13 +90,35 @@ namespace StudentInformationSheet
                                 user_id: reader.GetInt32("user_id"),
                                 username: reader.GetString("username"),
                                 userpass: reader.GetString("userpass"),
-                                privilege: reader.GetInt32("privilege"),
-                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name")) ? null: reader.GetString("full_name"),
+                                privilege: (UserModel.Privilege)reader.GetInt32("privilege"),
+                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name")) ? null : reader.GetString("full_name"),
                                 photo: reader.IsDBNull(reader.GetOrdinal("photo")) ? null : ImageHandler.DecodeImage(reader.GetString("photo"))
                             );
                 }
             }
             return null;
+        }
+
+        public void AddUser(UserModel user)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "INSERT INTO " +
+                        "users (username, userpass, privilege, full_name, photo) " +
+                        "VALUES (@username, @userpass, @privilege, @full_name, @photo)";
+                    command.Parameters.AddWithValue("@username", user.username);
+                    command.Parameters.AddWithValue("@userpass", PasswordHandler.SHA256(user.userpass));
+                    command.Parameters.AddWithValue("@privilege", (int)user.privilege);
+                    command.Parameters.AddWithValue("@full_name", user.full_name);
+                    command.Parameters.AddWithValue("@photo", user.photo == null ? null : ImageHandler.EncodeImage(user.photo));
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to add user.");
+                }
+            }
         }
     }
 }

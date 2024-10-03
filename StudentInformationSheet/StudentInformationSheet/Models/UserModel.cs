@@ -12,6 +12,11 @@ namespace StudentInformationSheet.Models
     internal class UserModel
     {
         public static readonly char[] allowed_username_chars = new char[] { '-','_','.' };
+        public enum Privilege
+        {
+            User = 1,
+            Admin = 2
+        }
 
         public int user_id { get; }
         public string username {
@@ -25,7 +30,7 @@ namespace StudentInformationSheet.Models
             }
         }
         public string userpass { get; set; }
-        public int privilege { get; set; }
+        public Privilege privilege { get; set; }
         public string? full_name { get; set; }
         public Image? photo { get; set; }
 
@@ -35,7 +40,7 @@ namespace StudentInformationSheet.Models
             int user_id,
             string username, 
             string userpass, 
-            int privilege, 
+            Privilege privilege, 
             string? full_name = null, 
             Image? photo = null
         )
@@ -58,7 +63,12 @@ namespace StudentInformationSheet.Models
                 )
             );
         }
-      
+
+        public static bool ValidatePassword(string password)
+        {
+            return password.Length >= 8;
+        }
+
         public void Save()
         {
             //TO DO

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StudentInformationSheet.Handlers;
+using StudentInformationSheet.Models;
 
 namespace StudentInformationSheet
 {
@@ -62,14 +63,14 @@ namespace StudentInformationSheet
                 );
                 return;
             }
-            else if (user.privilege == 1)
+            else if (user.privilege == UserModel.Privilege.User)
             {
                 var dashboard_panel = new UserMenuPage();
                 dashboard_panel.Closed += (s, args) => this.Close();
                 this.Visible = false;
                 dashboard_panel.Show();
             }
-            else if (user.privilege == 2)
+            else if (user.privilege == UserModel.Privilege.Admin)
             {
                 var dashboard_panel = new AdminMenu();
                 dashboard_panel.Closed += (s, args) => this.Close();

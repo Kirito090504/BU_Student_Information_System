@@ -75,6 +75,7 @@
             homeBtn.Text = "HOME";
             homeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             homeBtn.UseVisualStyleBackColor = false;
+            homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
             // registerBtn
             // 
@@ -95,6 +96,7 @@
             registerBtn.Text = "Register";
             registerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             registerBtn.UseVisualStyleBackColor = false;
+            registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
             // groupBox1
             // 
@@ -128,9 +130,13 @@
             this.UserType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserType.BackColor = System.Drawing.Color.White;
             this.UserType.DisplayMember = "Male, Female";
+            this.UserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UserType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UserType.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserType.FormattingEnabled = true;
+            this.UserType.Items.AddRange(new object[] {
+            "User",
+            "Administrator"});
             this.UserType.Location = new System.Drawing.Point(94, 165);
             this.UserType.Name = "UserType";
             this.UserType.Size = new System.Drawing.Size(417, 38);
@@ -271,7 +277,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(370, 36);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
