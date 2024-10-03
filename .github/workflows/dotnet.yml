@@ -13,14 +13,22 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
-            - name: Setup MSBuild.exe
-              uses: microsoft/setup-msbuild@v1.0.3
+            - name: Setup MSBuild
+              uses: microsoft/setup-msbuild@v2
 
-            - name: Use NuGet 5.2.0
-              uses: nuget/setup-nuget@v1
+            - name: Use NuGet
+              uses: nuget/setup-nuget@v2
+              with:
+                  nuget-version: "latest"
 
             - name: Restore NuGet Packages
-              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /t:restore
+              run: msbuild '.\StudentInformationSheet\StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /t:restore
 
             - name: Build Solution
-              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }}
+              run: msbuild '.\StudentInformationSheet\StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }}
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: StudentInformationSheet
+                  path: "./StudentInformationSheet/bin/${{ matrix.configuration }}/netcoreapp3.1/StudentInformationSheet.exe"
