@@ -38,17 +38,54 @@ namespace StudentInformationSheet
 
         private void LoginAction()
         {
+            // Check if the username or password textboxes are empty.
+            if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show(
+                    "Please enter your username and/or password. If you do not have one, please inform your system administrator.",
+                    "Credentials Required",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                return;
+            }
+
             var login_handler = new DatabaseHandler();
             var user = login_handler.Login(txtUsername.Text, txtPassword.Text);
             if (user == null)
             {
-                MessageBox.Show("Invalid username or password.");
+                MessageBox.Show(
+                    "You have entered an incorrect username or password. Please try again.",
+                    "Incorrect Credentials",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation
+                );
                 return;
             }
-            var adminMenu = new AdminMenu();
-            adminMenu.Closed += (s, args) => this.Close();
-            this.Visible = false;
-            adminMenu.Show();
+            else if (user.privilege == 1)
+            {
+                var dashboard_panel = new UserMenuPage();
+                dashboard_panel.Closed += (s, args) => this.Close();
+                this.Visible = false;
+                dashboard_panel.Show();
+            }
+            else if (user.privilege == 2)
+            {
+                var dashboard_panel = new AdminMenu();
+                dashboard_panel.Closed += (s, args) => this.Close();
+                this.Visible = false;
+                dashboard_panel.Show();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "The privilege level of the user is invalid.",
+                    "Incorrect User Privilege",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
         }
 
         private void loginBtn_Click(object sender, EventArgs e) => LoginAction();

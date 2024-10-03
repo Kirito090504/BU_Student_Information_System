@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentInformationSheet.Handlers;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,11 +11,23 @@ namespace StudentInformationSheet.Models
     internal class UserModel
     {
         public int user_id { get; } = -1;
-        public string username { get; }
-        public string userpass { get; }
-        public int privilege { get; }
-        public string? full_name { get; }
-        public Image? photo { get; }
+        public string username {
+            get { return this._username; }
+            set
+            {
+                if (value.Length < 1)
+                    throw new ArgumentException("Invalid username");
+
+                this._username = value;
+            }
+        }
+        public string userpass { get; set; }
+        public int privilege { get; set; }
+        public string? full_name { get; set; }
+        public Image? photo { get; set; }
+
+        private string _username;
+        private string _userpass;
 
         public UserModel(
             int user_id,
