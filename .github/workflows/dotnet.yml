@@ -20,6 +20,7 @@ jobs:
                   runtime: win-x64
               working-directory: ./StudentInformationSheet
               run: |
+                  dotnet restore StudentInformationSheet
                   $options=@("--configuration", "Release", "-p:PublishSingleFile=true", "-p:DebugType=embedded", "--no-self-contained", "-p:SourceRevisionId=$(git rev-parse --short HEAD)")
                   dotnet publish StudentInformationSheet $options --runtime $ENV:runtime -o build/$ENV:runtime
 
