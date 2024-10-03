@@ -50,10 +50,12 @@ namespace StudentInformationSheet.Models
 
         public static bool ValidateUsername(string username)
         {
-            return username.Length < 1 || !username.All(
-                (char c) => {
-                    return char.IsLetterOrDigit(c) || allowed_username_chars.Contains(c);
-                }
+            return !(
+                username.Length < 1 || !username.All(
+                    (char c) => {
+                        return char.IsLetterOrDigit(c) || allowed_username_chars.Contains(c);
+                    }
+                )
             );
         }
       
