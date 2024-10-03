@@ -1,0 +1,19 @@
+{
+    "dotnet.preferCSharpExtension": true,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Local MySQL Server",
+            "database": "bu_student_information_system",
+            "username": "root",
+            "password": ""
+        }
+    ]
+}

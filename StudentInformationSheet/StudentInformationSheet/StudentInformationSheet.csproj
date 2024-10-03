@@ -8,10 +8,27 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>StudentInformationSheet</RootNamespace>
     <AssemblyName>StudentInformationSheet</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,7 +69,7 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.9.0.0\lib\net462\MySql.Data.dll</HintPath>
+      <HintPath>..\packages\MySql.Data.9.0.0\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -98,107 +115,110 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUserPage.cs">
+    <Compile Include="Handlers\ImageHandler.cs" />
+    <Compile Include="Handlers\PasswordHandler.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Views\AddUserPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUserPage.Designer.cs">
+    <Compile Include="Views\AddUserPage.Designer.cs">
       <DependentUpon>AddUserPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminMenu.cs">
+    <Compile Include="Views\AdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminMenu.Designer.cs">
+    <Compile Include="Views\AdminMenu.Designer.cs">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminMyProfile.cs">
+    <Compile Include="Views\AdminMyProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminMyProfile.Designer.cs">
+    <Compile Include="Views\AdminMyProfile.Designer.cs">
       <DependentUpon>AdminMyProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteUserPage.cs">
+    <Compile Include="Views\DeleteUserPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteUserPage.Designer.cs">
+    <Compile Include="Views\DeleteUserPage.Designer.cs">
       <DependentUpon>DeleteUserPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditStudentPage.cs">
+    <Compile Include="Views\EditStudentPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditStudentPage.Designer.cs">
+    <Compile Include="Views\EditStudentPage.Designer.cs">
       <DependentUpon>EditStudentPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditUserPage.cs">
+    <Compile Include="Views\EditUserPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditUserPage.Designer.cs">
+    <Compile Include="Views\EditUserPage.Designer.cs">
       <DependentUpon>EditUserPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHandler.cs" />
-    <Compile Include="LoginPage.cs">
+    <Compile Include="Handlers\DatabaseHandler.cs" />
+    <Compile Include="Views\LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginPage.Designer.cs">
+    <Compile Include="Views\LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentSheetPage1.cs">
+    <Compile Include="Views\StudentSheetPage1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentSheetPage1.Designer.cs">
+    <Compile Include="Views\StudentSheetPage1.Designer.cs">
       <DependentUpon>StudentSheetPage1.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentSheetPage2.cs">
+    <Compile Include="Views\StudentSheetPage2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentSheetPage2.Designer.cs">
+    <Compile Include="Views\StudentSheetPage2.Designer.cs">
       <DependentUpon>StudentSheetPage2.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="StudentSheetPage3.cs">
+    <Compile Include="Views\StudentSheetPage3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentSheetPage3.Designer.cs">
+    <Compile Include="Views\StudentSheetPage3.Designer.cs">
       <DependentUpon>StudentSheetPage3.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentSheetPage4.cs">
+    <Compile Include="Views\StudentSheetPage4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentSheetPage4.Designer.cs">
+    <Compile Include="Views\StudentSheetPage4.Designer.cs">
       <DependentUpon>StudentSheetPage4.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuPage.cs">
+    <Compile Include="Views\UserMenuPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserMenuPage.Designer.cs">
+    <Compile Include="Views\UserMenuPage.Designer.cs">
       <DependentUpon>UserMenuPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMyProfile.cs">
+    <Compile Include="Views\UserMyProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserMyProfile.Designer.cs">
+    <Compile Include="Views\UserMyProfile.Designer.cs">
       <DependentUpon>UserMyProfile.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddUserPage.resx">
+    <Compile Include="Models\UserModel.cs" />
+    <EmbeddedResource Include="Views\AddUserPage.resx">
       <DependentUpon>AddUserPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminMenu.resx">
+    <EmbeddedResource Include="Views\AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminMyProfile.resx">
+    <EmbeddedResource Include="Views\AdminMyProfile.resx">
       <DependentUpon>AdminMyProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteUserPage.resx">
+    <EmbeddedResource Include="Views\DeleteUserPage.resx">
       <DependentUpon>DeleteUserPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditStudentPage.resx">
+    <EmbeddedResource Include="Views\EditStudentPage.resx">
       <DependentUpon>EditStudentPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUserPage.resx">
+    <EmbeddedResource Include="Views\EditUserPage.resx">
       <DependentUpon>EditUserPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage.resx">
+    <EmbeddedResource Include="Views\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -211,22 +231,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StudentSheetPage1.resx">
+    <EmbeddedResource Include="Views\StudentSheetPage1.resx">
       <DependentUpon>StudentSheetPage1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentSheetPage2.resx">
+    <EmbeddedResource Include="Views\StudentSheetPage2.resx">
       <DependentUpon>StudentSheetPage2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentSheetPage3.resx">
+    <EmbeddedResource Include="Views\StudentSheetPage3.resx">
       <DependentUpon>StudentSheetPage3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentSheetPage4.resx">
+    <EmbeddedResource Include="Views\StudentSheetPage4.resx">
       <DependentUpon>StudentSheetPage4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuPage.resx">
+    <EmbeddedResource Include="Views\UserMenuPage.resx">
       <DependentUpon>UserMenuPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMyProfile.resx">
+    <EmbeddedResource Include="Views\UserMyProfile.resx">
       <DependentUpon>UserMyProfile.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -365,6 +385,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EditProfileBut%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
