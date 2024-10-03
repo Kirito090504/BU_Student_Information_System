@@ -1,22 +1,26 @@
+name: .NET
+
+on: ["push", "pull_request"]
+
 jobs:
-    build-VS:
+    build:
         runs-on: windows-latest
 
-strategy:
-    matrix:
-        configuration: [Release, Debug]
+        strategy:
+            matrix:
+                configuration: [Release, Debug]
 
-steps:
-    - uses: actions/checkout@v2
+        steps:
+            - uses: actions/checkout@v2
 
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.3
+            - name: Setup MSBuild.exe
+              uses: microsoft/setup-msbuild@v1.0.3
 
-    - name: Use NuGet 5.2.0
-      uses: nuget/setup-nuget@v1
+            - name: Use NuGet 5.2.0
+              uses: nuget/setup-nuget@v1
 
-    - name: Restore NuGet Packages
-      run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64 /t:restore
+            - name: Restore NuGet Packages
+              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64 /t:restore
 
-    - name: Build Solution
-      run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64
+            - name: Build Solution
+              run: msbuild './StudentInformationSheet/StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /p:platform=x64
