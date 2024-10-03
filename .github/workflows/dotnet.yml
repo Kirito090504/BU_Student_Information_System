@@ -1,34 +1,31 @@
-name: .NET
+name: .NET CI
 
-on: ["push", "pull_request"]
+on:
+    push: ["push", "pull_request"]
 
 jobs:
     build:
         runs-on: windows-latest
-
-        strategy:
-            matrix:
-                configuration: [Release, Debug]
-
+        name: Build
         steps:
-            - uses: actions/checkout@v2
+            - name: Checkout
+              uses: actions/checkout@v4
 
-            - name: Setup MSBuild
-              uses: microsoft/setup-msbuild@v2
-
-            - name: Use NuGet
-              uses: nuget/setup-nuget@v2
+            - name: Setup .NET Core
+              uses: actions/setup-dotnet@v3.2.0
               with:
-                  nuget-version: "latest"
+                  dotnet-version: "8.0"
 
-            - name: Restore NuGet Packages
-              run: msbuild '.\StudentInformationSheet\StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }} /t:restore
+            - name: Publish Application
+              env:
+                  runtime: win-x64
+              working-directory: ./StudentInformationSheet/StudentInformationSheet
+              run: |
+                  $options=@("--configuration", "Release", "-p:PublishSingleFile=true", "-p:DebugType=embedded", "--no-self-contained", "-p:SourceRevisionId=$(git rev-parse --short HEAD)")
+                  dotnet publish StudentInformationSheet $options --runtime $ENV:runtime -o build/$ENV:runtime
 
-            - name: Build Solution
-              run: msbuild '.\StudentInformationSheet\StudentInformationSheet.sln' /p:configuration=${{ matrix.configuration }}
-
-            - name: Upload Artifact
-              uses: actions/upload-artifact@v4
+            - name: Upload Windows artifacts
+              uses: actions/upload-artifact@v3.1.3
               with:
-                  name: StudentInformationSheet
-                  path: "./StudentInformationSheet/bin/${{ matrix.configuration }}/netcoreapp3.1/StudentInformationSheet.exe"
+                  name: StudentInformationSheet win-x64
+                  path: ./StudentInformationSheet/StudentInformationSheet/build/win-x64
