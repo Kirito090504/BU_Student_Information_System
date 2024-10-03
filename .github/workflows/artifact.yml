@@ -2,7 +2,7 @@ name: Comment on pull request
 
 on:
     workflow_run:
-        workflows: ["dotnet.yml"] # the workflow that created the artifact
+        workflows: ["Build App"] # the workflow that created the artifact
         types:
             - completed
 
