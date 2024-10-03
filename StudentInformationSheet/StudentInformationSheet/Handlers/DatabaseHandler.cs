@@ -46,7 +46,7 @@ namespace StudentInformationSheet
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public UserModel Login(string username, string password) {
+        public UserModel? Login(string username, string password) {
             password = PasswordHandler.SHA256(password);
             using (MySqlConnection connection = GetNewConnection())
             {
@@ -58,16 +58,12 @@ namespace StudentInformationSheet
                     command.Parameters.AddWithValue("@userpass", password);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
-                    {
                         if (reader.Read())
-                        {
-                            this.GetUser(reader.GetInt32("user_id"));
-                        }
-                    }
+                            return this.GetUser(reader.GetInt32("user_id"));
                 }
             }
 
-            return new UserModel();
+            return null;
         }
 
         /// <summary>
@@ -75,7 +71,7 @@ namespace StudentInformationSheet
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public UserModel GetUser(int id) {
+        public UserModel? GetUser(int id) {
             using (MySqlConnection connection = GetNewConnection())
             {
                 connection.Open();
@@ -85,31 +81,43 @@ namespace StudentInformationSheet
                     command.Parameters.AddWithValue("@user_id", id);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
-                    {
                         if (reader.Read())
-                        {
                             return new UserModel
-                            {
-                                user_id = reader.GetInt32("user_id"),
-                                username = reader.GetString("username"),
-                                userpass = reader.GetString("userpass"),
-                                privilege = reader.GetInt32("privilege"),
-                                full_name = reader.GetString("full_name"),
-                                photo = ImageHandler.DecodeImage(reader.GetString("photo")),
-                            };
-                        }
-                    }
+                            (
+                                user_id: reader.GetInt32("user_id"),
+                                username: reader.GetString("username"),
+                                userpass: reader.GetString("userpass"),
+                                privilege: reader.GetInt32("privilege"),
+                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name")) ? null: reader.GetString("full_name"),
+                                photo: reader.IsDBNull(reader.GetOrdinal("photo")) ? null : ImageHandler.DecodeImage(reader.GetString("photo"))
+                            );
                 }
             }
-            return new UserModel();
+            return null;
         }
 
         /// <summary>
         /// Get a student by their student ID.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="student_number"></param>
         /// <returns></returns>
-        public StudentModel GetStudent(int id) { return new StudentModel(); }
+        public StudentModel GetStudent(int student_number)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM students WHERE student_number = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                        if (reader.Read())
+                            return new StudentModel();  // TODO
+                }
+            }
+            return null;
+        }
 
     }
 }

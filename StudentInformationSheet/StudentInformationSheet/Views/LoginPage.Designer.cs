@@ -60,10 +60,10 @@
             loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             loginBtn.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             loginBtn.ForeColor = System.Drawing.Color.Indigo;
-            loginBtn.Location = new System.Drawing.Point(241, 485);
+            loginBtn.Location = new System.Drawing.Point(321, 597);
             loginBtn.Margin = new System.Windows.Forms.Padding(0);
             loginBtn.Name = "loginBtn";
-            loginBtn.Size = new System.Drawing.Size(130, 49);
+            loginBtn.Size = new System.Drawing.Size(173, 60);
             loginBtn.TabIndex = 4;
             loginBtn.Text = "Log In";
             loginBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -76,11 +76,13 @@
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.Fuchsia;
-            this.txtUsername.Location = new System.Drawing.Point(94, 237);
+            this.txtUsername.Location = new System.Drawing.Point(125, 292);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsername.MaxLength = 25;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(417, 36);
+            this.txtUsername.Size = new System.Drawing.Size(556, 45);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
             // 
@@ -88,12 +90,14 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.Fuchsia;
-            this.txtPassword.Location = new System.Drawing.Point(94, 366);
+            this.txtPassword.Location = new System.Drawing.Point(125, 450);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.MaxLength = 25;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(370, 36);
+            this.txtPassword.Size = new System.Drawing.Size(493, 45);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // EchoPassword
             // 
@@ -102,9 +106,10 @@
             this.EchoPassword.BackgroundImage = global::StudentInformationSheet.Properties.Resources.eyeicon;
             this.EchoPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EchoPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EchoPassword.Location = new System.Drawing.Point(470, 365);
+            this.EchoPassword.Location = new System.Drawing.Point(627, 449);
+            this.EchoPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EchoPassword.Name = "EchoPassword";
-            this.EchoPassword.Size = new System.Drawing.Size(37, 37);
+            this.EchoPassword.Size = new System.Drawing.Size(49, 46);
             this.EchoPassword.TabIndex = 5;
             this.EchoPassword.TabStop = false;
             this.EchoPassword.Visible = false;
@@ -117,9 +122,10 @@
             this.eyesclosedicon.BackgroundImage = global::StudentInformationSheet.Properties.Resources.eyeclosedicon;
             this.eyesclosedicon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.eyesclosedicon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.eyesclosedicon.Location = new System.Drawing.Point(470, 365);
+            this.eyesclosedicon.Location = new System.Drawing.Point(627, 449);
+            this.eyesclosedicon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.eyesclosedicon.Name = "eyesclosedicon";
-            this.eyesclosedicon.Size = new System.Drawing.Size(37, 37);
+            this.eyesclosedicon.Size = new System.Drawing.Size(49, 46);
             this.eyesclosedicon.TabIndex = 6;
             this.eyesclosedicon.TabStop = false;
             this.eyesclosedicon.Click += new System.EventHandler(this.eyesclosedicon_Click);
@@ -142,9 +148,11 @@
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(89, 45);
+            this.groupBox1.Location = new System.Drawing.Point(119, 55);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1076, 629);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1435, 774);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
@@ -152,9 +160,10 @@
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox3.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox3.Location = new System.Drawing.Point(94, 412);
+            this.pictureBox3.Location = new System.Drawing.Point(125, 507);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(417, 10);
+            this.pictureBox3.Size = new System.Drawing.Size(556, 12);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
@@ -163,9 +172,10 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox2.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox2.Location = new System.Drawing.Point(94, 282);
+            this.pictureBox2.Location = new System.Drawing.Point(125, 347);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(417, 10);
+            this.pictureBox2.Size = new System.Drawing.Size(556, 12);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
@@ -174,9 +184,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox1.Image = global::StudentInformationSheet.Properties.Resources.loginPhotodesign;
-            this.pictureBox1.Location = new System.Drawing.Point(580, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(773, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(467, 610);
+            this.pictureBox1.Size = new System.Drawing.Size(623, 751);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -188,9 +199,10 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Purple;
-            this.label3.Location = new System.Drawing.Point(89, 328);
+            this.label3.Location = new System.Drawing.Point(119, 404);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 30);
+            this.label3.Size = new System.Drawing.Size(159, 40);
             this.label3.TabIndex = 9;
             this.label3.Text = "Password";
             // 
@@ -201,9 +213,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Purple;
-            this.label2.Location = new System.Drawing.Point(89, 200);
+            this.label2.Location = new System.Drawing.Point(119, 246);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 30);
+            this.label2.Size = new System.Drawing.Size(166, 40);
             this.label2.TabIndex = 8;
             this.label2.Text = "Username";
             // 
@@ -213,20 +226,22 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label1.Location = new System.Drawing.Point(253, 97);
+            this.label1.Location = new System.Drawing.Point(337, 119);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 40);
+            this.label1.Size = new System.Drawing.Size(151, 50);
             this.label1.TabIndex = 7;
             this.label1.Text = "Log In";
             // 
             // LoginPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            this.ClientSize = new System.Drawing.Size(1255, 721);
+            this.ClientSize = new System.Drawing.Size(1673, 887);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(1271, 726);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1689, 883);
             this.Name = "LoginPage";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
