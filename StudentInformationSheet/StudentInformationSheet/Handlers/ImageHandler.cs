@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace StudentInformationSheet.Handlers
         public static string? EncodeImage(Image? image)
         {
             if (image == null) return null;
-            using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
+            using (var stream = new System.IO.MemoryStream())
             {
                 image.Save(stream, image.RawFormat);
                 return Convert.ToBase64String(stream.ToArray());

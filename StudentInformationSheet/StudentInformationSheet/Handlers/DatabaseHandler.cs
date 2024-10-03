@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,9 +44,9 @@ namespace StudentInformationSheet
         /// <summary>
         /// Attempt to login a user. If the user's credentials are correct, return the user's information.
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="username">The username of the user to log in as.</param>
+        /// <param name="password">The password of the user to log in as.</param>
+        /// <returns>Returns a UserModel object if the user exists and the credentials are correct. Otherwise, return null.</returns>
         public UserModel? Login(string username, string password) {
             password = PasswordHandler.SHA256(password);
             using (MySqlConnection connection = GetNewConnection())
@@ -69,8 +70,8 @@ namespace StudentInformationSheet
         /// <summary>
         /// Get a user by their user ID.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The user ID.</param>
+        /// <returns>Returns a UserModel object if the user with the specified ID exists. Otherwise, return null.</returns>
         public UserModel? GetUser(int id) {
             using (MySqlConnection connection = GetNewConnection())
             {
@@ -95,29 +96,5 @@ namespace StudentInformationSheet
             }
             return null;
         }
-
-        /// <summary>
-        /// Get a student by their student ID.
-        /// </summary>
-        /// <param name="student_number"></param>
-        /// <returns></returns>
-        public StudentModel GetStudent(int student_number)
-        {
-            using (MySqlConnection connection = GetNewConnection())
-            {
-                connection.Open();
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "SELECT * FROM students WHERE student_number = @student_number";
-                    command.Parameters.AddWithValue("@student_number", student_number);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                        if (reader.Read())
-                            return new StudentModel();  // TODO
-                }
-            }
-            return null;
-        }
-
     }
 }

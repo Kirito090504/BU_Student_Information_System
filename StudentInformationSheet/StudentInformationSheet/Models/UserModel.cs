@@ -1,4 +1,5 @@
-﻿using StudentInformationSheet.Handlers;
+﻿#nullable enable
+using StudentInformationSheet.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,12 +11,14 @@ namespace StudentInformationSheet.Models
 {
     internal class UserModel
     {
-        public int user_id { get; } = -1;
+        public static readonly char[] allowed_username_chars = new char[] { '-','_','.' };
+
+        public int user_id { get; }
         public string username {
             get { return this._username; }
             set
             {
-                if (value.Length < 1)
+                if (ValidateUsername(value))
                     throw new ArgumentException("Invalid username");
 
                 this._username = value;
@@ -27,7 +30,6 @@ namespace StudentInformationSheet.Models
         public Image? photo { get; set; }
 
         private string _username;
-        private string _userpass;
 
         public UserModel(
             int user_id,
@@ -39,11 +41,20 @@ namespace StudentInformationSheet.Models
         )
         {
             this.user_id = user_id;
-            this.username = username;
+            this._username = ValidateUsername(username) ? username : throw new ArgumentException("Invalid username");
             this.userpass = userpass;
             this.privilege = privilege;
             this.full_name = full_name;
             this.photo = photo;
+        }
+
+        public static bool ValidateUsername(string username)
+        {
+            return username.Length < 1 || !username.All(
+                (char c) => {
+                    return char.IsLetterOrDigit(c) || allowed_username_chars.Contains(c);
+                }
+            );
         }
       
         public void Save()

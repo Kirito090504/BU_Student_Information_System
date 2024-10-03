@@ -13,8 +13,8 @@ namespace StudentInformationSheet.Handlers
         /// <summary>
         /// Return a SHA-256 hashed version of the password.
         /// </summary>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="password">The plaintext version of the password.</param>
+        /// <returns>A SHA-256 hashed version of the password.</returns>
         public static string SHA256(string password)
         {
             var crypt = new SHA256Managed();
