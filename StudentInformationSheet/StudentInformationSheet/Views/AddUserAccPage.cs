@@ -1,5 +1,4 @@
-﻿using StudentInformationSheet.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudentInformationSheet.Models;
 
 namespace StudentInformationSheet
 {
@@ -23,22 +23,44 @@ namespace StudentInformationSheet
 
         private void EchoPassword_Click(object sender, EventArgs e)
         {
-
             txtPassword.UseSystemPasswordChar = true; // show password
             eyesclosedicon.Visible = true;
-
         }
 
         private void eyesclosedicon_Click(object sender, EventArgs e)
         {
-
             txtPassword.UseSystemPasswordChar = false; // mask password
             eyesclosedicon.Visible = false;
             EchoPassword.Visible = true;
-
         }
 
-        private void registerBtn_Click(object sender, EventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e) => ReturnToHome();
+
+        private void btn_register_Click(object sender, EventArgs e) => AddUser();
+
+        private void btn_upload_Click(object sender, EventArgs e) => UploadProfilePicture();
+
+        private void ReturnToHome()
+        {
+            // Do not add a close event because the parent form should
+            // be shown when the child form is closed.
+            this.Dispose();
+            parent_form.Show();
+        }
+
+        private void UploadProfilePicture()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select a Photo";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                photoHolder.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
+
+        private void AddUser()
         {
             UserModel.Privilege user_privilege;
             switch (UserType.SelectedIndex)
@@ -111,30 +133,6 @@ namespace StudentInformationSheet
                 MessageBoxIcon.Information
             );
             this.ReturnToHome();
-        }
-
-        private void homeBtn_Click(object sender, EventArgs e)
-        {
-            this.ReturnToHome();
-        }
-
-        private void uploadBtn_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            openFileDialog.Title = "Select a Photo";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                photoHolder.Image = new Bitmap(openFileDialog.FileName);
-            }
-        }
-        private void ReturnToHome()
-        {
-            // Do not add a close event because the parent form should
-            // be shown when the child form is closed.
-            this.Dispose();
-            parent_form.Show();
         }
     }
 }

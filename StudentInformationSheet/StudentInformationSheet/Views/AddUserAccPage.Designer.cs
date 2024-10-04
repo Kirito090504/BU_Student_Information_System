@@ -30,7 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUserAccPage));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.registerBtn = new ReaLTaiizor.Controls.AirButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.photoHolder = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFullname = new System.Windows.Forms.TextBox();
             this.UserType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -43,22 +47,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtFullname = new System.Windows.Forms.TextBox();
-            this.uploadBtn = new ReaLTaiizor.Controls.PoisonButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.photoHolder = new System.Windows.Forms.PictureBox();
-            this.airButton1 = new ReaLTaiizor.Controls.AirButton();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_register = new System.Windows.Forms.Button();
+            this.btn_upload = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyesclosedicon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EchoPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -67,9 +67,9 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Controls.Add(this.airButton1);
-            this.groupBox1.Controls.Add(this.uploadBtn);
-            this.groupBox1.Controls.Add(this.registerBtn);
+            this.groupBox1.Controls.Add(this.btn_upload);
+            this.groupBox1.Controls.Add(this.btn_register);
+            this.groupBox1.Controls.Add(this.btn_cancel);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label5);
@@ -93,19 +93,63 @@
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             // 
-            // registerBtn
+            // groupBox2
             // 
-            this.registerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.registerBtn.Customization = "01W6//+A///r6+v/5ubm/+vr6//f39//p6en/0AAQP9AAED/gICA/w==";
-            this.registerBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerBtn.Image = null;
-            this.registerBtn.Location = new System.Drawing.Point(733, 402);
-            this.registerBtn.Name = "registerBtn";
-            this.registerBtn.NoRounding = false;
-            this.registerBtn.Size = new System.Drawing.Size(137, 45);
-            this.registerBtn.TabIndex = 61;
-            this.registerBtn.Text = "Register";
-            this.registerBtn.Transparent = false;
+            this.groupBox2.Controls.Add(this.photoHolder);
+            this.groupBox2.Location = new System.Drawing.Point(717, 138);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(170, 178);
+            this.groupBox2.TabIndex = 65;
+            this.groupBox2.TabStop = false;
+            // 
+            // photoHolder
+            // 
+            this.photoHolder.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.photoHolder.BackColor = System.Drawing.Color.AliceBlue;
+            this.photoHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.photoHolder.Image = global::StudentInformationSheet.Properties.Resources.personal;
+            this.photoHolder.Location = new System.Drawing.Point(5, 11);
+            this.photoHolder.Name = "photoHolder";
+            this.photoHolder.Size = new System.Drawing.Size(160, 160);
+            this.photoHolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.photoHolder.TabIndex = 10;
+            this.photoHolder.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox1.Image = global::StudentInformationSheet.Properties.Resources.line_textbox;
+            this.pictureBox1.Location = new System.Drawing.Point(181, 290);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(420, 18);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 64;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Purple;
+            this.label5.Location = new System.Drawing.Point(187, 229);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 25);
+            this.label5.TabIndex = 63;
+            this.label5.Text = "Name";
+            // 
+            // txtFullname
+            // 
+            this.txtFullname.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtFullname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFullname.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFullname.ForeColor = System.Drawing.Color.DimGray;
+            this.txtFullname.Location = new System.Drawing.Point(191, 262);
+            this.txtFullname.MaxLength = 25;
+            this.txtFullname.Name = "txtFullname";
+            this.txtFullname.Size = new System.Drawing.Size(408, 23);
+            this.txtFullname.TabIndex = 62;
             // 
             // UserType
             // 
@@ -258,87 +302,35 @@
             this.txtUsername.Size = new System.Drawing.Size(408, 23);
             this.txtUsername.TabIndex = 50;
             // 
-            // pictureBox1
+            // btn_cancel
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox1.Image = global::StudentInformationSheet.Properties.Resources.line_textbox;
-            this.pictureBox1.Location = new System.Drawing.Point(181, 290);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(420, 18);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 64;
-            this.pictureBox1.TabStop = false;
+            this.btn_cancel.Location = new System.Drawing.Point(738, 458);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(124, 46);
+            this.btn_cancel.TabIndex = 67;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // label5
+            // btn_register
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Purple;
-            this.label5.Location = new System.Drawing.Point(187, 229);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 25);
-            this.label5.TabIndex = 63;
-            this.label5.Text = "Name";
+            this.btn_register.Location = new System.Drawing.Point(738, 394);
+            this.btn_register.Name = "btn_register";
+            this.btn_register.Size = new System.Drawing.Size(124, 46);
+            this.btn_register.TabIndex = 68;
+            this.btn_register.Text = "Register";
+            this.btn_register.UseVisualStyleBackColor = true;
+            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
             // 
-            // txtFullname
+            // btn_upload
             // 
-            this.txtFullname.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtFullname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFullname.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullname.ForeColor = System.Drawing.Color.DimGray;
-            this.txtFullname.Location = new System.Drawing.Point(191, 262);
-            this.txtFullname.MaxLength = 25;
-            this.txtFullname.Name = "txtFullname";
-            this.txtFullname.Size = new System.Drawing.Size(408, 23);
-            this.txtFullname.TabIndex = 62;
-            // 
-            // uploadBtn
-            // 
-            this.uploadBtn.Location = new System.Drawing.Point(722, 322);
-            this.uploadBtn.Name = "uploadBtn";
-            this.uploadBtn.Size = new System.Drawing.Size(160, 23);
-            this.uploadBtn.TabIndex = 66;
-            this.uploadBtn.Text = "Upload";
-            this.uploadBtn.UseSelectable = true;
-            this.uploadBtn.Click += new System.EventHandler(this.uploadBtn_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.photoHolder);
-            this.groupBox2.Location = new System.Drawing.Point(717, 138);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(170, 178);
-            this.groupBox2.TabIndex = 65;
-            this.groupBox2.TabStop = false;
-            // 
-            // photoHolder
-            // 
-            this.photoHolder.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.photoHolder.BackColor = System.Drawing.Color.AliceBlue;
-            this.photoHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.photoHolder.Image = global::StudentInformationSheet.Properties.Resources.personal;
-            this.photoHolder.Location = new System.Drawing.Point(5, 11);
-            this.photoHolder.Name = "photoHolder";
-            this.photoHolder.Size = new System.Drawing.Size(160, 160);
-            this.photoHolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.photoHolder.TabIndex = 10;
-            this.photoHolder.TabStop = false;
-            // 
-            // airButton1
-            // 
-            this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.airButton1.Customization = "01W6//+A///r6+v/5ubm/+vr6//f39//p6en/0AAQP9AAED/gICA/w==";
-            this.airButton1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.airButton1.Image = null;
-            this.airButton1.Location = new System.Drawing.Point(733, 459);
-            this.airButton1.Name = "airButton1";
-            this.airButton1.NoRounding = false;
-            this.airButton1.Size = new System.Drawing.Size(137, 45);
-            this.airButton1.TabIndex = 67;
-            this.airButton1.Text = "Cancel";
-            this.airButton1.Transparent = false;
+            this.btn_upload.Location = new System.Drawing.Point(717, 322);
+            this.btn_upload.Name = "btn_upload";
+            this.btn_upload.Size = new System.Drawing.Size(170, 23);
+            this.btn_upload.TabIndex = 69;
+            this.btn_upload.Text = "Upload";
+            this.btn_upload.UseVisualStyleBackColor = true;
+            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
             // 
             // AddUserAccPage
             // 
@@ -356,14 +348,14 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyesclosedicon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EchoPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -374,7 +366,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFullname;
-        private ReaLTaiizor.Controls.AirButton registerBtn;
         private System.Windows.Forms.ComboBox UserType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -387,9 +378,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
-        private ReaLTaiizor.Controls.PoisonButton uploadBtn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox photoHolder;
-        private ReaLTaiizor.Controls.AirButton airButton1;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_register;
+        private System.Windows.Forms.Button btn_upload;
     }
 }
