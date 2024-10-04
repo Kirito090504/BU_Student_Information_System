@@ -1,0 +1,29 @@
+name: Build App
+
+on: ["push", "pull_request"]
+
+jobs:
+    build:
+        runs-on: windows-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Setup MSBuild
+              uses: microsoft/Setup-MSBuild@v2
+
+            - name: Setup NuGet
+              uses: NuGet/setup-nuget@v2
+
+            - name: Restore NuGet Packages
+              run: nuget restore ./StudentInformationSheet/StudentInformationSheet.sln
+
+            - name: Build and Publish App
+              run: msbuild ./StudentInformationSheet/StudentInformationSheet.sln /p:Configuration=Release /p:PublishSingleFile=true
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: StudentInformationSheet win-x64
+                  path: ./StudentInformationSheet/StudentInformationSheet/bin/Release/

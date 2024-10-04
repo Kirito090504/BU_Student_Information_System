@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 03, 2024 at 01:45 PM
+-- Generation Time: Oct 03, 2024 at 04:57 PM
 -- Server version: 9.0.1
 -- PHP Version: 8.2.24
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -33,7 +33,7 @@ CREATE TABLE `academic_history` (
   `secondary_school` text COMMENT 'The name of the students secondary school.',
   `secondary_school_year` year DEFAULT NULL COMMENT 'The year the student last attended their secondary school.',
   `awards_received` text COMMENT 'JSON list containing honors/awards received by the student.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'Information about the students academic history.';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'Information about the students academic history.';
 -- --------------------------------------------------------
 --
 -- Table structure for table `contact_information`
@@ -43,7 +43,7 @@ CREATE TABLE `contact_information` (
   `id` varchar(10) NOT NULL,
   `contact_number` varchar(16) DEFAULT NULL COMMENT 'The students contact number with country code.',
   `email_address` text COMMENT 'The students email address.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'Students contact information';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'Students contact information';
 -- --------------------------------------------------------
 --
 -- Table structure for table `permanent_addresses`
@@ -54,7 +54,7 @@ CREATE TABLE `permanent_addresses` (
   `line1` text COMMENT 'No./Street/Barangay',
   `city` int NOT NULL COMMENT 'The city of the students permanent address.',
   `province` int NOT NULL COMMENT 'The province of the students permanent address.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'The permanent addresses of the students.';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The permanent addresses of the students.';
 -- --------------------------------------------------------
 --
 -- Table structure for table `personalities`
@@ -64,7 +64,7 @@ CREATE TABLE `personalities` (
   `id` varchar(10) NOT NULL,
   `hobbies` text COMMENT 'JSON list containing the students hobbies.',
   `skills` text COMMENT 'JSON list containing students talents/skills.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'A table containing the students personalities.';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing the students personalities.';
 -- --------------------------------------------------------
 --
 -- Table structure for table `present_addresses`
@@ -75,7 +75,7 @@ CREATE TABLE `present_addresses` (
   `line1` text COMMENT 'No./Street/Barangay',
   `city` int NOT NULL COMMENT 'The city of the students present address.',
   `province` int NOT NULL COMMENT 'The province of the students present address.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'The present addresses of the students.';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The present addresses of the students.';
 -- --------------------------------------------------------
 --
 -- Table structure for table `students`
@@ -93,7 +93,7 @@ CREATE TABLE `students` (
   `nationality` int NOT NULL COMMENT 'The students nationality.',
   `citizenship` int NOT NULL COMMENT 'The legal citizenship of the student.',
   `religion` int DEFAULT NULL COMMENT 'The religion of the student.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'The table containing students personal information.';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The table containing students personal information.';
 -- --------------------------------------------------------
 --
 -- Table structure for table `student_family`
@@ -113,7 +113,7 @@ CREATE TABLE `student_family` (
   `guardian_occupation` text COMMENT 'The guardians occupation.',
   `guardian_contact_number` varchar(16) DEFAULT NULL COMMENT 'The guardians contact number with country code.',
   `guardian_address` text COMMENT 'The guardians address.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'A table containing the students mother, father, and guardian.';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing the students mother, father, and guardian.';
 -- --------------------------------------------------------
 --
 -- Table structure for table `users`
@@ -124,9 +124,9 @@ CREATE TABLE `users` (
   `username` varchar(32) NOT NULL COMMENT 'The username of the user.',
   `userpass` varchar(256) NOT NULL COMMENT 'SHA-256 hashed user password.',
   `privilege` int NOT NULL DEFAULT '1' COMMENT 'The privilege level of the user.',
-  `full_name` text CHARACTER SET utf8mb4 COMMENT 'The full name of the user.',
+  `full_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The full name of the user.',
   `photo` text COMMENT 'The image of the user.'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = 'A table containing records of authorized users of the system.';
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing records of authorized users of the system.';
 --
 -- Dumping data for table `users`
 --
