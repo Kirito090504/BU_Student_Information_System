@@ -26,7 +26,7 @@ namespace StudentInformationSheet
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            var addUserPage = new AddUserPage(this);
+            var addUserPage = new AddUserAccPage(this);
             addUserPage.Closed += (s, args) => this.Close();
             this.Visible = false;
             addUserPage.Show();
@@ -35,14 +35,14 @@ namespace StudentInformationSheet
         private void editUserBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            EditUserPage editUserPage = new EditUserPage();
+            EditUserProfilePage editUserPage = new EditUserProfilePage();
             editUserPage.Show();
         }
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            DeleteUserPage deleteUserPage = new DeleteUserPage();
+            DeleteUserProfilePage deleteUserPage = new DeleteUserProfilePage();
             deleteUserPage.Show();
         }
 

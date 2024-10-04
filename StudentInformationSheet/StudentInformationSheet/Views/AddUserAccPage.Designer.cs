@@ -1,6 +1,6 @@
 ﻿namespace StudentInformationSheet
 {
-    partial class AddUserPage
+    partial class AddUserAccPage
     {
         /// <summary>
         /// Required designer variable.

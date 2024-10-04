@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class AddUserPage : Form
+    public partial class AddUserAccPage : Form
     {
         private Form parent_form;
 
-        public AddUserPage(Form parent_form)
+        public AddUserAccPage(Form parent_form)
         {
             this.parent_form = parent_form;
             InitializeComponent();

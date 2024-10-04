@@ -1,6 +1,6 @@
 ﻿namespace StudentInformationSheet
 {
-    partial class DeleteUserPage
+    partial class DeleteUserProfilePage
     {
         /// <summary>
         /// Required designer variable.

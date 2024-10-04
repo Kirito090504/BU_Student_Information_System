@@ -122,11 +122,11 @@
     <Compile Include="Handlers\PasswordHandler.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Views\AddUserPage.cs">
+    <Compile Include="Views\AddUserAccPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AddUserPage.Designer.cs">
-      <DependentUpon>AddUserPage.cs</DependentUpon>
+    <Compile Include="Views\AddUserAccPage.Designer.cs">
+      <DependentUpon>AddUserAccPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminMenu.cs">
       <SubType>Form</SubType>
@@ -140,11 +140,11 @@
     <Compile Include="Views\AdminMyProfile.Designer.cs">
       <DependentUpon>AdminMyProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DeleteUserPage.cs">
+    <Compile Include="Views\DeleteUserProfilePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\DeleteUserPage.Designer.cs">
-      <DependentUpon>DeleteUserPage.cs</DependentUpon>
+    <Compile Include="Views\DeleteUserProfilePage.Designer.cs">
+      <DependentUpon>DeleteUserProfilePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EditStudentPage.cs">
       <SubType>Form</SubType>
@@ -152,11 +152,11 @@
     <Compile Include="Views\EditStudentPage.Designer.cs">
       <DependentUpon>EditStudentPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditUserPage.cs">
+    <Compile Include="Views\EditUserProfilePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EditUserPage.Designer.cs">
-      <DependentUpon>EditUserPage.cs</DependentUpon>
+    <Compile Include="Views\EditUserProfilePage.Designer.cs">
+      <DependentUpon>EditUserProfilePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Handlers\DatabaseHandler.cs" />
     <Compile Include="Views\LoginPage.cs">
@@ -204,8 +204,8 @@
       <DependentUpon>UserMyProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\UserModel.cs" />
-    <EmbeddedResource Include="Views\AddUserPage.resx">
-      <DependentUpon>AddUserPage.cs</DependentUpon>
+    <EmbeddedResource Include="Views\AddUserAccPage.resx">
+      <DependentUpon>AddUserAccPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
@@ -213,14 +213,14 @@
     <EmbeddedResource Include="Views\AdminMyProfile.resx">
       <DependentUpon>AdminMyProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DeleteUserPage.resx">
-      <DependentUpon>DeleteUserPage.cs</DependentUpon>
+    <EmbeddedResource Include="Views\DeleteUserProfilePage.resx">
+      <DependentUpon>DeleteUserProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditStudentPage.resx">
       <DependentUpon>EditStudentPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\EditUserPage.resx">
-      <DependentUpon>EditUserPage.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EditUserProfilePage.resx">
+      <DependentUpon>EditUserProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
