@@ -45,10 +45,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.saveBtn = new ReaLTaiizor.Controls.AirButton();
-            this.uploadBtn = new ReaLTaiizor.Controls.PoisonButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.photoHolder = new System.Windows.Forms.PictureBox();
+            this.btn_upload = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EchoPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyesclosedicon)).BeginInit();
@@ -66,6 +66,8 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.btn_save);
+            this.groupBox1.Controls.Add(this.btn_upload);
             this.groupBox1.Controls.Add(this.EchoPassword);
             this.groupBox1.Controls.Add(this.eyesclosedicon);
             this.groupBox1.Controls.Add(this.label6);
@@ -81,8 +83,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUsername);
-            this.groupBox1.Controls.Add(this.saveBtn);
-            this.groupBox1.Controls.Add(this.uploadBtn);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(97, 58);
@@ -279,30 +279,6 @@
             this.txtUsername.Size = new System.Drawing.Size(408, 23);
             this.txtUsername.TabIndex = 65;
             // 
-            // saveBtn
-            // 
-            this.saveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.saveBtn.Customization = "01W6//+A///r6+v/5ubm/+vr6//f39//p6en/0AAQP9AAED/gICA/w==";
-            this.saveBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Image = null;
-            this.saveBtn.Location = new System.Drawing.Point(736, 458);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.NoRounding = false;
-            this.saveBtn.Size = new System.Drawing.Size(137, 38);
-            this.saveBtn.TabIndex = 56;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.Transparent = false;
-            // 
-            // uploadBtn
-            // 
-            this.uploadBtn.Location = new System.Drawing.Point(722, 331);
-            this.uploadBtn.Name = "uploadBtn";
-            this.uploadBtn.Size = new System.Drawing.Size(160, 23);
-            this.uploadBtn.TabIndex = 55;
-            this.uploadBtn.Text = "Upload";
-            this.uploadBtn.UseSelectable = true;
-            this.uploadBtn.Click += new System.EventHandler(this.uploadBtn_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.photoHolder);
@@ -324,6 +300,25 @@
             this.photoHolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.photoHolder.TabIndex = 10;
             this.photoHolder.TabStop = false;
+            // 
+            // btn_upload
+            // 
+            this.btn_upload.Location = new System.Drawing.Point(717, 331);
+            this.btn_upload.Name = "btn_upload";
+            this.btn_upload.Size = new System.Drawing.Size(170, 23);
+            this.btn_upload.TabIndex = 81;
+            this.btn_upload.Text = "Upload";
+            this.btn_upload.UseVisualStyleBackColor = true;
+            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(736, 458);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(137, 39);
+            this.btn_save.TabIndex = 82;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
             // 
             // AdminMyProfile
             // 
@@ -356,8 +351,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox photoHolder;
         private System.Windows.Forms.GroupBox groupBox2;
-        private ReaLTaiizor.Controls.PoisonButton uploadBtn;
-        private ReaLTaiizor.Controls.AirButton saveBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
@@ -373,5 +366,7 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.PictureBox eyesclosedicon;
         private System.Windows.Forms.PictureBox EchoPassword;
+        private System.Windows.Forms.Button btn_upload;
+        private System.Windows.Forms.Button btn_save;
     }
 }

@@ -35,7 +35,11 @@ namespace StudentInformationSheet
             eyesclosedicon.Visible = true;
         }
 
-        private void uploadBtn_Click(object sender, EventArgs e)
+        private void uploadBtn_Click(object sender, EventArgs e) => UploadProfilePicture();
+
+        private void btn_upload_Click(object sender, EventArgs e) => UploadProfilePicture();
+
+        private void UploadProfilePicture()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
