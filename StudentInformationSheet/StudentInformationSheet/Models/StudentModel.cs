@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Asn1.BC;
+﻿#nullable enable
+using Org.BouncyCastle.Asn1.BC;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,12 +12,6 @@ namespace StudentInformationSheet.Models
     internal class StudentModel
     {
         public static readonly char[] allowed_username_chars = new char[] { '-', '_', '.' };
-        public enum Privilege
-        {
-            User = 1,
-            Admin = 2
-        }
-
         public int student_number { get; }            
         public string name_first { get; set; }
         public string name_middle { get; set; }
@@ -34,12 +29,12 @@ namespace StudentInformationSheet.Models
             string name_first,
             string name_middle,
             string name_last,
-            Image? photo,
             DateTime birth_date,
             string birth_address,
             int nationality,
             int citizenship,
-            int religion
+            int religion,
+            Image? photo = null
         )
         {
             this.student_number = student_number;
