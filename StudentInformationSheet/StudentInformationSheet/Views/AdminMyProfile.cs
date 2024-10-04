@@ -17,12 +17,11 @@ namespace StudentInformationSheet
             InitializeComponent();
         }
 
-        private void EchoPassword_Click(object sender, EventArgs e)
+        private void eyesclosedicon_Click(object sender, EventArgs e)
         {
-
-            txtPassword.UseSystemPasswordChar = true; // show password
-            eyesclosedicon.Visible = true;
-
+            txtPassword.UseSystemPasswordChar = false; // mask password
+            eyesclosedicon.Visible = false;
+            EchoPassword.Visible = true;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
@@ -30,13 +29,22 @@ namespace StudentInformationSheet
             txtPassword.UseSystemPasswordChar = true;
         }
 
-        private void eyesclosedicon_Click(object sender, EventArgs e)
+        private void EchoPassword_Click(object sender, EventArgs e)
         {
+            txtPassword.UseSystemPasswordChar = true; // show password
+            eyesclosedicon.Visible = true;
+        }
 
-            txtPassword.UseSystemPasswordChar = false; // mask password
-            eyesclosedicon.Visible = false;
-            EchoPassword.Visible = true;
+        private void uploadBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select a Photo";
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                photoHolder.Image = new Bitmap(openFileDialog.FileName);
+            }
         }
     }
 }
