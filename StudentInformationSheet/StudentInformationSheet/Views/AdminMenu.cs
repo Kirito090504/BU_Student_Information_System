@@ -19,14 +19,14 @@ namespace StudentInformationSheet
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
             studentSheetPage1.Show();
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            var addUserPage = new AddUserPage(this);
+            var addUserPage = new AddUserAccPage(this);
             addUserPage.Closed += (s, args) => this.Close();
             this.Visible = false;
             addUserPage.Show();
@@ -34,30 +34,38 @@ namespace StudentInformationSheet
 
         private void editUserBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            EditUserPage editUserPage = new EditUserPage();
-            editUserPage.Show();
+            
+            EditUserProfilePage editUserProfilePage = new EditUserProfilePage();
+            this.Hide();
+            editUserProfilePage.ShowDialog();
+            this.Show();
         }
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            DeleteUserPage deleteUserPage = new DeleteUserPage();
-            deleteUserPage.Show();
+            
+            DeleteUserProfilePage deleteUserProfilePage = new DeleteUserProfilePage();
+            this.Hide();
+            deleteUserProfilePage.ShowDialog();
+            this.Show();
         }
 
         private void editStudentBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             EditStudentPage editStudentPage = new EditStudentPage();
-            editStudentPage.Show();
+            this.Hide();
+            editStudentPage.ShowDialog();
+            this.Show();
         }
 
         private void adminProfileBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             AdminMyProfile adminMyProfile = new AdminMyProfile();
-            adminMyProfile.Show();
+            this.Hide();
+            adminMyProfile.ShowDialog();
+            this.Show();
         }
     }
 }

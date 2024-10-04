@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class AddUserPage : Form
+    public partial class AddUserAccPage : Form
     {
         private Form parent_form;
 
-        public AddUserPage(Form parent_form)
+        public AddUserAccPage(Form parent_form)
         {
             this.parent_form = parent_form;
             InitializeComponent();
@@ -118,6 +118,17 @@ namespace StudentInformationSheet
             this.ReturnToHome();
         }
 
+        private void uploadBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select a Photo";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                photoHolder.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
         private void ReturnToHome()
         {
             // Do not add a close event because the parent form should

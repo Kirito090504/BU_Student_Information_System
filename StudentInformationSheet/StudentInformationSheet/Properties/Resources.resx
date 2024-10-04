@@ -142,6 +142,9 @@
   <data name="DeleteUserBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteUserBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="line textbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\line textbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AddUserBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddUserBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,6 +153,9 @@
   </data>
   <data name="LogOutBut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogOutBut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditProfileBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditProfileBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,7 +250,7 @@
   <data name="FilesIconbut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FilesIconbut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EditProfileBut(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EditProfileBut(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="personal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\personal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

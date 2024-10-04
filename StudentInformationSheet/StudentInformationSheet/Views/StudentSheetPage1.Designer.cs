@@ -494,6 +494,7 @@
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.birthDateText);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(nextBtn);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.pictureBox9);
@@ -578,7 +579,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label11.Location = new System.Drawing.Point(548, -25);
+            this.label11.Location = new System.Drawing.Point(490, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(209, 34);
             this.label11.TabIndex = 45;
@@ -592,7 +593,6 @@
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
             this.ClientSize = new System.Drawing.Size(1350, 749);
             this.Controls.Add(homeBut);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "StudentSheetPage1";
@@ -613,7 +613,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

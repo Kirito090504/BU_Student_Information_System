@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudentInformationSheet
 {
-    public partial class EditUserPage : Form
+    public partial class DeleteUserProfilePage : Form
     {
-        public EditUserPage()
+        public DeleteUserProfilePage()
         {
             InitializeComponent();
         }
