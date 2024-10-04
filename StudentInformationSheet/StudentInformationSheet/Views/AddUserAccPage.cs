@@ -118,6 +118,17 @@ namespace StudentInformationSheet
             this.ReturnToHome();
         }
 
+        private void uploadBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select a Photo";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                photoHolder.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
         private void ReturnToHome()
         {
             // Do not add a close event because the parent form should

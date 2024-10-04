@@ -22,18 +22,18 @@ namespace StudentInformationSheet
         private void EchoPassword_Click(object sender, EventArgs e)
         {
 
-                txtPassword.UseSystemPasswordChar = true; // show password
-                eyesclosedicon.Visible = true;
-            
+            txtPassword.UseSystemPasswordChar = true; // show password
+            eyesclosedicon.Visible = true;
+
         }
 
         private void eyesclosedicon_Click(object sender, EventArgs e)
         {
-    
-                txtPassword.UseSystemPasswordChar = false; // mask password
-                eyesclosedicon.Visible = false;
-                EchoPassword.Visible = true;
-            
+
+            txtPassword.UseSystemPasswordChar = false; // mask password
+            eyesclosedicon.Visible = false;
+            EchoPassword.Visible = true;
+
 
         }
 
@@ -55,12 +55,7 @@ namespace StudentInformationSheet
             var user = login_handler.Login(txtUsername.Text, txtPassword.Text);
             if (user == null)
             {
-                MessageBox.Show(
-                    "You have entered an incorrect username or password. Please try again.",
-                    "Incorrect Credentials",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation
-                );
+                aloneNotice1.Visible = true;
                 return;
             }
             else if (user.privilege == UserModel.Privilege.User)
@@ -89,16 +84,24 @@ namespace StudentInformationSheet
             }
         }
 
-        private void loginBtn_Click(object sender, EventArgs e) => LoginAction();
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            LoginAction();
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) LoginAction();
+        }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) LoginAction();
         }
 
-        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) LoginAction();
+            LoginAction();
         }
     }
 }
