@@ -9,7 +9,7 @@ To start contributing, you should have the following in your development
 environment:
 
 -   Visual Studio 2019/2022
--   .NET Framework v4.7.2
+-   .NET Framework v4.8
 -   XAMPP v8.2.12 or Podman v5.2.3
 
 ## Setup (Server via Podman)
