@@ -30,12 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUserAccPage));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_upload = new System.Windows.Forms.Button();
+            this.btn_register = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.photoHolder = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtFullname = new System.Windows.Forms.TextBox();
-            this.UserType = new System.Windows.Forms.ComboBox();
+            this.txt_full_name = new System.Windows.Forms.TextBox();
+            this.user_type = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,11 +48,8 @@
             this.EchoPassword = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_register = new System.Windows.Forms.Button();
-            this.btn_upload = new System.Windows.Forms.Button();
+            this.txt_password = new System.Windows.Forms.TextBox();
+            this.txt_username = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoHolder)).BeginInit();
@@ -73,8 +73,8 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtFullname);
-            this.groupBox1.Controls.Add(this.UserType);
+            this.groupBox1.Controls.Add(this.txt_full_name);
+            this.groupBox1.Controls.Add(this.user_type);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.label4);
@@ -84,14 +84,44 @@
             this.groupBox1.Controls.Add(this.EchoPassword);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Controls.Add(this.txtUsername);
+            this.groupBox1.Controls.Add(this.txt_password);
+            this.groupBox1.Controls.Add(this.txt_username);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(94, 44);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1076, 590);
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
+            // 
+            // btn_upload
+            // 
+            this.btn_upload.Location = new System.Drawing.Point(717, 322);
+            this.btn_upload.Name = "btn_upload";
+            this.btn_upload.Size = new System.Drawing.Size(170, 23);
+            this.btn_upload.TabIndex = 5;
+            this.btn_upload.Text = "Upload";
+            this.btn_upload.UseVisualStyleBackColor = true;
+            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
+            // 
+            // btn_register
+            // 
+            this.btn_register.Location = new System.Drawing.Point(738, 394);
+            this.btn_register.Name = "btn_register";
+            this.btn_register.Size = new System.Drawing.Size(124, 46);
+            this.btn_register.TabIndex = 6;
+            this.btn_register.Text = "Register";
+            this.btn_register.UseVisualStyleBackColor = true;
+            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(738, 458);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(124, 46);
+            this.btn_cancel.TabIndex = 7;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // groupBox2
             // 
@@ -141,29 +171,32 @@
             // 
             // txtFullname
             // 
-            this.txtFullname.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtFullname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFullname.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullname.ForeColor = System.Drawing.Color.DimGray;
-            this.txtFullname.Location = new System.Drawing.Point(191, 262);
-            this.txtFullname.MaxLength = 25;
-            this.txtFullname.Name = "txtFullname";
-            this.txtFullname.Size = new System.Drawing.Size(408, 23);
-            this.txtFullname.TabIndex = 62;
+            this.txt_full_name.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_full_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_full_name.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_full_name.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_full_name.Location = new System.Drawing.Point(191, 262);
+            this.txt_full_name.MaxLength = 25;
+            this.txt_full_name.Name = "txtFullname";
+            this.txt_full_name.Size = new System.Drawing.Size(408, 23);
+            this.txt_full_name.TabIndex = 2;
             // 
             // UserType
             // 
-            this.UserType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.UserType.BackColor = System.Drawing.Color.White;
-            this.UserType.DisplayMember = "Male, Female";
-            this.UserType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UserType.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserType.ForeColor = System.Drawing.Color.DimGray;
-            this.UserType.FormattingEnabled = true;
-            this.UserType.Location = new System.Drawing.Point(193, 157);
-            this.UserType.Name = "UserType";
-            this.UserType.Size = new System.Drawing.Size(408, 31);
-            this.UserType.TabIndex = 60;
+            this.user_type.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.user_type.BackColor = System.Drawing.Color.White;
+            this.user_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.user_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.user_type.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_type.ForeColor = System.Drawing.Color.DimGray;
+            this.user_type.FormattingEnabled = true;
+            this.user_type.Items.AddRange(new object[] {
+            "Admin",
+            "Super Admin"});
+            this.user_type.Location = new System.Drawing.Point(193, 157);
+            this.user_type.Name = "UserType";
+            this.user_type.Size = new System.Drawing.Size(408, 31);
+            this.user_type.TabIndex = 1;
             // 
             // label1
             // 
@@ -280,57 +313,28 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(193, 467);
-            this.txtPassword.MaxLength = 25;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(406, 23);
-            this.txtPassword.TabIndex = 51;
+            this.txt_password.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_password.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_password.Location = new System.Drawing.Point(193, 467);
+            this.txt_password.MaxLength = 25;
+            this.txt_password.Name = "txtPassword";
+            this.txt_password.Size = new System.Drawing.Size(406, 23);
+            this.txt_password.TabIndex = 4;
+            this.txt_password.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
-            this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsername.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsername.Location = new System.Drawing.Point(193, 361);
-            this.txtUsername.MaxLength = 25;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(408, 23);
-            this.txtUsername.TabIndex = 50;
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(738, 458);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(124, 46);
-            this.btn_cancel.TabIndex = 67;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
-            // 
-            // btn_register
-            // 
-            this.btn_register.Location = new System.Drawing.Point(738, 394);
-            this.btn_register.Name = "btn_register";
-            this.btn_register.Size = new System.Drawing.Size(124, 46);
-            this.btn_register.TabIndex = 68;
-            this.btn_register.Text = "Register";
-            this.btn_register.UseVisualStyleBackColor = true;
-            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
-            // 
-            // btn_upload
-            // 
-            this.btn_upload.Location = new System.Drawing.Point(717, 322);
-            this.btn_upload.Name = "btn_upload";
-            this.btn_upload.Size = new System.Drawing.Size(170, 23);
-            this.btn_upload.TabIndex = 69;
-            this.btn_upload.Text = "Upload";
-            this.btn_upload.UseVisualStyleBackColor = true;
-            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
+            this.txt_username.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_username.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_username.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_username.Location = new System.Drawing.Point(193, 361);
+            this.txt_username.MaxLength = 25;
+            this.txt_username.Name = "txtUsername";
+            this.txt_username.Size = new System.Drawing.Size(408, 23);
+            this.txt_username.TabIndex = 3;
             // 
             // AddUserAccPage
             // 
@@ -365,8 +369,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtFullname;
-        private System.Windows.Forms.ComboBox UserType;
+        private System.Windows.Forms.TextBox txt_full_name;
+        private System.Windows.Forms.ComboBox user_type;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label4;
@@ -376,8 +380,8 @@
         private System.Windows.Forms.PictureBox EchoPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txt_password;
+        private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox photoHolder;
         private System.Windows.Forms.Button btn_cancel;

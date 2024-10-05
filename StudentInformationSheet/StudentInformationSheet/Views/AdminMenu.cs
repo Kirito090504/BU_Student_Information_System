@@ -27,17 +27,14 @@ namespace StudentInformationSheet
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-        /*
             var addUserPage = new AddUserAccPage(this);
             addUserPage.Closed += (s, args) => this.Close();
-            this.Visible = false;
+            this.Hide();
             addUserPage.Show();
-        */
         }
 
         private void editUserBtn_Click(object sender, EventArgs e)
         {
-            
             AdminManageUsers adminManageUsers = new AdminManageUsers();
             this.Hide();
             adminManageUsers.ShowDialog();
@@ -46,12 +43,12 @@ namespace StudentInformationSheet
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
-         /*
-            DeleteUserProfilePage deleteUserProfilePage = new DeleteUserProfilePage();
-            this.Hide();
-            deleteUserProfilePage.ShowDialog();
-            this.Show();
-         */
+            /*
+               DeleteUserProfilePage deleteUserProfilePage = new DeleteUserProfilePage();
+               this.Hide();
+               deleteUserProfilePage.ShowDialog();
+               this.Show();
+            */
         }
 
         private void editStudentBtn_Click(object sender, EventArgs e)
@@ -63,16 +60,12 @@ namespace StudentInformationSheet
 
         private void adminProfileBtn_Click(object sender, EventArgs e)
         {
-            
             AdminMyProfile adminMyProfile = new AdminMyProfile();
             this.Hide();
             adminMyProfile.ShowDialog();
             this.Show();
         }
 
-        private void allFilesBtn_Click(object sender, EventArgs e)
-        {
-            
-        }
+        private void allFilesBtn_Click(object sender, EventArgs e) { }
     }
 }

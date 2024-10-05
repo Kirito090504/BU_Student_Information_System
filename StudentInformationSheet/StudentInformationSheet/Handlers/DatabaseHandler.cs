@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,7 +87,9 @@ namespace StudentInformationSheet
                     command.Parameters.AddWithValue("@user_id", id);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
+                    {
                         if (reader.Read())
+                        {
                             return new UserModel(
                                 user_id: reader.GetInt32("user_id"),
                                 username: reader.GetString("username"),
@@ -96,8 +100,12 @@ namespace StudentInformationSheet
                                     : reader.GetString("full_name"),
                                 photo: reader.IsDBNull(reader.GetOrdinal("photo"))
                                     ? null
-                                    : ImageHandler.DecodeImage(reader.GetString("photo"))
+                                    : ImageHandler.DecodeImage(
+                                        reader.GetFieldValue<byte[]>(reader.GetOrdinal("photo"))
+                                    )
                             );
+                        }
+                    }
                 }
             }
             return null;
