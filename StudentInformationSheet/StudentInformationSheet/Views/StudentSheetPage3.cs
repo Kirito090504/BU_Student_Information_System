@@ -17,16 +17,16 @@ namespace StudentInformationSheet
             InitializeComponent();
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
+        private void backBut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             StudentSheetPage2 studentSheetPage2 = new StudentSheetPage2();
             studentSheetPage2.Show();
         }
 
-        private void nextBtn_Click(object sender, EventArgs e)
+        private void nextBtn_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             StudentSheetPage4 studentSheetPage4 = new StudentSheetPage4();
             studentSheetPage4.Show();
         }

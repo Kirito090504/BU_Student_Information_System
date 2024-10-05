@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudentInformationSheet.Views;
 
 namespace StudentInformationSheet
 {
@@ -26,37 +27,38 @@ namespace StudentInformationSheet
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
+        /*
             var addUserPage = new AddUserAccPage(this);
             addUserPage.Closed += (s, args) => this.Close();
             this.Visible = false;
             addUserPage.Show();
+        */
         }
 
         private void editUserBtn_Click(object sender, EventArgs e)
         {
             
-            EditUserProfilePage editUserProfilePage = new EditUserProfilePage();
+            AdminManageUsers adminManageUsers = new AdminManageUsers();
             this.Hide();
-            editUserProfilePage.ShowDialog();
+            adminManageUsers.ShowDialog();
             this.Show();
         }
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
-            
+         /*
             DeleteUserProfilePage deleteUserProfilePage = new DeleteUserProfilePage();
             this.Hide();
             deleteUserProfilePage.ShowDialog();
             this.Show();
+         */
         }
 
         private void editStudentBtn_Click(object sender, EventArgs e)
         {
-            
-            EditStudentPage editStudentPage = new EditStudentPage();
             this.Hide();
-            editStudentPage.ShowDialog();
-            this.Show();
+            StudentRecords studentRecords = new StudentRecords();
+            studentRecords.Show();
         }
 
         private void adminProfileBtn_Click(object sender, EventArgs e)
@@ -66,6 +68,11 @@ namespace StudentInformationSheet
             this.Hide();
             adminMyProfile.ShowDialog();
             this.Show();
+        }
+
+        private void allFilesBtn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

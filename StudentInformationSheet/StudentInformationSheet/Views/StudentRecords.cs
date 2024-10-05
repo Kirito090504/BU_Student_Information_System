@@ -8,27 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentInformationSheet
+namespace StudentInformationSheet.Views
 {
-    public partial class StudentSheetPage2 : Form
+    public partial class StudentRecords : Form
     {
-        public StudentSheetPage2()
+        public StudentRecords()
         {
             InitializeComponent();
         }
 
-        private void backBtn_Click_1(object sender, EventArgs e)
+        private void addBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
-            studentSheetPage1.Show();
+            studentSheetPage1.ShowDialog();
         }
 
-        private void nextBtn_Click_1(object sender, EventArgs e)
+        private void updateBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StudentSheetPage3 studentSheetPage3 = new StudentSheetPage3();
-            studentSheetPage3.Show();
+            StudentSheetPage1 studentSheetPage1 = new StudentSheetPage1();
+            studentSheetPage1.ShowDialog();
         }
     }
 }
