@@ -61,6 +61,7 @@
             userProfileBtn.TabIndex = 20;
             userProfileBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             userProfileBtn.UseVisualStyleBackColor = false;
+            userProfileBtn.Click += new System.EventHandler(this.userProfileBtn_Click);
             // 
             // allFilesBtn
             // 
@@ -138,7 +139,7 @@
             this.groupBox1.Controls.Add(addStudentBtn);
             this.groupBox1.Controls.Add(editStudentBtn);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(82, 41);
+            this.groupBox1.Location = new System.Drawing.Point(93, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1076, 590);
             this.groupBox1.TabIndex = 15;
@@ -153,10 +154,10 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
-            this.MinimumSize = new System.Drawing.Size(1100, 650);
+            this.MinimumSize = new System.Drawing.Size(1080, 600);
             this.Name = "UserMenuPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UserMenuPage";
+            this.Text = "User Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

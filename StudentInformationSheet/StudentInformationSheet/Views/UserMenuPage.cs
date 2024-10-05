@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudentInformationSheet.Views;
 
 namespace StudentInformationSheet
 {
@@ -27,8 +28,15 @@ namespace StudentInformationSheet
         private void editStudentBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            EditStudentPage editStudentPage = new EditStudentPage();
-            editStudentPage.Show();
+            StudentRecords studentRecords = new StudentRecords();
+            studentRecords.Show();
+        }
+
+        private void userProfileBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UserMyProfile userMyProfile = new UserMyProfile();
+            userMyProfile.Show();
         }
     }
 }

@@ -179,6 +179,7 @@
             allFilesBtn.TabIndex = 15;
             allFilesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             allFilesBtn.UseVisualStyleBackColor = false;
+            allFilesBtn.Click += new System.EventHandler(this.allFilesBtn_Click);
             // 
             // adminProfileBtn
             // 
@@ -230,10 +231,10 @@
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
             this.ClientSize = new System.Drawing.Size(1264, 687);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(1271, 726);
+            this.MinimumSize = new System.Drawing.Size(1080, 600);
             this.Name = "AdminMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Admin Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

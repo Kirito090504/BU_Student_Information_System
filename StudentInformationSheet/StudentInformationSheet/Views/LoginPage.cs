@@ -55,7 +55,7 @@ namespace StudentInformationSheet
             var user = login_handler.Login(txtUsername.Text, txtPassword.Text);
             if (user == null)
             {
-                aloneNotice1.Visible = true;
+                notice.Visible = true;
                 return;
             }
             else if (user.privilege == UserModel.Privilege.User)

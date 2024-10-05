@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditUserProfilePage));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchBtn = new System.Windows.Forms.Button();
-            this.txtSearch = new ReaLTaiizor.Controls.DungeonTextBox();
             this.EchoPassword = new System.Windows.Forms.PictureBox();
             this.eyesclosedicon = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,8 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.saveBtn = new ReaLTaiizor.Controls.AirButton();
-            this.uploadBtn = new ReaLTaiizor.Controls.PoisonButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.photoHolder = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -69,7 +66,6 @@
             this.groupBox1.BackgroundImage = global::StudentInformationSheet.Properties.Resources.framebgfinal;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.searchBtn);
-            this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.EchoPassword);
             this.groupBox1.Controls.Add(this.eyesclosedicon);
             this.groupBox1.Controls.Add(this.label6);
@@ -85,8 +81,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUsername);
-            this.groupBox1.Controls.Add(this.saveBtn);
-            this.groupBox1.Controls.Add(this.uploadBtn);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(97, 46);
@@ -104,23 +98,6 @@
             this.searchBtn.Size = new System.Drawing.Size(40, 34);
             this.searchBtn.TabIndex = 82;
             this.searchBtn.UseVisualStyleBackColor = true;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.BackColor = System.Drawing.Color.Transparent;
-            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.txtSearch.EdgeColor = System.Drawing.Color.White;
-            this.txtSearch.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSearch.Location = new System.Drawing.Point(718, 120);
-            this.txtSearch.MaxLength = 32767;
-            this.txtSearch.Multiline = false;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.ReadOnly = false;
-            this.txtSearch.Size = new System.Drawing.Size(124, 33);
-            this.txtSearch.TabIndex = 81;
-            this.txtSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtSearch.UseSystemPasswordChar = false;
             // 
             // EchoPassword
             // 
@@ -308,29 +285,6 @@
             this.txtUsername.Size = new System.Drawing.Size(408, 23);
             this.txtUsername.TabIndex = 65;
             // 
-            // saveBtn
-            // 
-            this.saveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.saveBtn.Customization = "01W6//+A///r6+v/5ubm/+vr6//f39//p6en/0AAQP9AAED/gICA/w==";
-            this.saveBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Image = null;
-            this.saveBtn.Location = new System.Drawing.Point(748, 405);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.NoRounding = false;
-            this.saveBtn.Size = new System.Drawing.Size(112, 38);
-            this.saveBtn.TabIndex = 56;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.Transparent = false;
-            // 
-            // uploadBtn
-            // 
-            this.uploadBtn.Location = new System.Drawing.Point(723, 340);
-            this.uploadBtn.Name = "uploadBtn";
-            this.uploadBtn.Size = new System.Drawing.Size(160, 23);
-            this.uploadBtn.TabIndex = 55;
-            this.uploadBtn.Text = "Upload";
-            this.uploadBtn.UseSelectable = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.photoHolder);
@@ -385,7 +339,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button searchBtn;
-        private ReaLTaiizor.Controls.DungeonTextBox txtSearch;
         private System.Windows.Forms.PictureBox EchoPassword;
         private System.Windows.Forms.PictureBox eyesclosedicon;
         private System.Windows.Forms.Label label6;
@@ -401,8 +354,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
-        private ReaLTaiizor.Controls.AirButton saveBtn;
-        private ReaLTaiizor.Controls.PoisonButton uploadBtn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox photoHolder;
     }

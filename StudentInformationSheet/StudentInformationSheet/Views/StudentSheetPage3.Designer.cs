@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button homeBut;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentSheetPage3));
             System.Windows.Forms.Button backBut;
             System.Windows.Forms.Button nextBtn;
-            System.Windows.Forms.Button homeBut;
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtGuardianName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,9 +69,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMotherAddress = new System.Windows.Forms.TextBox();
+            homeBut = new System.Windows.Forms.Button();
             backBut = new System.Windows.Forms.Button();
             nextBtn = new System.Windows.Forms.Button();
-            homeBut = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -87,50 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // backBut
-            // 
-            backBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            backBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            backBut.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            backBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            backBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            backBut.FlatAppearance.BorderSize = 0;
-            backBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            backBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            backBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            backBut.ForeColor = System.Drawing.Color.Indigo;
-            backBut.Location = new System.Drawing.Point(87, 584);
-            backBut.Margin = new System.Windows.Forms.Padding(0);
-            backBut.Name = "backBut";
-            backBut.Size = new System.Drawing.Size(187, 55);
-            backBut.TabIndex = 57;
-            backBut.Text = "BACK";
-            backBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            backBut.UseVisualStyleBackColor = false;
-            backBut.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // nextBtn
-            // 
-            nextBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            nextBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            nextBtn.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
-            nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            nextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            nextBtn.FlatAppearance.BorderSize = 0;
-            nextBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            nextBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nextBtn.ForeColor = System.Drawing.Color.Indigo;
-            nextBtn.Location = new System.Drawing.Point(949, 584);
-            nextBtn.Margin = new System.Windows.Forms.Padding(0);
-            nextBtn.Name = "nextBtn";
-            nextBtn.Size = new System.Drawing.Size(187, 55);
-            nextBtn.TabIndex = 13;
-            nextBtn.Text = "NEXT";
-            nextBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            nextBtn.UseVisualStyleBackColor = false;
-            nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
-            // 
             // homeBut
             // 
             homeBut.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -143,7 +99,7 @@
             homeBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             homeBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             homeBut.ForeColor = System.Drawing.Color.Indigo;
-            homeBut.Location = new System.Drawing.Point(602, 740);
+            homeBut.Location = new System.Drawing.Point(559, 706);
             homeBut.Margin = new System.Windows.Forms.Padding(0);
             homeBut.Name = "homeBut";
             homeBut.Size = new System.Drawing.Size(187, 55);
@@ -151,19 +107,6 @@
             homeBut.Text = "HOME";
             homeBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             homeBut.UseVisualStyleBackColor = false;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label11.Location = new System.Drawing.Point(565, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(209, 34);
-            this.label11.TabIndex = 48;
-            this.label11.Text = "Student Profile";
             // 
             // groupBox1
             // 
@@ -211,104 +154,104 @@
             this.groupBox1.Controls.Add(this.txtMotherAddress);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Location = new System.Drawing.Point(82, 55);
+            this.groupBox1.Location = new System.Drawing.Point(60, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1203, 682);
-            this.groupBox1.TabIndex = 47;
+            this.groupBox1.Size = new System.Drawing.Size(1146, 622);
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
             // txtGuardianName
             // 
             this.txtGuardianName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGuardianName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGuardianName.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuardianName.ForeColor = System.Drawing.Color.Black;
-            this.txtGuardianName.Location = new System.Drawing.Point(825, 73);
+            this.txtGuardianName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardianName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtGuardianName.Location = new System.Drawing.Point(808, 101);
             this.txtGuardianName.Name = "txtGuardianName";
-            this.txtGuardianName.Size = new System.Drawing.Size(300, 34);
-            this.txtGuardianName.TabIndex = 73;
+            this.txtGuardianName.Size = new System.Drawing.Size(260, 26);
+            this.txtGuardianName.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Purple;
-            this.label1.Location = new System.Drawing.Point(821, 40);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Location = new System.Drawing.Point(803, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 30);
-            this.label1.TabIndex = 74;
+            this.label1.Size = new System.Drawing.Size(132, 20);
+            this.label1.TabIndex = 112;
             this.label1.Text = "Guardian\'s Name";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox2.Location = new System.Drawing.Point(825, 113);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(799, 130);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox2.Size = new System.Drawing.Size(279, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 75;
+            this.pictureBox2.TabIndex = 113;
             this.pictureBox2.TabStop = false;
             // 
             // txtContactNo
             // 
             this.txtContactNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtContactNo.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactNo.ForeColor = System.Drawing.Color.Black;
-            this.txtContactNo.Location = new System.Drawing.Point(825, 348);
+            this.txtContactNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtContactNo.Location = new System.Drawing.Point(808, 331);
             this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(300, 34);
-            this.txtContactNo.TabIndex = 62;
+            this.txtContactNo.Size = new System.Drawing.Size(260, 26);
+            this.txtContactNo.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Purple;
-            this.label2.Location = new System.Drawing.Point(820, 305);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Location = new System.Drawing.Point(800, 298);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 30);
-            this.label2.TabIndex = 67;
+            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.TabIndex = 105;
             this.label2.Text = "Contact No.";
             // 
             // txtFatherContactNo
             // 
             this.txtFatherContactNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFatherContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFatherContactNo.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFatherContactNo.ForeColor = System.Drawing.Color.Black;
-            this.txtFatherContactNo.Location = new System.Drawing.Point(453, 348);
+            this.txtFatherContactNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherContactNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtFatherContactNo.Location = new System.Drawing.Point(456, 331);
             this.txtFatherContactNo.Name = "txtFatherContactNo";
-            this.txtFatherContactNo.Size = new System.Drawing.Size(300, 34);
-            this.txtFatherContactNo.TabIndex = 61;
+            this.txtFatherContactNo.Size = new System.Drawing.Size(260, 26);
+            this.txtFatherContactNo.TabIndex = 8;
             // 
             // txtFatherName
             // 
             this.txtFatherName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFatherName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFatherName.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFatherName.ForeColor = System.Drawing.Color.Black;
-            this.txtFatherName.Location = new System.Drawing.Point(452, 73);
+            this.txtFatherName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtFatherName.Location = new System.Drawing.Point(456, 101);
             this.txtFatherName.Name = "txtFatherName";
-            this.txtFatherName.Size = new System.Drawing.Size(300, 34);
-            this.txtFatherName.TabIndex = 60;
+            this.txtFatherName.Size = new System.Drawing.Size(260, 26);
+            this.txtFatherName.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Purple;
-            this.label5.Location = new System.Drawing.Point(448, 305);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label5.Location = new System.Drawing.Point(448, 298);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 30);
-            this.label5.TabIndex = 66;
+            this.label5.Size = new System.Drawing.Size(93, 20);
+            this.label5.TabIndex = 104;
             this.label5.Text = "Contact No.";
             // 
             // label6
@@ -316,45 +259,45 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Purple;
-            this.label6.Location = new System.Drawing.Point(448, 40);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label6.Location = new System.Drawing.Point(450, 70);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(181, 30);
-            this.label6.TabIndex = 65;
+            this.label6.Size = new System.Drawing.Size(113, 20);
+            this.label6.TabIndex = 103;
             this.label6.Text = "Father\'s Name";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox3.Location = new System.Drawing.Point(825, 388);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(799, 360);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox3.Size = new System.Drawing.Size(279, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 72;
+            this.pictureBox3.TabIndex = 110;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox8
             // 
             this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox8.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox8.Location = new System.Drawing.Point(453, 388);
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(447, 360);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox8.Size = new System.Drawing.Size(279, 20);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 71;
+            this.pictureBox8.TabIndex = 109;
             this.pictureBox8.TabStop = false;
             // 
             // pictureBox9
             // 
             this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox9.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox9.Location = new System.Drawing.Point(452, 113);
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(446, 130);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox9.Size = new System.Drawing.Size(279, 20);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 70;
+            this.pictureBox9.TabIndex = 108;
             this.pictureBox9.TabStop = false;
             // 
             // label7
@@ -362,45 +305,45 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Purple;
-            this.label7.Location = new System.Drawing.Point(64, 40);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label7.Location = new System.Drawing.Point(86, 70);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(193, 30);
-            this.label7.TabIndex = 63;
+            this.label7.Size = new System.Drawing.Size(116, 20);
+            this.label7.TabIndex = 101;
             this.label7.Text = "Mother\'s Name";
             // 
             // txtMotherName
             // 
             this.txtMotherName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMotherName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMotherName.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotherName.ForeColor = System.Drawing.Color.Black;
-            this.txtMotherName.Location = new System.Drawing.Point(66, 73);
+            this.txtMotherName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtMotherName.Location = new System.Drawing.Point(90, 101);
             this.txtMotherName.Name = "txtMotherName";
-            this.txtMotherName.Size = new System.Drawing.Size(300, 34);
-            this.txtMotherName.TabIndex = 58;
+            this.txtMotherName.Size = new System.Drawing.Size(259, 26);
+            this.txtMotherName.TabIndex = 2;
             // 
             // pictureBox10
             // 
             this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox10.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox10.Location = new System.Drawing.Point(64, 388);
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(78, 360);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox10.Size = new System.Drawing.Size(279, 20);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 69;
+            this.pictureBox10.TabIndex = 107;
             this.pictureBox10.TabStop = false;
             // 
             // pictureBox12
             // 
             this.pictureBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox12.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox12.Location = new System.Drawing.Point(65, 115);
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(79, 130);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox12.Size = new System.Drawing.Size(279, 20);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 68;
+            this.pictureBox12.TabIndex = 106;
             this.pictureBox12.TabStop = false;
             // 
             // label12
@@ -408,117 +351,159 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Purple;
-            this.label12.Location = new System.Drawing.Point(64, 305);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label12.Location = new System.Drawing.Point(84, 298);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(154, 30);
-            this.label12.TabIndex = 64;
+            this.label12.Size = new System.Drawing.Size(93, 20);
+            this.label12.TabIndex = 102;
             this.label12.Text = "Contact No.";
             // 
             // txtMotherContactNo
             // 
             this.txtMotherContactNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMotherContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMotherContactNo.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotherContactNo.ForeColor = System.Drawing.Color.Black;
-            this.txtMotherContactNo.Location = new System.Drawing.Point(66, 348);
+            this.txtMotherContactNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherContactNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtMotherContactNo.Location = new System.Drawing.Point(87, 331);
             this.txtMotherContactNo.Name = "txtMotherContactNo";
-            this.txtMotherContactNo.Size = new System.Drawing.Size(300, 34);
-            this.txtMotherContactNo.TabIndex = 59;
+            this.txtMotherContactNo.Size = new System.Drawing.Size(262, 26);
+            this.txtMotherContactNo.TabIndex = 4;
+            // 
+            // backBut
+            // 
+            backBut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            backBut.BackColor = System.Drawing.Color.Transparent;
+            backBut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBut.BackgroundImage")));
+            backBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            backBut.Cursor = System.Windows.Forms.Cursors.Hand;
+            backBut.FlatAppearance.BorderSize = 0;
+            backBut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            backBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            backBut.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            backBut.ForeColor = System.Drawing.Color.Indigo;
+            backBut.Location = new System.Drawing.Point(62, 533);
+            backBut.Margin = new System.Windows.Forms.Padding(0);
+            backBut.Name = "backBut";
+            backBut.Size = new System.Drawing.Size(159, 48);
+            backBut.TabIndex = 15;
+            backBut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            backBut.UseVisualStyleBackColor = false;
+            backBut.Click += new System.EventHandler(this.backBut_Click);
             // 
             // txtGuardianOccupation
             // 
             this.txtGuardianOccupation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGuardianOccupation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGuardianOccupation.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuardianOccupation.ForeColor = System.Drawing.Color.Black;
-            this.txtGuardianOccupation.Location = new System.Drawing.Point(826, 206);
+            this.txtGuardianOccupation.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardianOccupation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtGuardianOccupation.Location = new System.Drawing.Point(808, 217);
             this.txtGuardianOccupation.Name = "txtGuardianOccupation";
-            this.txtGuardianOccupation.Size = new System.Drawing.Size(300, 34);
-            this.txtGuardianOccupation.TabIndex = 50;
+            this.txtGuardianOccupation.Size = new System.Drawing.Size(260, 26);
+            this.txtGuardianOccupation.TabIndex = 11;
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Purple;
-            this.label13.Location = new System.Drawing.Point(821, 164);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label13.Location = new System.Drawing.Point(800, 181);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(149, 30);
-            this.label13.TabIndex = 51;
+            this.label13.Size = new System.Drawing.Size(90, 20);
+            this.label13.TabIndex = 93;
             this.label13.Text = "Occupation";
             // 
             // pictureBox11
             // 
             this.pictureBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox11.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox11.Location = new System.Drawing.Point(825, 246);
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(799, 246);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox11.Size = new System.Drawing.Size(279, 20);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 52;
+            this.pictureBox11.TabIndex = 94;
             this.pictureBox11.TabStop = false;
+            // 
+            // nextBtn
+            // 
+            nextBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            nextBtn.BackColor = System.Drawing.Color.Transparent;
+            nextBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nextBtn.BackgroundImage")));
+            nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            nextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            nextBtn.FlatAppearance.BorderSize = 0;
+            nextBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            nextBtn.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nextBtn.ForeColor = System.Drawing.Color.Indigo;
+            nextBtn.Location = new System.Drawing.Point(926, 533);
+            nextBtn.Margin = new System.Windows.Forms.Padding(0);
+            nextBtn.Name = "nextBtn";
+            nextBtn.Size = new System.Drawing.Size(187, 55);
+            nextBtn.TabIndex = 14;
+            nextBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            nextBtn.UseVisualStyleBackColor = false;
+            nextBtn.Click += new System.EventHandler(this.nextBtn_Click_1);
             // 
             // txtGuardianAddress
             // 
             this.txtGuardianAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGuardianAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGuardianAddress.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuardianAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtGuardianAddress.Location = new System.Drawing.Point(825, 481);
+            this.txtGuardianAddress.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardianAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtGuardianAddress.Location = new System.Drawing.Point(808, 443);
             this.txtGuardianAddress.Name = "txtGuardianAddress";
-            this.txtGuardianAddress.Size = new System.Drawing.Size(300, 34);
-            this.txtGuardianAddress.TabIndex = 23;
+            this.txtGuardianAddress.Size = new System.Drawing.Size(260, 26);
+            this.txtGuardianAddress.TabIndex = 13;
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Purple;
-            this.label10.Location = new System.Drawing.Point(820, 438);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label10.Location = new System.Drawing.Point(801, 409);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 30);
-            this.label10.TabIndex = 33;
+            this.label10.Size = new System.Drawing.Size(68, 20);
+            this.label10.TabIndex = 86;
             this.label10.Text = "Address";
             // 
             // txtFatherAddress
             // 
             this.txtFatherAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFatherAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFatherAddress.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFatherAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtFatherAddress.Location = new System.Drawing.Point(453, 481);
+            this.txtFatherAddress.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtFatherAddress.Location = new System.Drawing.Point(456, 443);
             this.txtFatherAddress.Name = "txtFatherAddress";
-            this.txtFatherAddress.Size = new System.Drawing.Size(300, 34);
-            this.txtFatherAddress.TabIndex = 22;
+            this.txtFatherAddress.Size = new System.Drawing.Size(260, 26);
+            this.txtFatherAddress.TabIndex = 9;
             // 
             // txtFatherOccupation
             // 
             this.txtFatherOccupation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFatherOccupation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFatherOccupation.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFatherOccupation.ForeColor = System.Drawing.Color.Black;
-            this.txtFatherOccupation.Location = new System.Drawing.Point(452, 206);
+            this.txtFatherOccupation.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFatherOccupation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtFatherOccupation.Location = new System.Drawing.Point(456, 217);
             this.txtFatherOccupation.Name = "txtFatherOccupation";
-            this.txtFatherOccupation.Size = new System.Drawing.Size(300, 34);
-            this.txtFatherOccupation.TabIndex = 21;
+            this.txtFatherOccupation.Size = new System.Drawing.Size(260, 26);
+            this.txtFatherOccupation.TabIndex = 7;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Purple;
-            this.label9.Location = new System.Drawing.Point(448, 438);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label9.Location = new System.Drawing.Point(449, 409);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 30);
-            this.label9.TabIndex = 32;
+            this.label9.Size = new System.Drawing.Size(68, 20);
+            this.label9.TabIndex = 85;
             this.label9.Text = "Address";
             // 
             // label8
@@ -526,45 +511,45 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Purple;
-            this.label8.Location = new System.Drawing.Point(448, 164);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label8.Location = new System.Drawing.Point(447, 181);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(149, 30);
-            this.label8.TabIndex = 31;
+            this.label8.Size = new System.Drawing.Size(90, 20);
+            this.label8.TabIndex = 84;
             this.label8.Text = "Occupation";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox5.Location = new System.Drawing.Point(825, 521);
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(799, 471);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox5.Size = new System.Drawing.Size(279, 20);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 41;
+            this.pictureBox5.TabIndex = 91;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox6
             // 
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox6.Location = new System.Drawing.Point(453, 521);
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(447, 471);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox6.Size = new System.Drawing.Size(279, 20);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 40;
+            this.pictureBox6.TabIndex = 90;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox7.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox7.Location = new System.Drawing.Point(452, 246);
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(446, 246);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox7.Size = new System.Drawing.Size(279, 20);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 39;
+            this.pictureBox7.TabIndex = 89;
             this.pictureBox7.TabStop = false;
             // 
             // label3
@@ -572,45 +557,45 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Purple;
-            this.label3.Location = new System.Drawing.Point(64, 164);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label3.Location = new System.Drawing.Point(83, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 30);
-            this.label3.TabIndex = 26;
+            this.label3.Size = new System.Drawing.Size(90, 20);
+            this.label3.TabIndex = 82;
             this.label3.Text = "Occupation";
             // 
             // txtMotherOccupation
             // 
             this.txtMotherOccupation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMotherOccupation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMotherOccupation.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotherOccupation.ForeColor = System.Drawing.Color.Black;
-            this.txtMotherOccupation.Location = new System.Drawing.Point(66, 206);
+            this.txtMotherOccupation.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherOccupation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtMotherOccupation.Location = new System.Drawing.Point(88, 217);
             this.txtMotherOccupation.Name = "txtMotherOccupation";
-            this.txtMotherOccupation.Size = new System.Drawing.Size(300, 34);
-            this.txtMotherOccupation.TabIndex = 16;
+            this.txtMotherOccupation.Size = new System.Drawing.Size(261, 26);
+            this.txtMotherOccupation.TabIndex = 3;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox4.Location = new System.Drawing.Point(64, 521);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(78, 471);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox4.Size = new System.Drawing.Size(279, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 36;
+            this.pictureBox4.TabIndex = 88;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::StudentInformationSheet.Properties.Resources.linephoto;
-            this.pictureBox1.Location = new System.Drawing.Point(65, 248);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(79, 246);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(310, 10);
+            this.pictureBox1.Size = new System.Drawing.Size(279, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabIndex = 87;
             this.pictureBox1.TabStop = false;
             // 
             // label4
@@ -618,24 +603,24 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Purple;
-            this.label4.Location = new System.Drawing.Point(64, 438);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label4.Location = new System.Drawing.Point(85, 409);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 30);
-            this.label4.TabIndex = 27;
+            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.TabIndex = 83;
             this.label4.Text = "Address";
             // 
             // txtMotherAddress
             // 
             this.txtMotherAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMotherAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMotherAddress.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotherAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtMotherAddress.Location = new System.Drawing.Point(66, 481);
+            this.txtMotherAddress.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotherAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtMotherAddress.Location = new System.Drawing.Point(88, 443);
             this.txtMotherAddress.Name = "txtMotherAddress";
-            this.txtMotherAddress.Size = new System.Drawing.Size(300, 34);
-            this.txtMotherAddress.TabIndex = 17;
+            this.txtMotherAddress.Size = new System.Drawing.Size(261, 26);
+            this.txtMotherAddress.TabIndex = 5;
             // 
             // StudentSheetPage3
             // 
@@ -643,15 +628,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentInformationSheet.Properties.Resources.BackgroundForAll;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1350, 749);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(homeBut);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
-            this.MinimumSize = new System.Drawing.Size(1364, 726);
+            this.MinimumSize = new System.Drawing.Size(1080, 600);
             this.Name = "StudentSheetPage3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StudentSheetPage3";
+            this.Text = "Student Information";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -668,32 +652,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtGuardianOccupation;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.TextBox txtGuardianAddress;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtFatherAddress;
-        private System.Windows.Forms.TextBox txtFatherOccupation;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtMotherOccupation;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtMotherAddress;
         private System.Windows.Forms.TextBox txtGuardianName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -712,5 +675,23 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtMotherContactNo;
+        private System.Windows.Forms.TextBox txtGuardianOccupation;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.TextBox txtGuardianAddress;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtFatherAddress;
+        private System.Windows.Forms.TextBox txtFatherOccupation;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtMotherOccupation;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtMotherAddress;
     }
 }
