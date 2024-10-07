@@ -1,5 +1,4 @@
-﻿using BaliuagU_StudentInformationSheet.Tools;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BaliuagU_StudentInformationSheet.Models;
+using BaliuagU_StudentInformationSheet.Tools;
 
 namespace BaliuagU_StudentInformationSheet.Views
 {
     public partial class AdminDashboard : Form
     {
-        public AdminDashboard()
+        private UserModel user;
+
+        public AdminDashboard(UserModel user)
         {
+            this.user = user;
             InitializeComponent();
         }
 
@@ -23,8 +27,9 @@ namespace BaliuagU_StudentInformationSheet.Views
             DialogResult result = MessageBox.Show(
                 "Are you sure you want to logout?",
                 "Confirmation",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             if (result == DialogResult.Yes)
             {
@@ -39,6 +44,7 @@ namespace BaliuagU_StudentInformationSheet.Views
         {
             dashboard1.Visible = true;
             profileAdmin1.Visible = false;
+            lblName.Text = user.username;
         }
 
         private void dashbordBtn_Click(object sender, EventArgs e)

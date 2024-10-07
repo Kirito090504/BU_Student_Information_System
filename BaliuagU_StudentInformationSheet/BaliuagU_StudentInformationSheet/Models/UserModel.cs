@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace BaliuagU_StudentInformationSheet.Models
 {
-    internal class UserModel
+    public class UserModel
     {
         public static readonly char[] allowed_username_chars = new char[] { '-', '_', '.' };
+
         public enum Privilege
         {
             User = 1,
-            Admin = 2
+            Admin = 2,
         }
 
         public int user_id { get; }
@@ -44,7 +45,9 @@ namespace BaliuagU_StudentInformationSheet.Models
         )
         {
             this.user_id = user_id;
-            this._username = ValidateUsername(username) ? username : throw new ArgumentException("Invalid username");
+            this._username = ValidateUsername(username)
+                ? username
+                : throw new ArgumentException("Invalid username");
             this.userpass = userpass;
             this.privilege = privilege;
             this.full_name = full_name;
@@ -53,8 +56,10 @@ namespace BaliuagU_StudentInformationSheet.Models
         public static bool ValidateUsername(string username)
         {
             return !(
-                username.Length < 1 || !username.All(
-                    (char c) => {
+                username.Length < 1
+                || !username.All(
+                    (char c) =>
+                    {
                         return char.IsLetterOrDigit(c) || allowed_username_chars.Contains(c);
                     }
                 )

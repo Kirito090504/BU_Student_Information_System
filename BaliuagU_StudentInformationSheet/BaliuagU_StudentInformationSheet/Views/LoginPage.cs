@@ -1,5 +1,4 @@
-﻿using BaliuagU_StudentInformationSheet.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BaliuagU_StudentInformationSheet.Models;
 
 namespace BaliuagU_StudentInformationSheet.Views
 {
@@ -83,10 +83,10 @@ namespace BaliuagU_StudentInformationSheet.Views
             // Check if the username or password textboxes are empty.
             if (
                 txtUsername.ForeColor == Color.DimGray
-                    || txtPassword.ForeColor == Color.DimGray
-                    || string.IsNullOrEmpty(txtUsername.Text)
-                    || string.IsNullOrEmpty(txtPassword.Text)
-                )
+                || txtPassword.ForeColor == Color.DimGray
+                || string.IsNullOrEmpty(txtUsername.Text)
+                || string.IsNullOrEmpty(txtPassword.Text)
+            )
             {
                 MessageBox.Show(
                     "Please enter your username and/or password. If you do not have one, please inform your system administrator.",
@@ -106,14 +106,14 @@ namespace BaliuagU_StudentInformationSheet.Views
             }
             else if (user.privilege == UserModel.Privilege.User)
             {
-                var dashboard_panel = new AdminDashboard();
+                var dashboard_panel = new AdminDashboard(user);
                 dashboard_panel.Closed += (s, args) => this.Close();
                 this.Visible = false;
                 dashboard_panel.Show();
             }
             else if (user.privilege == UserModel.Privilege.Admin)
             {
-                var dashboard_panel = new SuperAdminDashboard();
+                var dashboard_panel = new SuperAdminDashboard(user);
                 dashboard_panel.Closed += (s, args) => this.Close();
                 this.Visible = false;
                 dashboard_panel.Show();
@@ -131,13 +131,15 @@ namespace BaliuagU_StudentInformationSheet.Views
         }
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
-        { 
-            if (e.KeyCode == Keys.Enter) LoginAction(); 
+        {
+            if (e.KeyCode == Keys.Enter)
+                LoginAction();
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) LoginAction(); 
+            if (e.KeyCode == Keys.Enter)
+                LoginAction();
         }
     }
 }

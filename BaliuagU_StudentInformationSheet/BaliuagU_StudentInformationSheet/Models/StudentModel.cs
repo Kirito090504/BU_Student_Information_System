@@ -1,12 +1,12 @@
 ﻿#nullable enable
-using BaliuagU_StudentInformationSheet.Models.StudentSubModels;
-using Org.BouncyCastle.Asn1.BC;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BaliuagU_StudentInformationSheet.Models.StudentSubModels;
+using Org.BouncyCastle.Asn1.BC;
 
 namespace StudentInformationSheet.Models
 {
@@ -45,11 +45,9 @@ namespace StudentInformationSheet.Models
             this.photo = photo;
         }
 
-
         public void Save()
         {
             //TO DO
         }
     }
 }
-
