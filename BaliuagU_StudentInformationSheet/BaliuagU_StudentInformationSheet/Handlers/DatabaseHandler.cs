@@ -200,5 +200,57 @@ namespace BaliuagU_StudentInformationSheet
             }
             return users;
         }
+
+        public List<UserModel> SearchUsers(string? username = null, string? full_name = null)
+        {
+            List<UserModel> users = new List<UserModel>();
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    if (username != null && full_name == null) // Search by username
+                    {
+                        command.CommandText = "SELECT * FROM users WHERE username LIKE @username";
+                        command.Parameters.AddWithValue("@username", $"%{username}%");
+                    }
+                    else if (username == null && full_name != null) // Search by full name
+                    {
+                        command.CommandText = "SELECT * FROM users WHERE full_name LIKE @full_name";
+                        command.Parameters.AddWithValue("@full_name", $"%{full_name}%");
+                    }
+                    else if (username != null && full_name != null) // Search by both username and full name
+                    {
+                        command.CommandText =
+                            "SELECT * FROM users WHERE username LIKE @username AND full_name LIKE @full_name";
+                        command.Parameters.AddWithValue("@username", $"%{username}%");
+                        command.Parameters.AddWithValue("@full_name", $"%{full_name}%");
+                    }
+                    else // Get all users
+                    {
+                        command.CommandText = "SELECT * FROM users";
+                    }
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            users.Add(
+                                new UserModel(
+                                    user_id: reader.GetInt32("user_id"),
+                                    username: reader.GetString("username"),
+                                    userpass: reader.GetString("userpass"),
+                                    privilege: (UserModel.Privilege)reader.GetInt32("privilege"),
+                                    full_name: reader.IsDBNull(reader.GetOrdinal("full_name"))
+                                        ? null
+                                        : reader.GetString("full_name")
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+            return users;
+        }
     }
 }

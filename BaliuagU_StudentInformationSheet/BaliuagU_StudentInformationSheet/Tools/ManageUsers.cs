@@ -43,9 +43,10 @@ namespace BaliuagU_StudentInformationSheet.Tools
             txtName.Focus();
         }
 
-        public void UpdateUsersList()
+        public void UpdateUsersList(string? filter_query = null)
         {
-            var users = db_handler.GetUsers();
+            List<UserModel> users =
+                filter_query == null ? db_handler.GetUsers() : db_handler.SearchUsers(filter_query);
 
             // Add the users to the DataGridView
             dataGridViewUsers.Rows.Clear();
@@ -169,11 +170,9 @@ namespace BaliuagU_StudentInformationSheet.Tools
         private void txtPassword_Enter(object sender, EventArgs e)
         {
             if (txtPassword.Text == "(unchanged)")
-            {
                 txtPassword.Text = "";
-                txtPassword.ForeColor = Color.Black;
-                txtPassword.UseSystemPasswordChar = true;
-            }
+            txtPassword.ForeColor = Color.Black;
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void txtPassword_Leave(object sender, EventArgs e)
@@ -266,6 +265,19 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     MessageBoxIcon.Error
                 );
                 return;
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            UpdateUsersList(txtSearch.Text);
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateUsersList(txtSearch.Text);
             }
         }
     }
