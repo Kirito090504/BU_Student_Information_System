@@ -24,7 +24,7 @@ namespace BaliuagU_StudentInformationSheet.Models
             get { return this._username; }
             set
             {
-                if (ValidateUsername(value))
+                if (!ValidateUsername(value))
                     throw new ArgumentException("Invalid username");
 
                 this._username = value;
@@ -55,14 +55,9 @@ namespace BaliuagU_StudentInformationSheet.Models
 
         public static bool ValidateUsername(string username)
         {
-            return !(
-                username.Length < 1
-                || !username.All(
-                    (char c) =>
-                    {
-                        return char.IsLetterOrDigit(c) || allowed_username_chars.Contains(c);
-                    }
-                )
+            return (
+                username.Length > 0
+                && username.All(c => char.IsLetterOrDigit(c) || allowed_username_chars.Contains(c))
             );
         }
 
@@ -73,7 +68,24 @@ namespace BaliuagU_StudentInformationSheet.Models
 
         public void Save()
         {
-            //TO DO
+            using (var connection = new DatabaseHandler().GetNewConnection())
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "UPDATE users SET username = @username, userpass = @userpass, "
+                        + "privilege = @privilege, full_name = @full_name WHERE user_id = @user_id";
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@userpass", userpass);
+                    command.Parameters.AddWithValue("@privilege", (int)privilege);
+                    command.Parameters.AddWithValue("@full_name", full_name);
+                    command.Parameters.AddWithValue("@user_id", user_id);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update user.");
+                }
+            }
         }
     }
 }

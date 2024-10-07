@@ -68,6 +68,7 @@ namespace BaliuagU_StudentInformationSheet.Views
             dashboard1.Visible = false;
             manageUsers1.Visible = false;
             profileSuperAdmin1.Visible = true;
+            profileSuperAdmin1.LoadProfile(user); // load user profile to the user control
         }
     }
 }
