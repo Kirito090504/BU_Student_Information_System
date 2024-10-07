@@ -91,8 +91,7 @@ namespace BaliuagU_StudentInformationSheet
                                 username: reader.GetString("username"),
                                 userpass: reader.GetString("userpass"),
                                 privilege: (UserModel.Privilege)reader.GetInt32("privilege"),
-                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name")) ? null : reader.GetString("full_name"),
-                                photo: reader.IsDBNull(reader.GetOrdinal("photo")) ? null : ImageHandler.DecodeImage(reader.GetString("photo"))
+                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name")) ? null : reader.GetString("full_name")
                             );
                 }
             }
@@ -107,13 +106,12 @@ namespace BaliuagU_StudentInformationSheet
                 using (MySqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "INSERT INTO " +
-                        "users (username, userpass, privilege, full_name, photo) " +
-                        "VALUES (@username, @userpass, @privilege, @full_name, @photo)";
+                        "users (username, userpass, privilege, full_name) " +
+                        "VALUES (@username, @userpass, @privilege, @full_name)";
                     command.Parameters.AddWithValue("@username", user.username);
                     command.Parameters.AddWithValue("@userpass", PasswordHandler.SHA256(user.userpass));
                     command.Parameters.AddWithValue("@privilege", (int)user.privilege);
                     command.Parameters.AddWithValue("@full_name", user.full_name);
-                    command.Parameters.AddWithValue("@photo", user.photo == null ? null : ImageHandler.EncodeImage(user.photo));
 
                     if (command.ExecuteNonQuery() != 1)
                         throw new Exception("Failed to add user.");

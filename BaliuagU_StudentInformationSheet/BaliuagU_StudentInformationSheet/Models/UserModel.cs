@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using BaliuagU_StudentInformationSheet.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -33,7 +32,6 @@ namespace BaliuagU_StudentInformationSheet.Models
         public string userpass { get; set; }
         public Privilege privilege { get; set; }
         public string? full_name { get; set; }
-        public Image? photo { get; set; }
 
         private string _username;
 
@@ -42,8 +40,7 @@ namespace BaliuagU_StudentInformationSheet.Models
             string username,
             string userpass,
             Privilege privilege,
-            string? full_name = null,
-            Image? photo = null
+            string? full_name = null
         )
         {
             this.user_id = user_id;
@@ -51,7 +48,6 @@ namespace BaliuagU_StudentInformationSheet.Models
             this.userpass = userpass;
             this.privilege = privilege;
             this.full_name = full_name;
-            this.photo = photo;
         }
 
         public static bool ValidateUsername(string username)
