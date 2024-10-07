@@ -107,6 +107,14 @@
     <Compile Include="Handlers\ImageHandler.cs" />
     <Compile Include="Handlers\PasswordHandler.cs" />
     <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\StudentSubModels\GuardianAngel.cs" />
+    <Compile Include="Models\StudentSubModels\StudentAcademicHistory.cs" />
+    <Compile Include="Models\StudentSubModels\StudentAddressInformation.cs" />
+    <Compile Include="Models\StudentSubModels\StudentContactInformation.cs" />
+    <Compile Include="Models\StudentSubModels\StudentFamilyInformation.cs" />
+    <Compile Include="Models\StudentSubModels\StudentName.cs" />
+    <Compile Include="Models\StudentSubModels\StudentPersonalInformation.cs" />
+    <Compile Include="Models\StudentSubModels\StudentPersonality.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

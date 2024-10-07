@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using BaliuagU_StudentInformationSheet.Models.StudentSubModels;
 using Org.BouncyCastle.Asn1.BC;
 using System;
 using System.Collections.Generic;
@@ -12,41 +13,36 @@ namespace StudentInformationSheet.Models
     internal class StudentModel
     {
         public static readonly char[] allowed_username_chars = new char[] { '-', '_', '.' };
+
         public int student_number { get; }
-        public string name_first { get; set; }
-        public string name_middle { get; set; }
-        public string name_last { get; set; }
+        public StudentName name { get; set; }
         public Image? photo { get; set; }
-        public int gender;
-        public DateTime birth_date;
-        public string birth_address;
-        public int nationality;
-        public int citizenship;
-        public int religion;
+
+        public StudentPersonalInformation info { get; set; }
+        public StudentContactInformation contact { get; set; }
+        public StudentAddressInformation address { get; set; }
+        public StudentFamilyInformation family { get; set; }
+        public StudentAcademicHistory academic_history { get; set; }
 
         public StudentModel(
             int student_number,
-            string name_first,
-            string name_middle,
-            string name_last,
-            DateTime birth_date,
-            string birth_address,
-            int nationality,
-            int citizenship,
-            int religion,
+            StudentName name,
+            StudentPersonalInformation info,
+            StudentContactInformation contact,
+            StudentAddressInformation address,
+            StudentFamilyInformation family,
+            StudentAcademicHistory academic_history,
             Image? photo = null
         )
         {
             this.student_number = student_number;
-            this.name_first = name_first;
-            this.name_middle = name_middle;
-            this.name_last = name_last;
+            this.name = name;
+            this.info = info;
+            this.contact = contact;
+            this.address = address;
+            this.family = family;
+            this.academic_history = academic_history;
             this.photo = photo;
-            this.birth_date = birth_date;
-            this.birth_address = birth_address;
-            this.nationality = nationality;
-            this.citizenship = citizenship;
-            this.religion = religion;
         }
 
 

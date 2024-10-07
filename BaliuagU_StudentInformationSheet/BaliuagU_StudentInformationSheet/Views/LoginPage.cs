@@ -1,5 +1,4 @@
-﻿using BaliuagU_StudentInformationSheet.Handlers;
-using BaliuagU_StudentInformationSheet.Models;
+﻿using BaliuagU_StudentInformationSheet.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,7 +81,12 @@ namespace BaliuagU_StudentInformationSheet.Views
         private void LoginAction()
         {
             // Check if the username or password textboxes are empty.
-            if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            if (
+                txtUsername.ForeColor == Color.DimGray
+                    || txtPassword.ForeColor == Color.DimGray
+                    || string.IsNullOrEmpty(txtUsername.Text)
+                    || string.IsNullOrEmpty(txtPassword.Text)
+                )
             {
                 MessageBox.Show(
                     "Please enter your username and/or password. If you do not have one, please inform your system administrator.",
@@ -126,15 +130,14 @@ namespace BaliuagU_StudentInformationSheet.Views
             }
         }
 
-
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) LoginAction();
+        { 
+            if (e.KeyCode == Keys.Enter) LoginAction(); 
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) LoginAction();
+            if (e.KeyCode == Keys.Enter) LoginAction(); 
         }
     }
 }
