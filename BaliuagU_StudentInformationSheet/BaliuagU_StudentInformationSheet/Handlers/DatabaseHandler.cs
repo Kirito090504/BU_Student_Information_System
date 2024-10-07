@@ -1,13 +1,13 @@
 ﻿#nullable enable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using BaliuagU_StudentInformationSheet.Models;
 using BaliuagU_StudentInformationSheet.Handlers;
-using System.ComponentModel;
+using BaliuagU_StudentInformationSheet.Models;
+using MySql.Data.MySqlClient;
 
 namespace BaliuagU_StudentInformationSheet
 {
@@ -55,7 +55,8 @@ namespace BaliuagU_StudentInformationSheet
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT user_id FROM users WHERE username = @username AND userpass = @userpass";
+                    command.CommandText =
+                        "SELECT user_id FROM users WHERE username = @username AND userpass = @userpass";
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@userpass", password);
 
@@ -85,13 +86,14 @@ namespace BaliuagU_StudentInformationSheet
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                         if (reader.Read())
-                            return new UserModel
-                            (
+                            return new UserModel(
                                 user_id: reader.GetInt32("user_id"),
                                 username: reader.GetString("username"),
                                 userpass: reader.GetString("userpass"),
                                 privilege: (UserModel.Privilege)reader.GetInt32("privilege"),
-                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name")) ? null : reader.GetString("full_name")
+                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name"))
+                                    ? null
+                                    : reader.GetString("full_name")
                             );
                 }
             }
@@ -105,11 +107,15 @@ namespace BaliuagU_StudentInformationSheet
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "INSERT INTO " +
-                        "users (username, userpass, privilege, full_name) " +
-                        "VALUES (@username, @userpass, @privilege, @full_name)";
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "users (username, userpass, privilege, full_name) "
+                        + "VALUES (@username, @userpass, @privilege, @full_name)";
                     command.Parameters.AddWithValue("@username", user.username);
-                    command.Parameters.AddWithValue("@userpass", PasswordHandler.SHA256(user.userpass));
+                    command.Parameters.AddWithValue(
+                        "@userpass",
+                        PasswordHandler.SHA256(user.userpass)
+                    );
                     command.Parameters.AddWithValue("@privilege", (int)user.privilege);
                     command.Parameters.AddWithValue("@full_name", user.full_name);
 
@@ -126,10 +132,14 @@ namespace BaliuagU_StudentInformationSheet
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "UPDATE users SET username = @username, userpass = @userpass, " +
-                                          "privilege = @privilege, full_name = @full_name WHERE user_id = @user_id";
+                    command.CommandText =
+                        "UPDATE users SET username = @username, userpass = @userpass, "
+                        + "privilege = @privilege, full_name = @full_name WHERE user_id = @user_id";
                     command.Parameters.AddWithValue("@username", user.username);
-                    command.Parameters.AddWithValue("@userpass", PasswordHandler.SHA256(user.userpass));
+                    command.Parameters.AddWithValue(
+                        "@userpass",
+                        PasswordHandler.SHA256(user.userpass)
+                    );
                     command.Parameters.AddWithValue("@privilege", (int)user.privilege);
                     command.Parameters.AddWithValue("@full_name", user.full_name);
                     command.Parameters.AddWithValue("@user_id", user.user_id);
@@ -140,5 +150,55 @@ namespace BaliuagU_StudentInformationSheet
             }
         }
 
+        public void DeleteUser(int user_id)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM users WHERE user_id = @user_id";
+                    command.Parameters.AddWithValue("@user_id", user_id);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to delete user.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get all users in the database.
+        /// </summary>
+        /// <returns>A list of users in the database.</returns>
+        public List<UserModel> GetUsers()
+        {
+            List<UserModel> users = new List<UserModel>();
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM users";
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            users.Add(
+                                new UserModel(
+                                    user_id: reader.GetInt32("user_id"),
+                                    username: reader.GetString("username"),
+                                    userpass: reader.GetString("userpass"),
+                                    privilege: (UserModel.Privilege)reader.GetInt32("privilege"),
+                                    full_name: reader.IsDBNull(reader.GetOrdinal("full_name"))
+                                        ? null
+                                        : reader.GetString("full_name")
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+            return users;
+        }
     }
 }

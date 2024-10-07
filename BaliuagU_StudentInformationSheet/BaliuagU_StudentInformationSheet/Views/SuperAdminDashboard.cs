@@ -61,6 +61,7 @@ namespace BaliuagU_StudentInformationSheet.Views
             dashboard1.Visible = false;
             manageUsers1.Visible = true;
             profileSuperAdmin1.Visible = false;
+            manageUsers1.UpdateUsersList();
         }
 
         private void accountSettingsBtn_Click(object sender, EventArgs e)
