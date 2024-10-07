@@ -55,17 +55,33 @@ namespace BaliuagU_StudentInformationSheet.Tools
             if (edit_mode)
             {
                 // Save changes and disable editing of fields
-                user.full_name = txtName.Text;
-                user.privilege =
-                    cboRole.SelectedIndex == 1
-                        ? UserModel.Privilege.Admin
-                        : UserModel.Privilege.User;
-                user.username = txtUsername.Text;
-                user.userpass =
-                    txtPassword.Text == "(unchanged)"
-                        ? user.userpass
-                        : PasswordHandler.SHA256(txtPassword.Text);
-                user.Save();
+                try
+                {
+                    user.full_name = txtName.Text;
+                    user.privilege =
+                        cboRole.SelectedIndex == 1
+                            ? UserModel.Privilege.Admin
+                            : UserModel.Privilege.User;
+                    user.username = txtUsername.Text;
+                    if (txtPassword.Text != "(unchanged)")
+                    {
+                        if (UserModel.ValidatePassword(txtPassword.Text))
+                            user.userpass = txtPassword.Text;
+                        else
+                            throw new Exception("You have entered an invalid password!");
+                    }
+                    user.Save();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        ex.Message,
+                        "Unable to Save Profile",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
 
                 saveBtn.Text = "Edit Profile";
                 txtName.Enabled = false;
