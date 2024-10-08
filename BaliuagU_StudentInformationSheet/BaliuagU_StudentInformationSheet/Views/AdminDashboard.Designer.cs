@@ -34,18 +34,18 @@
             this.accountSettingsBtn = new System.Windows.Forms.Button();
             this.dashbordBtn = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.profileAdmin1 = new BaliuagU_StudentInformationSheet.Tools.ProfileAdmin();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dashboard1 = new BaliuagU_StudentInformationSheet.Tools.Dashboard();
+            this.profileAdmin1 = new BaliuagU_StudentInformationSheet.Tools.ProfileAdmin();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.RosyBrown;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(26)))), ((int)(((byte)(87)))));
             this.panel2.Controls.Add(this.logoutBtn);
             this.panel2.Controls.Add(this.accountSettingsBtn);
             this.panel2.Controls.Add(this.dashbordBtn);
@@ -60,13 +60,13 @@
             // logoutBtn
             // 
             this.logoutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.logoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
+            this.logoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(101)))), ((int)(((byte)(170)))));
             this.logoutBtn.FlatAppearance.BorderSize = 0;
-            this.logoutBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
-            this.logoutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+            this.logoutBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(88)))), ((int)(((byte)(137)))));
+            this.logoutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(101)))), ((int)(((byte)(170)))));
             this.logoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutBtn.ForeColor = System.Drawing.Color.Black;
+            this.logoutBtn.ForeColor = System.Drawing.Color.White;
             this.logoutBtn.Location = new System.Drawing.Point(14, 483);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(185, 37);
@@ -78,11 +78,11 @@
             // accountSettingsBtn
             // 
             this.accountSettingsBtn.FlatAppearance.BorderSize = 0;
-            this.accountSettingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
-            this.accountSettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+            this.accountSettingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(101)))), ((int)(((byte)(170)))));
+            this.accountSettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(88)))), ((int)(((byte)(137)))));
             this.accountSettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.accountSettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accountSettingsBtn.ForeColor = System.Drawing.Color.Black;
+            this.accountSettingsBtn.ForeColor = System.Drawing.Color.White;
             this.accountSettingsBtn.Location = new System.Drawing.Point(0, 249);
             this.accountSettingsBtn.Name = "accountSettingsBtn";
             this.accountSettingsBtn.Size = new System.Drawing.Size(219, 50);
@@ -94,11 +94,11 @@
             // dashbordBtn
             // 
             this.dashbordBtn.FlatAppearance.BorderSize = 0;
-            this.dashbordBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
-            this.dashbordBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+            this.dashbordBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(101)))), ((int)(((byte)(170)))));
+            this.dashbordBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(88)))), ((int)(((byte)(137)))));
             this.dashbordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dashbordBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashbordBtn.ForeColor = System.Drawing.Color.Black;
+            this.dashbordBtn.ForeColor = System.Drawing.Color.White;
             this.dashbordBtn.Location = new System.Drawing.Point(0, 193);
             this.dashbordBtn.Name = "dashbordBtn";
             this.dashbordBtn.Size = new System.Drawing.Size(219, 50);
@@ -112,11 +112,22 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(84, 152);
+            this.lblName.Location = new System.Drawing.Point(83, 152);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(44, 16);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BaliuagU_StudentInformationSheet.Properties.Resources.admin_img;
+            this.pictureBox1.Location = new System.Drawing.Point(56, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -128,15 +139,15 @@
             this.panel1.Size = new System.Drawing.Size(932, 540);
             this.panel1.TabIndex = 3;
             // 
-            // pictureBox1
+            // dashboard1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(56, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.dashboard1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dashboard1.BackgroundImage")));
+            this.dashboard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dashboard1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dashboard1.Location = new System.Drawing.Point(-502, 0);
+            this.dashboard1.Name = "dashboard1";
+            this.dashboard1.Size = new System.Drawing.Size(717, 540);
+            this.dashboard1.TabIndex = 1;
             // 
             // profileAdmin1
             // 
@@ -147,14 +158,6 @@
             this.profileAdmin1.Name = "profileAdmin1";
             this.profileAdmin1.Size = new System.Drawing.Size(717, 540);
             this.profileAdmin1.TabIndex = 0;
-            // 
-            // dashboard1
-            // 
-            this.dashboard1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dashboard1.Location = new System.Drawing.Point(-502, 0);
-            this.dashboard1.Name = "dashboard1";
-            this.dashboard1.Size = new System.Drawing.Size(717, 540);
-            this.dashboard1.TabIndex = 1;
             // 
             // AdminDashboard
             // 
@@ -171,8 +174,8 @@
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
