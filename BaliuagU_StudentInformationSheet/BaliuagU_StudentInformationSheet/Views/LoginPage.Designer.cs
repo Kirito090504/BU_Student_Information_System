@@ -91,7 +91,7 @@
             // 
             this.showPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.showPass.Image = ((System.Drawing.Image)(resources.GetObject("showPass.Image")));
-            this.showPass.Location = new System.Drawing.Point(267, 214);
+            this.showPass.Location = new System.Drawing.Point(262, 214);
             this.showPass.Name = "showPass";
             this.showPass.Size = new System.Drawing.Size(27, 27);
             this.showPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +103,7 @@
             // 
             this.hidePass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.hidePass.Image = ((System.Drawing.Image)(resources.GetObject("hidePass.Image")));
-            this.hidePass.Location = new System.Drawing.Point(267, 214);
+            this.hidePass.Location = new System.Drawing.Point(262, 214);
             this.hidePass.Name = "hidePass";
             this.hidePass.Size = new System.Drawing.Size(27, 27);
             this.hidePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,11 +135,11 @@
             // loginBtn
             // 
             this.loginBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loginBtn.BackColor = System.Drawing.Color.RosyBrown;
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(101)))), ((int)(((byte)(170)))));
             this.loginBtn.FlatAppearance.BorderSize = 0;
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.ForeColor = System.Drawing.Color.Black;
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
             this.loginBtn.Location = new System.Drawing.Point(92, 285);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(168, 35);
