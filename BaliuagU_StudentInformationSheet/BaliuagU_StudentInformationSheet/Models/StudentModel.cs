@@ -14,7 +14,7 @@ namespace StudentInformationSheet.Models
     {
         public static readonly char[] allowed_username_chars = new char[] { '-', '_', '.' };
 
-        public int student_number { get; }
+        public string student_number { get; }
         public StudentName name { get; set; }
         public Image? photo { get; set; }
 
@@ -25,7 +25,7 @@ namespace StudentInformationSheet.Models
         public StudentAcademicHistory academic_history { get; set; }
 
         public StudentModel(
-            int student_number,
+            string student_number,
             StudentName name,
             StudentPersonalInformation info,
             StudentContactInformation contact,
@@ -49,5 +49,6 @@ namespace StudentInformationSheet.Models
         {
             //TO DO
         }
+
     }
 }

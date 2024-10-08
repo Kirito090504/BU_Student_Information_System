@@ -9,7 +9,7 @@ namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
 {
     internal class StudentPersonalInformation
     {
-        public int gender;
+        public string gender;
 
         public DateTime birth_date;
         public string? birth_address;
@@ -19,7 +19,7 @@ namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
         public string? religion;
 
         public StudentPersonalInformation(
-            int gender,
+            string gender,
             DateTime birth_date,
             string? birth_address,
             string nationality,

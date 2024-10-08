@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BaliuagU_StudentInformationSheet.Handlers;
 using BaliuagU_StudentInformationSheet.Models;
 using MySql.Data.MySqlClient;
+using StudentInformationSheet.Models;
 
 namespace BaliuagU_StudentInformationSheet
 {
@@ -192,6 +193,85 @@ namespace BaliuagU_StudentInformationSheet
                                     full_name: reader.IsDBNull(reader.GetOrdinal("full_name"))
                                         ? null
                                         : reader.GetString("full_name")
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+            return users;
+        }
+
+        public List<StudentModel> GetStudents()
+        {
+            List<StudentModel> users = new List<StudentModel>();
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM students";
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            users.Add(
+                                new StudentModel(
+                                    student_number: reader.GetString("student_number"),
+                                    name: new Models.StudentSubModels.StudentName(
+                                        first: reader.GetString("name_first"),
+                                        middle: reader.IsDBNull(reader.GetOrdinal("name_middle"))
+                                            ? null
+                                            : reader.GetString("name_middle"),
+                                        last: reader.GetString("name_last")
+                                        ),
+                                    info: new Models.StudentSubModels.StudentPersonalInformation(
+                                        gender: reader.GetString("gender"),
+                                        birth_date: reader.GetDateTime("birth_date"),
+                                        birth_address: reader.GetString("birth_address"),
+                                        nationality: reader.GetString("nationality"),
+                                        citizenship: reader.GetString("citizenship"),
+                                        religion: reader.GetString("religion")
+                                        ),
+                                    contact: new Models.StudentSubModels.StudentContactInformation(
+                                        contact_number: reader.GetString("contact_number"),
+                                        email_address: reader.GetString("email_address")
+                                        ),
+                                    address: new Models.StudentSubModels.StudentAddressInformation(
+                                        present_line1: reader.GetString("present_line1"),
+                                        present_line2: reader.GetString("present_line2"),
+                                        present_zip_code: reader.GetInt32("present_zip_code"),
+                                        permanent_line1: reader.GetString("permanent_line1"),
+                                        permanent_line2: reader.GetString("permanent_line2"),
+                                        permanent_zip_code: reader.GetInt32("permanent_zip_code")
+                                        ),
+                                    family: new Models.StudentSubModels.StudentFamilyInformation(
+                                        mother: new Models.StudentSubModels.GuardianAngel(
+                                            name: reader.GetString("mother_name"),
+                                            occupation: reader.GetString("mother_occupation"),
+                                            contact_number: reader.GetString("mother_contact_number"),
+                                            address: reader.GetString("mother_address")
+                                            ),
+                                        father: new Models.StudentSubModels.GuardianAngel(
+                                            name: reader.GetString("father_name"),
+                                            occupation: reader.GetString("father_occupation"),
+                                            contact_number: reader.GetString("father_contact_number"),
+                                            address: reader.GetString("father_address")
+                                            ),
+                                        guardian: new Models.StudentSubModels.GuardianAngel(
+                                            name: reader.GetString("guardian_name"),
+                                            occupation: reader.GetString("guardian_occupation"),
+                                            contact_number: reader.GetString("guardian_contact_number"),
+                                            address: reader.GetString("guardian_address")
+                                            )
+                                        ),
+                                    academic_history: new Models.StudentSubModels.StudentAcademicHistory(
+                                        last_school_attended: reader.GetString("last_school_attended"),
+                                        last_school_attended_year: reader.GetInt32("last_school_attended_year"),
+                                        secondary_school: reader.GetString("secondary_school"),
+                                        secondary_school_year: reader.GetInt32("last_school_attended"),
+                                        awards_received: reader.GetString("awards_received")
+                                        )
                                 )
                             );
                         }
