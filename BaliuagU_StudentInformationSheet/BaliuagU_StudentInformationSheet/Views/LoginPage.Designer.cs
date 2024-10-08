@@ -184,6 +184,7 @@
             this.txtPassword.Text = "Enter password";
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // txtUsername
@@ -199,6 +200,7 @@
             this.txtUsername.TabIndex = 2;
             this.txtUsername.Text = "Enter username";
             this.txtUsername.Enter += new System.EventHandler(this.textUsername_Enter);
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             this.txtUsername.Leave += new System.EventHandler(this.textUsername_Leave);
             // 
             // label1

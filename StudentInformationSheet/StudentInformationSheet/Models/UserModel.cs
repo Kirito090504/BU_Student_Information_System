@@ -1,25 +1,28 @@
 ﻿#nullable enable
-using StudentInformationSheet.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentInformationSheet.Handlers;
 
 namespace StudentInformationSheet.Models
 {
     internal class UserModel
     {
-        public static readonly char[] allowed_username_chars = new char[] { '-','_','.' };
+        public static readonly char[] ALLOWED_USERNAME_CHARS = new char[] { '-', '_', '.' };
+        public static readonly int PROFILE_PICTURE_MAX_SIZE = 1024 * 1024 * 5; // 5MB
+
         public enum Privilege
         {
             User = 1,
-            Admin = 2
+            Admin = 2,
         }
 
         public int user_id { get; }
-        public string username {
+        public string username
+        {
             get { return this._username; }
             set
             {
@@ -38,15 +41,17 @@ namespace StudentInformationSheet.Models
 
         public UserModel(
             int user_id,
-            string username, 
-            string userpass, 
-            Privilege privilege, 
-            string? full_name = null, 
+            string username,
+            string userpass,
+            Privilege privilege,
+            string? full_name = null,
             Image? photo = null
         )
         {
             this.user_id = user_id;
-            this._username = ValidateUsername(username) ? username : throw new ArgumentException("Invalid username");
+            this._username = ValidateUsername(username)
+                ? username
+                : throw new ArgumentException("Invalid username");
             this.userpass = userpass;
             this.privilege = privilege;
             this.full_name = full_name;
@@ -56,9 +61,11 @@ namespace StudentInformationSheet.Models
         public static bool ValidateUsername(string username)
         {
             return !(
-                username.Length < 1 || !username.All(
-                    (char c) => {
-                        return char.IsLetterOrDigit(c) || allowed_username_chars.Contains(c);
+                username.Length < 1
+                || !username.All(
+                    (char c) =>
+                    {
+                        return char.IsLetterOrDigit(c) || ALLOWED_USERNAME_CHARS.Contains(c);
                     }
                 )
             );

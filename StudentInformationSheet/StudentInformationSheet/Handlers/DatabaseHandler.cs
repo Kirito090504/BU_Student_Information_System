@@ -1,13 +1,15 @@
 ﻿#nullable enable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using StudentInformationSheet.Models;
 using StudentInformationSheet.Handlers;
-using System.ComponentModel;
+using StudentInformationSheet.Models;
 
 namespace StudentInformationSheet
 {
@@ -55,7 +57,8 @@ namespace StudentInformationSheet
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT user_id FROM users WHERE username = @username AND userpass = @userpass";
+                    command.CommandText =
+                        "SELECT user_id FROM users WHERE username = @username AND userpass = @userpass";
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@userpass", password);
 
@@ -84,16 +87,25 @@ namespace StudentInformationSheet
                     command.Parameters.AddWithValue("@user_id", id);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
+                    {
                         if (reader.Read())
-                            return new UserModel
-                            (
+                        {
+                            return new UserModel(
                                 user_id: reader.GetInt32("user_id"),
                                 username: reader.GetString("username"),
                                 userpass: reader.GetString("userpass"),
                                 privilege: (UserModel.Privilege)reader.GetInt32("privilege"),
-                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name")) ? null : reader.GetString("full_name"),
-                                photo: reader.IsDBNull(reader.GetOrdinal("photo")) ? null : ImageHandler.DecodeImage(reader.GetString("photo"))
+                                full_name: reader.IsDBNull(reader.GetOrdinal("full_name"))
+                                    ? null
+                                    : reader.GetString("full_name"),
+                                photo: reader.IsDBNull(reader.GetOrdinal("photo"))
+                                    ? null
+                                    : ImageHandler.DecodeImage(
+                                        reader.GetFieldValue<byte[]>(reader.GetOrdinal("photo"))
+                                    )
                             );
+                        }
+                    }
                 }
             }
             return null;
@@ -106,14 +118,21 @@ namespace StudentInformationSheet
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "INSERT INTO " +
-                        "users (username, userpass, privilege, full_name, photo) " +
-                        "VALUES (@username, @userpass, @privilege, @full_name, @photo)";
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "users (username, userpass, privilege, full_name, photo) "
+                        + "VALUES (@username, @userpass, @privilege, @full_name, @photo)";
                     command.Parameters.AddWithValue("@username", user.username);
-                    command.Parameters.AddWithValue("@userpass", PasswordHandler.SHA256(user.userpass));
+                    command.Parameters.AddWithValue(
+                        "@userpass",
+                        PasswordHandler.SHA256(user.userpass)
+                    );
                     command.Parameters.AddWithValue("@privilege", (int)user.privilege);
                     command.Parameters.AddWithValue("@full_name", user.full_name);
-                    command.Parameters.AddWithValue("@photo", user.photo == null ? null : ImageHandler.EncodeImage(user.photo));
+                    command.Parameters.AddWithValue(
+                        "@photo",
+                        user.photo == null ? null : ImageHandler.EncodeImage(user.photo)
+                    );
 
                     if (command.ExecuteNonQuery() != 1)
                         throw new Exception("Failed to add user.");

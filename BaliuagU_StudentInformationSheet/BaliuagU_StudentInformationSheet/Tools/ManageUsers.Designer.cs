@@ -42,10 +42,10 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
@@ -83,6 +83,7 @@
             this.clearBtn.TabIndex = 8;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // updateBtn
             // 
@@ -96,6 +97,7 @@
             this.updateBtn.TabIndex = 6;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // deleteBtn
             // 
@@ -109,6 +111,7 @@
             this.deleteBtn.TabIndex = 7;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // addBtn
             // 
@@ -122,11 +125,16 @@
             this.addBtn.TabIndex = 5;
             this.addBtn.Text = " Add";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // cboRole
             // 
+            this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRole.FormattingEnabled = true;
+            this.cboRole.Items.AddRange(new object[] {
+            "Admin",
+            "Super Admin"});
             this.cboRole.Location = new System.Drawing.Point(27, 136);
             this.cboRole.Name = "cboRole";
             this.cboRole.Size = new System.Drawing.Size(219, 26);
@@ -135,10 +143,13 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
             this.txtPassword.Location = new System.Drawing.Point(27, 266);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(219, 24);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // label4
             // 
@@ -212,6 +223,17 @@
             this.panel2.Size = new System.Drawing.Size(380, 499);
             this.panel2.TabIndex = 1;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(21, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "All Admin Accounts";
+            // 
             // searchBtn
             // 
             this.searchBtn.AutoSize = true;
@@ -230,25 +252,19 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(270, 24);
             this.txtSearch.TabIndex = 9;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // dataGridViewUsers
             // 
+            this.dataGridViewUsers.AllowUserToAddRows = false;
+            this.dataGridViewUsers.AllowUserToDeleteRows = false;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.Location = new System.Drawing.Point(25, 96);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.Size = new System.Drawing.Size(332, 374);
             this.dataGridViewUsers.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(21, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "All Admin Accounts";
+            this.dataGridViewUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellDoubleClick);
             // 
             // ManageUsers
             // 

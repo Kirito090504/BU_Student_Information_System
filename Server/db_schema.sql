@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 03, 2024 at 04:57 PM
+-- Generation Time: Oct 07, 2024 at 08:19 PM
 -- Server version: 9.0.1
 -- PHP Version: 8.2.24
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -27,12 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `academic_history` (
-  `id` varchar(10) NOT NULL,
-  `last_school_attended` text COMMENT 'The last school the student attended to.',
+  `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `last_school_attended` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The last school the student attended to.',
   `last_school_attended_year` year DEFAULT NULL COMMENT 'The year the student last attended their previous school.',
-  `secondary_school` text COMMENT 'The name of the students secondary school.',
+  `secondary_school` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The name of the students secondary school.',
   `secondary_school_year` year DEFAULT NULL COMMENT 'The year the student last attended their secondary school.',
-  `awards_received` text COMMENT 'JSON list containing honors/awards received by the student.'
+  `awards_received` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'JSON list containing honors/awards received by the student.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'Information about the students academic history.';
 -- --------------------------------------------------------
 --
@@ -40,9 +40,9 @@ CREATE TABLE `academic_history` (
 --
 
 CREATE TABLE `contact_information` (
-  `id` varchar(10) NOT NULL,
-  `contact_number` varchar(16) DEFAULT NULL COMMENT 'The students contact number with country code.',
-  `email_address` text COMMENT 'The students email address.'
+  `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The students contact number with country code.',
+  `email_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The students email address.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'Students contact information';
 -- --------------------------------------------------------
 --
@@ -50,10 +50,10 @@ CREATE TABLE `contact_information` (
 --
 
 CREATE TABLE `permanent_addresses` (
-  `id` varchar(10) NOT NULL,
-  `line1` text COMMENT 'No./Street/Barangay',
-  `city` int NOT NULL COMMENT 'The city of the students permanent address.',
-  `province` int NOT NULL COMMENT 'The province of the students permanent address.'
+  `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `line1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'No./Street/Barangay',
+  `line2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The city and province of the students permanent address.',
+  `zip_code` int NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The permanent addresses of the students.';
 -- --------------------------------------------------------
 --
@@ -61,9 +61,9 @@ CREATE TABLE `permanent_addresses` (
 --
 
 CREATE TABLE `personalities` (
-  `id` varchar(10) NOT NULL,
-  `hobbies` text COMMENT 'JSON list containing the students hobbies.',
-  `skills` text COMMENT 'JSON list containing students talents/skills.'
+  `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `hobbies` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'JSON list containing the students hobbies.',
+  `skills` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'JSON list containing students talents/skills.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing the students personalities.';
 -- --------------------------------------------------------
 --
@@ -71,10 +71,10 @@ CREATE TABLE `personalities` (
 --
 
 CREATE TABLE `present_addresses` (
-  `id` varchar(10) NOT NULL,
-  `line1` text COMMENT 'No./Street/Barangay',
-  `city` int NOT NULL COMMENT 'The city of the students present address.',
-  `province` int NOT NULL COMMENT 'The province of the students present address.'
+  `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `line1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'No./Street/Barangay',
+  `line2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The city and province of the students permanent address.',
+  `zip_code` int NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The present addresses of the students.';
 -- --------------------------------------------------------
 --
@@ -82,17 +82,17 @@ CREATE TABLE `present_addresses` (
 --
 
 CREATE TABLE `students` (
-  `student_number` varchar(10) NOT NULL COMMENT 'The student number of the student in the form of XXX-XXXX.',
-  `name_first` text NOT NULL COMMENT 'The first name of the student.',
-  `name_middle` text COMMENT 'The middle name of the user.',
-  `name_last` text NOT NULL COMMENT 'The last name of the user.',
-  `photo` blob COMMENT 'The image data of the students photo.',
-  `gender` int NOT NULL COMMENT 'The gender of the student.',
+  `student_number` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The student number of the student in the form of XXX-XXXX.',
+  `name_first` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The first name of the student.',
+  `name_middle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The middle name of the user.',
+  `name_last` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The last name of the user.',
+  `photo` mediumblob COMMENT 'The image data of the students photo.',
+  `gender` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The gender of the student.',
   `birth_date` date NOT NULL COMMENT 'The birth date of the student.',
-  `birth_address` text COMMENT 'The address where the student was born.',
-  `nationality` int NOT NULL COMMENT 'The students nationality.',
-  `citizenship` int NOT NULL COMMENT 'The legal citizenship of the student.',
-  `religion` int DEFAULT NULL COMMENT 'The religion of the student.'
+  `birth_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The address where the student was born.',
+  `nationality` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The students nationality.',
+  `citizenship` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The legal citizenship of the student.',
+  `religion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The religion of the student.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The table containing students personal information.';
 -- --------------------------------------------------------
 --
@@ -100,19 +100,19 @@ CREATE TABLE `students` (
 --
 
 CREATE TABLE `student_family` (
-  `id` varchar(10) NOT NULL,
-  `mother_name` varchar(128) DEFAULT NULL COMMENT 'The mothers full name.',
-  `mother_occupation` text COMMENT 'The mothers occupation.',
-  `mother_contact_number` varchar(16) DEFAULT NULL COMMENT 'The mothers contact number with country code.',
-  `mother_address` text COMMENT 'The mothers address.',
-  `father_name` varchar(128) DEFAULT NULL COMMENT 'The fathers full name.',
-  `father_occupation` text COMMENT 'The fathers occupation.',
-  `father_contact_number` varchar(16) DEFAULT NULL COMMENT 'The fathers contact number with country code.',
-  `father_address` text COMMENT 'The fathers address.',
-  `guardian_name` varchar(128) DEFAULT NULL COMMENT 'The guardians full name.',
-  `guardian_occupation` text COMMENT 'The guardians occupation.',
-  `guardian_contact_number` varchar(16) DEFAULT NULL COMMENT 'The guardians contact number with country code.',
-  `guardian_address` text COMMENT 'The guardians address.'
+  `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `mother_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The mothers full name.',
+  `mother_occupation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The mothers occupation.',
+  `mother_contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The mothers contact number with country code.',
+  `mother_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The mothers address.',
+  `father_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The fathers full name.',
+  `father_occupation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The fathers occupation.',
+  `father_contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The fathers contact number with country code.',
+  `father_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The fathers address.',
+  `guardian_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The guardians full name.',
+  `guardian_occupation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The guardians occupation.',
+  `guardian_contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The guardians contact number with country code.',
+  `guardian_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The guardians address.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing the students mother, father, and guardian.';
 -- --------------------------------------------------------
 --
@@ -121,11 +121,10 @@ CREATE TABLE `student_family` (
 
 CREATE TABLE `users` (
   `user_id` int NOT NULL,
-  `username` varchar(32) NOT NULL COMMENT 'The username of the user.',
-  `userpass` varchar(256) NOT NULL COMMENT 'SHA-256 hashed user password.',
+  `username` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The username of the user.',
+  `userpass` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'SHA-256 hashed user password.',
   `privilege` int NOT NULL DEFAULT '1' COMMENT 'The privilege level of the user.',
-  `full_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The full name of the user.',
-  `photo` text COMMENT 'The image of the user.'
+  `full_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The full name of the user.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing records of authorized users of the system.';
 --
 -- Dumping data for table `users`
@@ -136,16 +135,14 @@ INSERT INTO `users` (
     `username`,
     `userpass`,
     `privilege`,
-    `full_name`,
-    `photo`
+    `full_name`
   )
 VALUES (
     1,
     'bu_admin',
     'd24560aa8c38adb31c57edeaa556c1fc82550b3c158968b2c4299a4e31302ef2',
     2,
-    NULL,
-    NULL
+    ''
   );
 --
 -- Indexes for dumped tables
@@ -201,7 +198,7 @@ ADD PRIMARY KEY (`user_id`),
 --
 ALTER TABLE `users`
 MODIFY `user_id` int NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 5;
+  AUTO_INCREMENT = 2;
 --
 -- Constraints for dumped tables
 --
