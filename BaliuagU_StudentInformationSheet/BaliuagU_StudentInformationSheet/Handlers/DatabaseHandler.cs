@@ -1063,5 +1063,22 @@ namespace BaliuagU_StudentInformationSheet
                 }
             }
         }
+
+        public int GetUsersQuantity(bool super_admin_only = false)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    if (super_admin_only)
+                        command.CommandText = "SELECT COUNT(*) FROM users WHERE privilege = 2";
+                    else
+                        command.CommandText = "SELECT COUNT(*) FROM users";
+
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+        }
     }
 }

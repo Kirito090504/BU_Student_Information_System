@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaliuagU_StudentInformationSheet.Handlers;
 using BaliuagU_StudentInformationSheet.Models;
+using BaliuagU_StudentInformationSheet.Views;
 using MySql.Data.MySqlClient;
 
 namespace BaliuagU_StudentInformationSheet.Tools
@@ -17,11 +18,17 @@ namespace BaliuagU_StudentInformationSheet.Tools
     public partial class ManageUsers : UserControl
     {
         private DatabaseHandler db_handler = new DatabaseHandler();
+        private UserModel? current_user;
         private UserModel? active_user = null;
 
         public ManageUsers()
         {
             InitializeComponent();
+        }
+
+        public void SetCurrentUser(UserModel user)
+        {
+            this.current_user = user;
         }
 
         private void ManageUsers_Load(object sender, EventArgs e)
@@ -208,13 +215,31 @@ namespace BaliuagU_StudentInformationSheet.Tools
                 );
                 return;
             }
-            db_handler.DeleteUser(active_user.user_id);
+            if (db_handler.GetUsersQuantity(true) == 1 && active_user.privilege == UserModel.Privilege.Admin)
+            {
+                MessageBox.Show(
+                    "You cannot delete the last super admin user. Please add another super admin before deleting this one.",
+                    "Cannot Delete Last Super Admin",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation
+                );
+                return;
+            }
 
-            active_user = null;
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            txtName.Text = "";
-            cboRole.SelectedIndex = -1;
+            if (active_user.user_id == (current_user == null ? 0 : current_user.user_id))
+            {
+                if (
+                    MessageBox.Show(
+                        "You will be logged out if you proceed to delete your own account. Are you sure?",
+                        "Delete Own Account",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    ) == DialogResult.No
+                )
+                    return;
+            }
+
+            db_handler.DeleteUser(active_user.user_id);
 
             MessageBox.Show(
                 "The user has been successfully deleted.",
@@ -222,6 +247,20 @@ namespace BaliuagU_StudentInformationSheet.Tools
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+
+            if (active_user.user_id == (current_user == null ? 0 : current_user.user_id))
+            {
+                var login_form = new LoginPage();
+                login_form.Closed += (s, args) => this.ParentForm.Close();
+                this.ParentForm.Visible = false;
+                login_form.Show();
+            }
+
+            active_user = null;
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            txtName.Text = "";
+            cboRole.SelectedIndex = -1;
 
             UpdateUsersList();
             txtUsername.Focus();

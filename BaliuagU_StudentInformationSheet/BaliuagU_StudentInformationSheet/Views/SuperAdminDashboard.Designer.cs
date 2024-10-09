@@ -176,6 +176,7 @@
             this.lblName.Size = new System.Drawing.Size(44, 16);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 

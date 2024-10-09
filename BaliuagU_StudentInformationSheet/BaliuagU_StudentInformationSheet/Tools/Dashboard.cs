@@ -41,6 +41,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
         {
             var studentSheet = new StudentSheet();
             studentSheet.ShowDialog();
+            UpdateStudentsList();
         }
 
         public void UpdateStudentsList(string? filter_query = null)
@@ -131,6 +132,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
                 );
                 return;
             }
+            UpdateStudentsList();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)

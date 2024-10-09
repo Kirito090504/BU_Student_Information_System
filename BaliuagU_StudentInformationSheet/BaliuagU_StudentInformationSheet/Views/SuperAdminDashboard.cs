@@ -33,10 +33,10 @@ namespace BaliuagU_StudentInformationSheet.Views
 
             if (result == DialogResult.Yes)
             {
-                this.Hide();
-
-                LoginPage loginForm = new LoginPage();
-                loginForm.Show();
+                var login_form = new LoginPage();
+                login_form.Closed += (s, args) => this.Close();
+                this.Visible = false;
+                login_form.Show();
             }
         }
 
@@ -47,6 +47,7 @@ namespace BaliuagU_StudentInformationSheet.Views
             profileSuperAdmin1.Visible = false;
 
             lblName.Text = user.username;
+            manageUsers1.SetCurrentUser(user);
         }
 
         private void dashboardBtn_Click(object sender, EventArgs e)
@@ -54,6 +55,7 @@ namespace BaliuagU_StudentInformationSheet.Views
             dashboard1.Visible = true;
             manageUsers1.Visible = false;
             profileSuperAdmin1.Visible = false;
+            dashboard1.UpdateStudentsList();
         }
 
         private void manageUsersBtn_Click(object sender, EventArgs e)
@@ -62,6 +64,7 @@ namespace BaliuagU_StudentInformationSheet.Views
             manageUsers1.Visible = true;
             profileSuperAdmin1.Visible = false;
             manageUsers1.UpdateUsersList();
+            lblName.Text = user.username;
         }
 
         private void accountSettingsBtn_Click(object sender, EventArgs e)
