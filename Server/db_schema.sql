@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 07, 2024 at 08:19 PM
+-- Generation Time: Oct 09, 2024 at 09:00 AM
 -- Server version: 9.0.1
 -- PHP Version: 8.2.24
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -41,7 +41,7 @@ CREATE TABLE `academic_history` (
 
 CREATE TABLE `contact_information` (
   `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The students contact number with country code.',
+  `contact_number` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The students contact number with country code.',
   `email_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The students email address.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'Students contact information';
 -- --------------------------------------------------------
@@ -90,8 +90,8 @@ CREATE TABLE `students` (
   `gender` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The gender of the student.',
   `birth_date` date NOT NULL COMMENT 'The birth date of the student.',
   `birth_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The address where the student was born.',
-  `nationality` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The students nationality.',
-  `citizenship` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The legal citizenship of the student.',
+  `nationality` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The students nationality.',
+  `citizenship` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The legal citizenship of the student.',
   `religion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The religion of the student.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The table containing students personal information.';
 -- --------------------------------------------------------
@@ -103,15 +103,15 @@ CREATE TABLE `student_family` (
   `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `mother_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The mothers full name.',
   `mother_occupation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The mothers occupation.',
-  `mother_contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The mothers contact number with country code.',
+  `mother_contact_number` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The mothers contact number with country code.',
   `mother_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The mothers address.',
   `father_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The fathers full name.',
   `father_occupation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The fathers occupation.',
-  `father_contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The fathers contact number with country code.',
+  `father_contact_number` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The fathers contact number with country code.',
   `father_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The fathers address.',
   `guardian_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The guardians full name.',
   `guardian_occupation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The guardians occupation.',
-  `guardian_contact_number` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The guardians contact number with country code.',
+  `guardian_contact_number` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The guardians contact number with country code.',
   `guardian_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The guardians address.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing the students mother, father, and guardian.';
 -- --------------------------------------------------------
