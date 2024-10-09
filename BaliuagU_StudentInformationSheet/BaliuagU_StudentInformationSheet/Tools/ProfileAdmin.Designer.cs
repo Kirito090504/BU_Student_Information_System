@@ -87,8 +87,13 @@
             // 
             // cboRole
             // 
+            this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRole.Enabled = false;
             this.cboRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRole.FormattingEnabled = true;
+            this.cboRole.Items.AddRange(new object[] {
+            "Admin",
+            "Super Admin"});
             this.cboRole.Location = new System.Drawing.Point(75, 181);
             this.cboRole.Name = "cboRole";
             this.cboRole.Size = new System.Drawing.Size(219, 26);
@@ -107,16 +112,20 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.Enabled = false;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
             this.txtPassword.Location = new System.Drawing.Point(75, 311);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(219, 24);
             this.txtPassword.TabIndex = 12;
+            this.txtPassword.Text = "(unchanged)";
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // txtName
             // 
+            this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(75, 119);
             this.txtName.Name = "txtName";
@@ -147,6 +156,7 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.Enabled = false;
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(75, 243);
             this.txtUsername.Name = "txtUsername";

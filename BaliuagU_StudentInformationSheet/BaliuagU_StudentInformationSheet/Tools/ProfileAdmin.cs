@@ -1,4 +1,5 @@
-﻿using BaliuagU_StudentInformationSheet.Models;
+﻿using BaliuagU_StudentInformationSheet.Handlers;
+using BaliuagU_StudentInformationSheet.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +46,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     if (txtPassword.Text != "(unchanged)")
                     {
                         if (UserModel.ValidatePassword(txtPassword.Text))
-                            user.userpass = txtPassword.Text;
+                            user.userpass = PasswordHandler.SHA256(txtPassword.Text);
                         else
                             throw new Exception("You have entered an invalid password!");
                     }

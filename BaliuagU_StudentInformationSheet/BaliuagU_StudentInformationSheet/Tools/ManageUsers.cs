@@ -115,7 +115,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
                 return;
             }
 
-            if (!UserModel.ValidatePassword(txtPassword.Text))
+            if (!UserModel.ValidatePassword(txtPassword.Text) || (txtPassword.ForeColor == Color.DimGray && txtPassword.Text == "(unchanged)"))
             {
                 MessageBox.Show(
                     "The password that you have entered is invalid. The password must be at least 8 characters long.",
@@ -132,7 +132,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     new UserModel(
                         user_id: -1, // this is ignored by the database handler anyway.
                         username: txtUsername.Text,
-                        userpass: txtPassword.Text,
+                        userpass: PasswordHandler.SHA256(txtPassword.Text),
                         privilege: user_privilege,
                         full_name: user_full_name
                     )
@@ -169,6 +169,8 @@ namespace BaliuagU_StudentInformationSheet.Tools
                 txtUsername.Text = active_user.username;
                 //txtPassword.Text = user.userpass;
                 txtPassword.Text = "(unchanged)";
+                txtPassword.ForeColor = Color.DimGray;
+                txtPassword.UseSystemPasswordChar = false;
                 txtName.Text = active_user.full_name;
                 cboRole.SelectedIndex = (int)active_user.privilege - 1;
             }
@@ -281,7 +283,18 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     return;
                 }
                 active_user.username = txtUsername.Text;
-                active_user.userpass = txtPassword.Text;
+                if (!UserModel.ValidatePassword(txtPassword.Text) || (txtPassword.ForeColor == Color.DimGray && txtPassword.Text == "(unchanged)"))
+                {
+                    MessageBox.Show(
+                        "The password that you have entered is invalid. The password must be at least 8 characters long.",
+                        "Invalid Password",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation
+                    );
+                    return;
+                }
+
+                active_user.userpass = PasswordHandler.SHA256(txtPassword.Text);
                 active_user.full_name = txtName.Text;
                 active_user.privilege =
                     cboRole.SelectedIndex == 0

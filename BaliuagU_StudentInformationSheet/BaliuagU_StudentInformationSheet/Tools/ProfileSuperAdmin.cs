@@ -66,7 +66,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     if (txtPassword.Text != "(unchanged)")
                     {
                         if (UserModel.ValidatePassword(txtPassword.Text))
-                            user.userpass = txtPassword.Text;
+                            user.userpass = PasswordHandler.SHA256(txtPassword.Text);
                         else
                             throw new Exception("You have entered an invalid password!");
                     }
