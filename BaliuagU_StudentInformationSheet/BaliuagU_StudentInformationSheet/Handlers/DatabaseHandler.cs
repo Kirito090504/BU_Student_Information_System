@@ -786,7 +786,8 @@ namespace BaliuagU_StudentInformationSheet
                         + "name_first = @name_first, name_middle = @name_middle, name_last = @name_last, "
                         + "photo = @photo, "
                         + "gender = @gender, birth_date = @birth_date, birth_address = @birth_address, "
-                        + "nationality = @nationality, citizenship = @citizenship, religion = @religion ";
+                        + "nationality = @nationality, citizenship = @citizenship, religion = @religion "
+                        + "WHERE student_number = @student_number";
 
                     command.Parameters.AddWithValue("@student_number", student.student_number);
                     command.Parameters.AddWithValue("@name_first", student.name.first);
@@ -902,6 +903,16 @@ namespace BaliuagU_StudentInformationSheet
                         command.Parameters.AddWithValue("@guardian_contact_number", student.family.guardian.contact_number);
                         command.Parameters.AddWithValue("@guardian_address", student.family.guardian.address);
                     }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@guardian_name", DBNull.Value);
+                        command.Parameters.AddWithValue("@guardian_occupation", DBNull.Value);
+                        command.Parameters.AddWithValue("@guardian_contact_number", DBNull.Value);
+                        command.Parameters.AddWithValue("@guardian_address", DBNull.Value);
+                    }
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update student family information.");
                 }
 
                 // Update data in `academic_history` table
