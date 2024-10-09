@@ -739,7 +739,161 @@ namespace BaliuagU_StudentInformationSheet
                 // Update data in `students` table
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    // TODO
+                    command.CommandText = "UPDATE students SET "
+                        + "name_first = @name_first, name_middle = @name_middle, name_last = @name_last, "
+                        + "photo = @photo, "
+                        + "gender = @gender, birth_date = @birth_date, birth_address = @birth_address, "
+                        + "nationality = @nationality, citizenship = @citizenship, religion = @religion ";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+                    command.Parameters.AddWithValue("@name_first", student.name.first);
+                    command.Parameters.AddWithValue("@name_middle", student.name.middle);
+                    command.Parameters.AddWithValue("@name_last", student.name.last);
+                    command.Parameters.AddWithValue("@photo", ImageHandler.EncodeImage(student.photo));
+                    command.Parameters.AddWithValue("@gender", student.info.gender);
+                    command.Parameters.AddWithValue("@birth_date", student.info.birth_date);
+                    command.Parameters.AddWithValue("@birth_address", student.info.birth_address);
+                    command.Parameters.AddWithValue("@nationality", student.info.nationality);
+                    command.Parameters.AddWithValue("@citizenship", student.info.citizenship);
+                    command.Parameters.AddWithValue("@religion", student.info.religion);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update student.");
+                }
+
+                // Update data in `contact_information` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE contact_information SET "
+                        + "contact_number = @contact_number, email_address = @email_address "
+                        + "WHERE id = @student_number";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+                    command.Parameters.AddWithValue("@contact_number", student.contact.contact_number);
+                    command.Parameters.AddWithValue("@email_address", student.contact.email_address);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update student contact information.");
+                }
+
+                // Update data in `present_addresses` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE present_addresses SET "
+                        + "line1 = @line1, line2 = @line2, zip_code = @zip_code "
+                        + "WHERE id = @student_number";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+                    command.Parameters.AddWithValue("@line1", student.address.present_line1);
+                    command.Parameters.AddWithValue("@line2", student.address.present_line2);
+                    command.Parameters.AddWithValue("@zip_code", student.address.present_zip_code);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update student present address.");
+                }
+
+                // Update data in `permanent_addresses` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE permanent_addresses SET "
+                        + "line1 = @line1, line2 = @line2, zip_code = @zip_code "
+                        + "WHERE id = @student_number";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+                    command.Parameters.AddWithValue("@line1", student.address.permanent_line1);
+                    command.Parameters.AddWithValue("@line2", student.address.permanent_line2);
+                    command.Parameters.AddWithValue("@zip_code", student.address.permanent_zip_code);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update student permanent address.");
+                }
+
+                // Update data in `student_family` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE student_family SET "
+                        + "mother_name = @mother_name, mother_occupation = @mother_occupation, "
+                        + "mother_contact_number = @mother_contact_number, mother_address = @mother_address, "
+                        + "father_name = @father_name, father_occupation = @father_occupation, "
+                        + "father_contact_number = @father_contact_number, father_address = @father_address, "
+                        + "guardian_name = @guardian_name, guardian_occupation = @guardian_occupation, "
+                        + "guardian_contact_number = @guardian_contact_number, guardian_address = @guardian_address "
+                        + "WHERE id = @student_number";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+
+                    if (student.family.mother != null)
+                    {
+                        command.Parameters.AddWithValue("@mother_name", student.family.mother.name);
+                        command.Parameters.AddWithValue("@mother_occupation", student.family.mother.occupation);
+                        command.Parameters.AddWithValue("@mother_contact_number", student.family.mother.contact_number);
+                        command.Parameters.AddWithValue("@mother_address", student.family.mother.address);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@mother_name", DBNull.Value);
+                        command.Parameters.AddWithValue("@mother_occupation", DBNull.Value);
+                        command.Parameters.AddWithValue("@mother_contact_number", DBNull.Value);
+                        command.Parameters.AddWithValue("@mother_address", DBNull.Value);
+                    }
+
+                    if (student.family.father != null)
+                    {
+                        command.Parameters.AddWithValue("@father_name", student.family.father.name);
+                        command.Parameters.AddWithValue("@father_occupation", student.family.father.occupation);
+                        command.Parameters.AddWithValue("@father_contact_number", student.family.father.contact_number);
+                        command.Parameters.AddWithValue("@father_address", student.family.father.address);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@father_name", DBNull.Value);
+                        command.Parameters.AddWithValue("@father_occupation", DBNull.Value);
+                        command.Parameters.AddWithValue("@father_contact_number", DBNull.Value);
+                        command.Parameters.AddWithValue("@father_address", DBNull.Value);
+                    }
+
+                    if (student.family.guardian != null)
+                    {
+                        command.Parameters.AddWithValue("@guardian_name", student.family.guardian.name);
+                        command.Parameters.AddWithValue("@guardian_occupation", student.family.guardian.occupation);
+                        command.Parameters.AddWithValue("@guardian_contact_number", student.family.guardian.contact_number);
+                        command.Parameters.AddWithValue("@guardian_address", student.family.guardian.address);
+                    }
+                }
+
+                // Update data in `academic_history` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE academic_history SET "
+                        + "last_school_attended = @last_school_attended, last_school_attended_year = @last_school_attended_year, "
+                        + "secondary_school = @secondary_school, secondary_school_year = @secondary_school_year, "
+                        + "awards_received = @awards_received "
+                        + "WHERE id = @student_number";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+                    command.Parameters.AddWithValue("@last_school_attended", student.academic_history.last_school_attended);
+                    command.Parameters.AddWithValue("@last_school_attended_year", student.academic_history.last_school_attended_year);
+                    command.Parameters.AddWithValue("@secondary_school", student.academic_history.secondary_school);
+                    command.Parameters.AddWithValue("@secondary_school_year", student.academic_history.secondary_school_year);
+                    command.Parameters.AddWithValue("@awards_received", student.academic_history.awards_received);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update student academic history.");
+                }
+
+                // Update data in `personalities` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE personalities SET "
+                        + "hobbies = @hobbies, skills = @skills "
+                        + "WHERE id = @student_number";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+                    command.Parameters.AddWithValue("@hobbies", student.personality.hobbies);
+                    command.Parameters.AddWithValue("@skills", student.personality.skills);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to update student personality.");
                 }
             }
         }
