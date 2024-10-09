@@ -20,8 +20,11 @@ namespace BaliuagU_StudentInformationSheet.Handlers
         {
             if (byte_arr == null)
                 return null;
-            using (MemoryStream ms = new MemoryStream(byte_arr))
-                return Image.FromStream(ms);
+
+            // Hoping that the garbage collector will clean up the MemoryStream
+            // after the image is disposed...
+            MemoryStream ms = new MemoryStream(byte_arr);
+            return Image.FromStream(ms);
         }
 
         /// <summary>
