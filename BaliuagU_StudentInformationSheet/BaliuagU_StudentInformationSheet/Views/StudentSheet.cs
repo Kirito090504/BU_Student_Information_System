@@ -1,17 +1,19 @@
 ﻿#nullable enable
-using BaliuagU_StudentInformationSheet.Models;
-using BaliuagU_StudentInformationSheet.Models.StudentSubModels;
-using BaliuagU_StudentInformationSheet.Properties;
-using StudentInformationSheet.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BaliuagU_StudentInformationSheet.Handlers;
+using BaliuagU_StudentInformationSheet.Models;
+using BaliuagU_StudentInformationSheet.Models.StudentSubModels;
+using BaliuagU_StudentInformationSheet.Properties;
+using StudentInformationSheet.Models;
 
 namespace BaliuagU_StudentInformationSheet.Views
 {
@@ -29,9 +31,12 @@ namespace BaliuagU_StudentInformationSheet.Views
         public void LoadStudent(StudentModel student)
         {
             this.active_student = student;
+            this.photo_changed = false;
 
             txtStudentNo.Text = student.student_number;
-            pictureBox.Image = student.photo;
+            pictureBox.Image = new Bitmap(
+                student.photo == null ? Resources.default_profile : student.photo
+            );
 
             txtFirstname.Text = student.name.first;
             txtMiddleName.Text = student.name.middle;
@@ -52,24 +57,38 @@ namespace BaliuagU_StudentInformationSheet.Views
             txtPermanentZipcode.Text = Convert.ToString(student.address.permanent_zip_code);
 
             txtMotherName.Text = student.family.mother == null ? "" : student.family.mother.name;
-            txtMotherOccupation.Text = student.family.mother == null ? "" : student.family.mother.occupation;
-            txtMotherContactNo.Text = student.family.mother == null ? "" : student.family.mother.contact_number;
-            txtMotherAddress.Text = student.family.mother == null ? "" : student.family.mother.address;
+            txtMotherOccupation.Text =
+                student.family.mother == null ? "" : student.family.mother.occupation;
+            txtMotherContactNo.Text =
+                student.family.mother == null ? "" : student.family.mother.contact_number;
+            txtMotherAddress.Text =
+                student.family.mother == null ? "" : student.family.mother.address;
 
             txtFatherName.Text = student.family.father == null ? "" : student.family.father.name;
-            txtFatherOccupation.Text = student.family.father == null ? "" : student.family.father.occupation;
-            txtFatherContactNo.Text = student.family.father == null ? "" : student.family.father.contact_number;
-            txtFatherAddress.Text = student.family.father == null ? "" : student.family.father.address;
+            txtFatherOccupation.Text =
+                student.family.father == null ? "" : student.family.father.occupation;
+            txtFatherContactNo.Text =
+                student.family.father == null ? "" : student.family.father.contact_number;
+            txtFatherAddress.Text =
+                student.family.father == null ? "" : student.family.father.address;
 
-            txtGuardianName.Text = student.family.guardian == null ? "" : student.family.guardian.name;
-            txtGuardianOccupation.Text = student.family.guardian == null ? "" : student.family.guardian.occupation;
-            txtGuardianContactNo.Text = student.family.guardian == null ? "" : student.family.guardian.contact_number;
-            txtGuardianAddress.Text = student.family.guardian == null ? "" : student.family.guardian.address;
+            txtGuardianName.Text =
+                student.family.guardian == null ? "" : student.family.guardian.name;
+            txtGuardianOccupation.Text =
+                student.family.guardian == null ? "" : student.family.guardian.occupation;
+            txtGuardianContactNo.Text =
+                student.family.guardian == null ? "" : student.family.guardian.contact_number;
+            txtGuardianAddress.Text =
+                student.family.guardian == null ? "" : student.family.guardian.address;
 
             txtLastSchool.Text = student.academic_history.last_school_attended;
-            txtLastSchoolYear.Text = Convert.ToString(student.academic_history.last_school_attended_year);
+            txtLastSchoolYear.Text = Convert.ToString(
+                student.academic_history.last_school_attended_year
+            );
             txtSecondarySchool.Text = student.academic_history.secondary_school;
-            txtSecondarySchoolYear.Text = Convert.ToString(student.academic_history.secondary_school_year);
+            txtSecondarySchoolYear.Text = Convert.ToString(
+                student.academic_history.secondary_school_year
+            );
 
             txtHobbies.Text = student.personality.hobbies;
             txtTalent.Text = student.personality.skills;
@@ -120,13 +139,74 @@ namespace BaliuagU_StudentInformationSheet.Views
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (active_student == null)
+            try
             {
-                // TODO
-            }
-            else
-            {
-                try
+                if (active_student == null)
+                {
+                    active_student = new StudentModel(
+                        student_number: txtStudentNo.Text,
+                        name: new StudentName(
+                            first: txtFirstname.Text,
+                            middle: txtMiddleName.Text,
+                            last: txtLastname.Text
+                        ),
+                        photo: photo_changed ? pictureBox.Image : null,
+                        info: new StudentPersonalInformation(
+                            gender: cboGender.SelectedItem.ToString(),
+                            birth_date: birthdateTimePicker.Value,
+                            birth_address: txtBirthplace.Text,
+                            nationality: "Filipino", // FIXME
+                            citizenship: "Filipino", // FIXME
+                            religion: "Roman Catholic" // FIXME
+                        ),
+                        contact: new StudentContactInformation(
+                            contact_number: txtContactNo.Text,
+                            email_address: txtEmail.Text
+                        ),
+                        address: new StudentAddressInformation(
+                            present_line1: txtPresentStreet.Text,
+                            present_line2: txtPresentCity.Text,
+                            present_zip_code: Convert.ToInt32(txtPresentZipcode.Text),
+                            permanent_line1: txtPermanentStreet.Text,
+                            permanent_line2: txtPermanentCity.Text,
+                            permanent_zip_code: Convert.ToInt32(txtPermanentZipcode.Text)
+                        ),
+                        family: new StudentFamilyInformation(
+                            mother: new GuardianAngel(
+                                name: txtMotherName.Text,
+                                occupation: txtMotherOccupation.Text,
+                                contact_number: txtMotherContactNo.Text,
+                                address: txtMotherAddress.Text
+                            ),
+                            father: new GuardianAngel(
+                                name: txtFatherName.Text,
+                                occupation: txtFatherOccupation.Text,
+                                contact_number: txtFatherContactNo.Text,
+                                address: txtFatherAddress.Text
+                            ),
+                            guardian: new GuardianAngel(
+                                name: txtGuardianName.Text,
+                                occupation: txtGuardianOccupation.Text,
+                                contact_number: txtGuardianContactNo.Text,
+                                address: txtGuardianAddress.Text
+                            )
+                        ),
+                        academic_history: new StudentAcademicHistory(
+                            last_school_attended: txtLastSchool.Text,
+                            last_school_attended_year: Convert.ToInt32(txtLastSchoolYear.Text),
+                            secondary_school: txtSecondarySchool.Text,
+                            secondary_school_year: Convert.ToInt32(txtSecondarySchoolYear.Text),
+                            awards_received: null // FIXME
+                        ),
+                        personality: new StudentPersonality(
+                            hobbies: txtHobbies.Text,
+                            skills: txtTalent.Text
+                        )
+                    );
+
+                    db.AddStudent(active_student);
+                }
+                else
                 {
                     active_student.photo = photo_changed ? pictureBox.Image : active_student.photo;
 
@@ -144,11 +224,15 @@ namespace BaliuagU_StudentInformationSheet.Views
 
                     active_student.address.present_line1 = txtPresentStreet.Text;
                     active_student.address.present_line2 = txtPresentCity.Text;
-                    active_student.address.present_zip_code = Convert.ToInt32(txtPresentZipcode.Text);
+                    active_student.address.present_zip_code = Convert.ToInt32(
+                        txtPresentZipcode.Text
+                    );
 
                     active_student.address.permanent_line1 = txtPermanentStreet.Text;
                     active_student.address.permanent_line2 = txtPermanentCity.Text;
-                    active_student.address.permanent_zip_code = Convert.ToInt32(txtPermanentZipcode.Text);
+                    active_student.address.permanent_zip_code = Convert.ToInt32(
+                        txtPermanentZipcode.Text
+                    );
 
                     if (
                         !string.IsNullOrEmpty(txtMotherName.Text)
@@ -199,24 +283,34 @@ namespace BaliuagU_StudentInformationSheet.Views
                     }
 
                     active_student.academic_history.last_school_attended = txtLastSchool.Text;
-                    active_student.academic_history.last_school_attended_year = Convert.ToInt32(txtLastSchoolYear.Text);
+                    active_student.academic_history.last_school_attended_year = Convert.ToInt32(
+                        txtLastSchoolYear.Text
+                    );
                     active_student.academic_history.secondary_school = txtSecondarySchool.Text;
-                    active_student.academic_history.secondary_school_year = Convert.ToInt32(txtSecondarySchoolYear.Text);
+                    active_student.academic_history.secondary_school_year = Convert.ToInt32(
+                        txtSecondarySchoolYear.Text
+                    );
 
                     active_student.personality.hobbies = txtHobbies.Text;
                     active_student.personality.skills = txtTalent.Text;
 
                     active_student.Save();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        $"An error occurred while saving the student information. Please try again.\n\n{ex.Message}",
-                        "Error Saving Student Information",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
-                }
+                MessageBox.Show(
+                    "Student information saved successfully.",
+                    "Student Information Saved",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"An error occurred while saving the student information. Please try again.\n\n{ex.Message}",
+                    "Error Saving Student Information",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 
@@ -255,7 +349,7 @@ namespace BaliuagU_StudentInformationSheet.Views
                 txtFatherName.Text = "";
                 txtFatherOccupation.Text = "";
                 txtFatherContactNo.Text = "";
-                    txtFatherAddress.Text = "";
+                txtFatherAddress.Text = "";
 
                 txtGuardianName.Text = "";
                 txtGuardianOccupation.Text = "";

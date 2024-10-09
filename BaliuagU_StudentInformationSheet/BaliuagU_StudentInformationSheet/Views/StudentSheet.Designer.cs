@@ -851,6 +851,7 @@
             // cboGender
             // 
             this.cboGender.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGender.FormattingEnabled = true;
             this.cboGender.Items.AddRange(new object[] {
             "Male",
