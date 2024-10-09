@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BaliuagU_StudentInformationSheet.Models;
 using BaliuagU_StudentInformationSheet.Views;
 using StudentInformationSheet.Models;
 
@@ -16,6 +17,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
     public partial class Dashboard : UserControl
     {
         private DatabaseHandler db_handler = new DatabaseHandler();
+        private QuickStudentModel? active_student = null;
 
         public Dashboard()
         {
@@ -43,10 +45,12 @@ namespace BaliuagU_StudentInformationSheet.Tools
 
         public void UpdateStudentsList(string? filter_query = null)
         {
-            List<StudentModel> students =
+            List<QuickStudentModel> students =
                 filter_query == null
-                    ? db_handler.GetAllStudents()
-                    : db_handler.SearchStudents(filter_query);
+                    ? db_handler.QuickGetAllStudents()
+                    : db_handler.QuickSearchStudents(filter_query);
+
+            lblTotalRecords.Text = Convert.ToString(db_handler.GetStudentsQuantity());
 
             // Add the users to the DataGridView
             dataGridView1.Rows.Clear();
@@ -61,6 +65,78 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     student.info.birth_date.ToString("yyyy-MM-dd")
                 );
             }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Load the user's profile to the form
+            if (e.RowIndex < 0)
+                return;
+
+            string student_number = (string)dataGridView1.Rows[e.RowIndex].Cells["student_number"].Value;
+            this.active_student = db_handler.QuickGetStudent(student_number);
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (active_student == null)
+            {
+                MessageBox.Show(
+                    "Please select a student to delete.",
+                    "No Student Selected",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation
+                );
+                return;
+            }
+            db_handler.DeleteStudent(active_student.student_number);
+
+            MessageBox.Show(
+                "The student has been successfully deleted.",
+                "Student Deleted",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+
+            UpdateStudentsList();
+            textBox1.Focus();
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (active_student == null)
+                {
+                    MessageBox.Show(
+                        "Please select a student to update.",
+                        "No Student Selected",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation
+                    );
+                    return;
+                }
+
+                var studentSheet = new StudentSheet();
+                studentSheet.LoadStudent(db_handler.GetStudent(active_student.student_number));
+                studentSheet.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred while updating the student. Please try again.\n\n" + ex.Message,
+                    "Error Updating Student",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                UpdateStudentsList(textBox1.Text);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
 {
-    internal class StudentFamilyInformation
+    public class StudentFamilyInformation
     {
         public GuardianAngel? mother {  get; set; }
         public GuardianAngel? father { get; set; }

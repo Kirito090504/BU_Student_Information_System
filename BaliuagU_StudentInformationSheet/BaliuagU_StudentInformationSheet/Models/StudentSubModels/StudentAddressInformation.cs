@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
 {
-    internal class StudentAddressInformation
+    public class StudentAddressInformation
     {
         public string? present_line1;
         public string present_line2;

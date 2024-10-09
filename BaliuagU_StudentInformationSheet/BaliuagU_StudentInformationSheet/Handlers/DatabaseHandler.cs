@@ -510,6 +510,49 @@ namespace BaliuagU_StudentInformationSheet
             }
         }
 
+        public QuickStudentModel QuickGetStudent(string student_number)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT "
+                        + "name_first, name_middle, name_last, "
+                        + "gender, birth_date, birth_address, "
+                        + "nationality, citizenship, religion "
+                        + "FROM students WHERE student_number = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Failed to retrieve quick student information.");
+
+                        return new QuickStudentModel(
+                            student_number: student_number,
+                            name: new StudentName(
+                                first: reader.GetString("name_first"),
+                                middle: reader.IsDBNull(reader.GetOrdinal("name_middle"))
+                                    ? null
+                                    : reader.GetString("name_middle"),
+                                last: reader.GetString("name_last")
+                            ),
+                            info: new StudentPersonalInformation(
+                                gender: reader.GetString("gender"),
+                                birth_date: reader.GetDateTime("birth_date"),
+                                birth_address: reader.GetString("birth_address"),
+                                nationality: reader.GetString("nationality"),
+                                citizenship: reader.GetString("citizenship"),
+                                religion: reader.IsDBNull(reader.GetOrdinal("religion"))
+                                    ? null
+                                    : reader.GetString("religion")
+                            )
+                        );
+                    }
+                }
+            }
+        }
+
         public void AddStudent(StudentModel student)
         {
             using (MySqlConnection connection = GetNewConnection())
@@ -909,7 +952,8 @@ namespace BaliuagU_StudentInformationSheet
             {
                 connection.Open();
 
-                // Delete data from `students` table
+                // Delete data from `students` table,
+                // collation cascades to other tables
                 using (MySqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "DELETE FROM students WHERE student_number = @student_number";
@@ -918,72 +962,6 @@ namespace BaliuagU_StudentInformationSheet
                     if (command.ExecuteNonQuery() != 1)
                         if (!cleanup)
                             throw new Exception("Failed to delete student.");
-                }
-
-                // Delete data from `contact_information` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "DELETE FROM contact_information WHERE id = @student_number";
-                    command.Parameters.AddWithValue("@student_number", student_number);
-
-                    if (command.ExecuteNonQuery() != 1)
-                        if (!cleanup)
-                            throw new Exception("Failed to delete student contact information.");
-                }
-
-                // Delete data from `present_addresses` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "DELETE FROM present_addresses WHERE id = @student_number";
-                    command.Parameters.AddWithValue("@student_number", student_number);
-
-                    if (command.ExecuteNonQuery() != 1)
-                        if (!cleanup)
-                            throw new Exception("Failed to delete student present address.");
-                }
-
-                // Delete data from `permanent_addresses` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "DELETE FROM permanent_addresses WHERE id = @student_number";
-                    command.Parameters.AddWithValue("@student_number", student_number);
-
-                    if (command.ExecuteNonQuery() != 1)
-                        if (!cleanup)
-                            throw new Exception("Failed to delete student permanent address.");
-                }
-
-                // Delete data from `student_family` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "DELETE FROM student_family WHERE id = @student_number";
-                    command.Parameters.AddWithValue("@student_number", student_number);
-
-                    if (command.ExecuteNonQuery() != 1)
-                        if (!cleanup)
-                            throw new Exception("Failed to delete student family information.");
-                }
-
-                // Delete data from `academic_history` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "DELETE FROM academic_history WHERE id = @student_number";
-                    command.Parameters.AddWithValue("@student_number", student_number);
-
-                    if (command.ExecuteNonQuery() != 1)
-                        if (!cleanup)
-                            throw new Exception("Failed to delete student academic history.");
-                }
-
-                // Delete data from `personalities` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "DELETE FROM personalities WHERE id = @student_number";
-                    command.Parameters.AddWithValue("@student_number", student_number);
-
-                    if (command.ExecuteNonQuery() != 1)
-                        if (!cleanup)
-                            throw new Exception("Failed to delete student personality.");
                 }
             }
         }
@@ -998,12 +976,8 @@ namespace BaliuagU_StudentInformationSheet
                 {
                     command.CommandText = "SELECT student_number FROM students";
                     using (MySqlDataReader reader = command.ExecuteReader())
-                    {
                         while (reader.Read())
-                        {
                             students.Add(reader.GetString("student_number"));
-                        }
-                    }
                 }
             }
 
@@ -1014,7 +988,29 @@ namespace BaliuagU_StudentInformationSheet
             return student_models;
         }
 
-        public List<StudentModel> SearchStudents(string? query = null)
+        public List<QuickStudentModel> QuickGetAllStudents()
+        {
+            List<string> students = new List<string>();
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT student_number FROM students";
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
+                            students.Add(reader.GetString("student_number"));
+                }
+            }
+
+            var student_models = new List<QuickStudentModel>();
+            foreach (string student_number in students)
+                student_models.Add(this.QuickGetStudent(student_number));
+
+            return student_models;
+        }
+
+        public List<QuickStudentModel> QuickSearchStudents(string? query = null)
         {
             List<string> students = new List<string>();
             using (MySqlConnection connection = GetNewConnection())
@@ -1036,11 +1032,24 @@ namespace BaliuagU_StudentInformationSheet
                             students.Add(reader.GetString("student_number"));
                 }
 
-                List<StudentModel> student_models = new List<StudentModel>();
+                var student_models = new List<QuickStudentModel>();
                 foreach (string student_number in students)
-                    student_models.Add(this.GetStudent(student_number));
+                    student_models.Add(this.QuickGetStudent(student_number));
 
                 return student_models;
+            }
+        }
+
+        public int GetStudentsQuantity()
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT COUNT(*) FROM students";
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
             }
         }
     }

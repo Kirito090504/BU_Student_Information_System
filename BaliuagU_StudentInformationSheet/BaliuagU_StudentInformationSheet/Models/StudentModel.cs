@@ -5,12 +5,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BaliuagU_StudentInformationSheet;
 using BaliuagU_StudentInformationSheet.Models.StudentSubModels;
 using Org.BouncyCastle.Asn1.BC;
 
 namespace StudentInformationSheet.Models
 {
-    internal class StudentModel
+    public class StudentModel
     {
         public static readonly char[] allowed_username_chars = new char[] { '-', '_', '.' };
 
@@ -50,7 +51,9 @@ namespace StudentInformationSheet.Models
 
         public void Save()
         {
-            //TO DO
+            // use DatabaseHandler to save the student information
+            var db = new DatabaseHandler();
+            db.UpdateStudent(this);
         }
 
     }

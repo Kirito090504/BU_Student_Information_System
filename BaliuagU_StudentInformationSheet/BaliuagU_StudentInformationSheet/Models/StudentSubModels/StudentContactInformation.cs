@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
 {
-    internal class StudentContactInformation
+    public class StudentContactInformation
     {
         public string? contact_number;
         public string? email_address;

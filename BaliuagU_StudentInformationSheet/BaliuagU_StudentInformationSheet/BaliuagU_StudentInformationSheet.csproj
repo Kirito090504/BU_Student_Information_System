@@ -107,6 +107,7 @@
     <Compile Include="Handlers\DatabaseHandler.cs" />
     <Compile Include="Handlers\ImageHandler.cs" />
     <Compile Include="Handlers\PasswordHandler.cs" />
+    <Compile Include="Models\QuickStudentModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\StudentSubModels\GuardianAngel.cs" />
     <Compile Include="Models\StudentSubModels\StudentAcademicHistory.cs" />

@@ -852,6 +852,9 @@
             // 
             this.cboGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboGender.FormattingEnabled = true;
+            this.cboGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
             this.cboGender.Location = new System.Drawing.Point(38, 155);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(146, 21);

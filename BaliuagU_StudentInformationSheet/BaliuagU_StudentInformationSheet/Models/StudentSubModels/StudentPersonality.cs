@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
 {
-    internal class StudentPersonality
+    public class StudentPersonality
     {
         public string? hobbies { get; set; }
         public string? skills { get; set; }

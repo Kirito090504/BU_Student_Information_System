@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
 {
-    internal class StudentAcademicHistory
+    public class StudentAcademicHistory
     {
         public string? last_school_attended;
         public int? last_school_attended_year;
