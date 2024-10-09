@@ -100,13 +100,14 @@ def main(
     print(f"Adding {n} students to database...")
     sn: list[str] = []
     students: list[Student] = []
-    for _ in range(n):
+    for i in range(n):
         while True:
             student_number = f"{random.randint(100, 999)}-{random.randint(1000, 9999)}"
             if student_number not in sn:
                 sn.append(student_number)
                 break
 
+        print(f"Generating student {student_number}... [{i+1}/{n}]")
         nat_cit = f.country()
         student = Student(
             student_number=student_number,
