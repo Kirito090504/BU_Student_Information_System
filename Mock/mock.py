@@ -6,6 +6,7 @@ Add mock data to the database.
 
 import random
 import sys
+import io
 from dataclasses import dataclass
 
 from mysql.connector import connect
@@ -73,9 +74,10 @@ def generate_image_from_noise() -> bytes:
     :return bytes: The image data.
     """
 
-    a = numpy.random.rand(30, 30, 3) * 255
-    im_out = Image.fromarray(a.astype("uint8")).convert("RGB")
-    return im_out.tobytes()
+    ria = numpy.random.randint(0, 256, (512, 512, 3), dtype=numpy.uint8)
+    rimg = Image.fromarray(ria)
+    # return jpeg
+    return io.BytesIO(rimg.tobytes("jpeg", "RGB")).read()
 
 
 def main(
