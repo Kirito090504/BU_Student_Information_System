@@ -46,7 +46,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
         public void UpdateUsersList(string? filter_query = null)
         {
             List<UserModel> users =
-                filter_query == null ? db_handler.GetUsers() : db_handler.SearchUsers(filter_query);
+                filter_query == null ? db_handler.GetAllUsers() : db_handler.SearchUsers(filter_query);
 
             // Add the users to the DataGridView
             dataGridViewUsers.Rows.Clear();

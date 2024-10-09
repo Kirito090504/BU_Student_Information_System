@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BaliuagU_StudentInformationSheet.Handlers;
 using BaliuagU_StudentInformationSheet.Models;
+using BaliuagU_StudentInformationSheet.Models.StudentSubModels;
 using MySql.Data.MySqlClient;
 using StudentInformationSheet.Models;
 
@@ -171,7 +173,7 @@ namespace BaliuagU_StudentInformationSheet
         /// Get all users in the database.
         /// </summary>
         /// <returns>A list of users in the database.</returns>
-        public List<UserModel> GetUsers()
+        public List<UserModel> GetAllUsers()
         {
             List<UserModel> users = new List<UserModel>();
             using (MySqlConnection connection = GetNewConnection())
@@ -202,86 +204,7 @@ namespace BaliuagU_StudentInformationSheet
             return users;
         }
 
-        public List<StudentModel> GetStudents()
-        {
-            List<StudentModel> users = new List<StudentModel>();
-            using (MySqlConnection connection = GetNewConnection())
-            {
-                connection.Open();
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "SELECT * FROM students";
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            users.Add(
-                                new StudentModel(
-                                    student_number: reader.GetString("student_number"),
-                                    name: new Models.StudentSubModels.StudentName(
-                                        first: reader.GetString("name_first"),
-                                        middle: reader.IsDBNull(reader.GetOrdinal("name_middle"))
-                                            ? null
-                                            : reader.GetString("name_middle"),
-                                        last: reader.GetString("name_last")
-                                        ),
-                                    info: new Models.StudentSubModels.StudentPersonalInformation(
-                                        gender: reader.GetString("gender"),
-                                        birth_date: reader.GetDateTime("birth_date"),
-                                        birth_address: reader.GetString("birth_address"),
-                                        nationality: reader.GetString("nationality"),
-                                        citizenship: reader.GetString("citizenship"),
-                                        religion: reader.GetString("religion")
-                                        ),
-                                    contact: new Models.StudentSubModels.StudentContactInformation(
-                                        contact_number: reader.GetString("contact_number"),
-                                        email_address: reader.GetString("email_address")
-                                        ),
-                                    address: new Models.StudentSubModels.StudentAddressInformation(
-                                        present_line1: reader.GetString("present_line1"),
-                                        present_line2: reader.GetString("present_line2"),
-                                        present_zip_code: reader.GetInt32("present_zip_code"),
-                                        permanent_line1: reader.GetString("permanent_line1"),
-                                        permanent_line2: reader.GetString("permanent_line2"),
-                                        permanent_zip_code: reader.GetInt32("permanent_zip_code")
-                                        ),
-                                    family: new Models.StudentSubModels.StudentFamilyInformation(
-                                        mother: new Models.StudentSubModels.GuardianAngel(
-                                            name: reader.GetString("mother_name"),
-                                            occupation: reader.GetString("mother_occupation"),
-                                            contact_number: reader.GetString("mother_contact_number"),
-                                            address: reader.GetString("mother_address")
-                                            ),
-                                        father: new Models.StudentSubModels.GuardianAngel(
-                                            name: reader.GetString("father_name"),
-                                            occupation: reader.GetString("father_occupation"),
-                                            contact_number: reader.GetString("father_contact_number"),
-                                            address: reader.GetString("father_address")
-                                            ),
-                                        guardian: new Models.StudentSubModels.GuardianAngel(
-                                            name: reader.GetString("guardian_name"),
-                                            occupation: reader.GetString("guardian_occupation"),
-                                            contact_number: reader.GetString("guardian_contact_number"),
-                                            address: reader.GetString("guardian_address")
-                                            )
-                                        ),
-                                    academic_history: new Models.StudentSubModels.StudentAcademicHistory(
-                                        last_school_attended: reader.GetString("last_school_attended"),
-                                        last_school_attended_year: reader.GetInt32("last_school_attended_year"),
-                                        secondary_school: reader.GetString("secondary_school"),
-                                        secondary_school_year: reader.GetInt32("last_school_attended"),
-                                        awards_received: reader.GetString("awards_received")
-                                        )
-                                )
-                            );
-                        }
-                    }
-                }
-            }
-            return users;
-        }
-
-        public List<UserModel> SearchUsers(string? username = null, string? full_name = null)
+        public List<UserModel> SearchUsers(string? query = null)
         {
             List<UserModel> users = new List<UserModel>();
             using (MySqlConnection connection = GetNewConnection())
@@ -289,26 +212,13 @@ namespace BaliuagU_StudentInformationSheet
                 connection.Open();
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    if (username != null && full_name == null) // Search by username
-                    {
-                        command.CommandText = "SELECT * FROM users WHERE username LIKE @username";
-                        command.Parameters.AddWithValue("@username", $"%{username}%");
-                    }
-                    else if (username == null && full_name != null) // Search by full name
-                    {
-                        command.CommandText = "SELECT * FROM users WHERE full_name LIKE @full_name";
-                        command.Parameters.AddWithValue("@full_name", $"%{full_name}%");
-                    }
-                    else if (username != null && full_name != null) // Search by both username and full name
-                    {
-                        command.CommandText =
-                            "SELECT * FROM users WHERE username LIKE @username AND full_name LIKE @full_name";
-                        command.Parameters.AddWithValue("@username", $"%{username}%");
-                        command.Parameters.AddWithValue("@full_name", $"%{full_name}%");
-                    }
-                    else // Get all users
-                    {
+                    if (query == null) // Get all users
                         command.CommandText = "SELECT * FROM users";
+
+                    else
+                    {
+                        command.CommandText = "SELECT * FROM users WHERE CONCAT_WS('', username, full_name) LIKE @query";
+                        command.Parameters.AddWithValue("@query", $"%{query}%");
                     }
 
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -331,6 +241,598 @@ namespace BaliuagU_StudentInformationSheet
                 }
             }
             return users;
+        }
+
+        public StudentModel GetStudent(string student_number)
+        {
+            StudentName name;
+            StudentPersonalInformation info;
+            StudentContactInformation contact;
+            StudentAddressInformation address;
+            StudentFamilyInformation family;
+            StudentAcademicHistory academic_history;
+            Image? photo = null;
+
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+
+                // Get student name and personal information from `students` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM students WHERE student_number = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Student not found in database.");
+
+                        name = new StudentName(
+                            first: reader.GetString("first_name"),
+                            middle: reader.IsDBNull(reader.GetOrdinal("middle_name"))
+                                ? null
+                                : reader.GetString("middle_name"),
+                            last: reader.GetString("last_name")
+                        );
+                        photo = reader.IsDBNull(reader.GetOrdinal("photo"))
+                            ? null
+                            : ImageHandler.DecodeImage((byte[])reader["photo"]);
+                        info = new StudentPersonalInformation(
+                            gender: reader.GetString("gender"),
+                            birth_date: reader.GetDateTime("birth_date"),
+                            birth_address: reader.IsDBNull(reader.GetOrdinal("birth_address"))
+                                ? null
+                                : reader.GetString("birth_address"),
+                            nationality: reader.GetString("nationality"),
+                            citizenship: reader.GetString("citizenship"),
+                            religion: reader.IsDBNull(reader.GetOrdinal("religion"))
+                                ? null
+                                : reader.GetString("religion")
+                        );
+                    }
+                }
+
+                // Get student contact information from `contact_information` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM contact_information WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Student contact information not found in database.");
+
+                        contact = new StudentContactInformation(
+                            contact_number: reader.IsDBNull(reader.GetOrdinal("contact_number"))
+                                ? null
+                                : reader.GetString("contact_number"),
+                            email_address: reader.IsDBNull(reader.GetOrdinal("email_address"))
+                                ? null
+                                : reader.GetString("email_address")
+                        );
+                    }
+                }
+
+                // Get student present address from `present_addresses` table
+                // We need to get the present and permanent addresses separately
+                // from the `present_addresses` and `permanent_addresses` tables
+                // so we'll have to store the present address in temporary variables
+                string? present_address_line1;
+                string present_address_line2;
+                int present_address_zip_code;
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM present_addresses WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Student present address not found in database.");
+
+                        present_address_line1 = reader.IsDBNull(reader.GetOrdinal("line1"))
+                            ? null
+                            : reader.GetString("line1");
+                        present_address_line2 = reader.GetString("line2");
+                        present_address_zip_code = reader.GetInt32("zip_code");
+                    }
+                }
+
+                // Get student permanent address from `permanent_addresses` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM permanent_addresses WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Student permanent address not found in database.");
+
+                        // We can now assign the present and permanent addresses to the `address` variable
+                        address = new StudentAddressInformation(
+                            present_line1: present_address_line1,
+                            present_line2: present_address_line2,
+                            present_zip_code: present_address_zip_code,
+                            permanent_line1: reader.IsDBNull(reader.GetOrdinal("line1"))
+                                ? null
+                                : reader.GetString("line1"),
+                            permanent_line2: reader.GetString("line2"),
+                            permanent_zip_code: reader.GetInt32("zip_code")
+                        );
+                    }
+                }
+
+                // Get student family information from `student_family` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM student_family WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Student family information not found in database.");
+
+                        GuardianAngel? mother = null, father = null, guardian = null;
+
+                        if (
+                            !reader.IsDBNull(reader.GetOrdinal("mother_name"))
+                            || !reader.IsDBNull(reader.GetOrdinal("mother_occuation"))
+                            || !reader.IsDBNull(reader.GetOrdinal("mother_contact_number"))
+                            || !reader.IsDBNull(reader.GetOrdinal("mother_address"))
+                        )
+                            mother = new GuardianAngel(
+                                name: reader.IsDBNull(reader.GetOrdinal("mother_name"))
+                                    ? null
+                                    : reader.GetString("mother_name"),
+                                occupation: reader.IsDBNull(reader.GetOrdinal("mother_occupation"))
+                                    ? null
+                                    : reader.GetString("mother_occupation"),
+                                contact_number: reader.IsDBNull(reader.GetOrdinal("mother_contact_number"))
+                                    ? null
+                                    : reader.GetString("mother_contact_number"),
+                                address: reader.IsDBNull(reader.GetOrdinal("mother_address"))
+                                    ? null
+                                    : reader.GetString("mother_address")
+                            );
+
+                        if (
+                            !reader.IsDBNull(reader.GetOrdinal("father_name"))
+                            || !reader.IsDBNull(reader.GetOrdinal("father_occuation"))
+                            || !reader.IsDBNull(reader.GetOrdinal("father_contact_number"))
+                            || !reader.IsDBNull(reader.GetOrdinal("father_address"))
+                        )
+                            father = new GuardianAngel(
+                                name: reader.IsDBNull(reader.GetOrdinal("father_name"))
+                                    ? null
+                                    : reader.GetString("father_name"),
+                                occupation: reader.IsDBNull(reader.GetOrdinal("father_occupation"))
+                                    ? null
+                                    : reader.GetString("father_occupation"),
+                                contact_number: reader.IsDBNull(reader.GetOrdinal("father_contact_number"))
+                                    ? null
+                                    : reader.GetString("father_contact_number"),
+                                address: reader.IsDBNull(reader.GetOrdinal("father_address"))
+                                    ? null
+                                    : reader.GetString("father_address")
+                            );
+
+                        if (
+                            !reader.IsDBNull(reader.GetOrdinal("guardian_name"))
+                            || !reader.IsDBNull(reader.GetOrdinal("guardian_occuation"))
+                            || !reader.IsDBNull(reader.GetOrdinal("guardian_contact_number"))
+                            || !reader.IsDBNull(reader.GetOrdinal("guardian_address"))
+                        )
+                            guardian = new GuardianAngel(
+                                name: reader.IsDBNull(reader.GetOrdinal("guardian_name"))
+                                    ? null
+                                    : reader.GetString("guardian_name"),
+                                occupation: reader.IsDBNull(reader.GetOrdinal("guardian_occupation"))
+                                    ? null
+                                    : reader.GetString("guardian_occupation"),
+                                contact_number: reader.IsDBNull(reader.GetOrdinal("guardian_contact_number"))
+                                    ? null
+                                    : reader.GetString("guardian_contact_number"),
+                                address: reader.IsDBNull(reader.GetOrdinal("guardian_address"))
+                                    ? null
+                                    : reader.GetString("guardian_address")
+                            );
+
+                        family = new StudentFamilyInformation(
+                            mother: mother,
+                            father: father,
+                            guardian: guardian
+                        );
+                    }
+                }
+
+                // Get student academic history from `academic_history` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM academic_history WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Student academic history not found in database.");
+
+                        academic_history = new StudentAcademicHistory(
+                            last_school_attended: reader.IsDBNull(reader.GetOrdinal("last_school_attended"))
+                                ? null
+                                : reader.GetString("last_school_attended"),
+                            last_school_attended_year: reader.IsDBNull(reader.GetOrdinal("last_school_attended_year"))
+                                ? (int?)null
+                                : reader.GetInt32("last_school_attended_year"),
+                            secondary_school: reader.IsDBNull(reader.GetOrdinal("secondary_school"))
+                                ? null
+                                : reader.GetString("secondary_school"),
+                            secondary_school_year: reader.IsDBNull(reader.GetOrdinal("secondary_school_year"))
+                                ? (int?)null
+                                : reader.GetInt32("secondary_school_year"),
+                            awards_received: reader.IsDBNull(reader.GetOrdinal("awards_received"))
+                                ? null
+                                : reader.GetString("awards_received")
+                            );
+                    }
+                }
+
+                return new StudentModel(
+                    student_number: student_number,
+                    name: name,
+                    info: info,
+                    contact: contact,
+                    address: address,
+                    family: family,
+                    academic_history: academic_history,
+                    photo: photo
+                );
+            }
+        }
+
+        public void AddStudent(StudentModel student)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+
+                // Save data to `students` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "students (student_number, "
+                        + "name_first, name_middle, name_last, "
+                        + "photo, gender, birth_date, birth_address, "
+                        + "nationality, citizenship, religion) "
+                        + "VALUES (@student_number, "
+                        + "@name_first, @name_middle, @name_last, "
+                        + "@photo, @gender, @birth_date, @birth_address, "
+                        + "@nationality, @citizenship, @religion)";
+
+                    command.Parameters.AddWithValue("@student_number", student.student_number);
+                    command.Parameters.AddWithValue("@name_first", student.name.first);
+                    command.Parameters.AddWithValue("@name_middle", student.name.middle);
+                    command.Parameters.AddWithValue("@name_last", student.name.last);
+                    command.Parameters.AddWithValue("@photo", ImageHandler.EncodeImage(student.photo));
+                    command.Parameters.AddWithValue("@gender", student.info.gender);
+                    command.Parameters.AddWithValue("@birth_date", student.info.birth_date);
+                    command.Parameters.AddWithValue("@birth_address", student.info.birth_address);
+                    command.Parameters.AddWithValue("@nationality", student.info.nationality);
+                    command.Parameters.AddWithValue("@citizenship", student.info.citizenship);
+                    command.Parameters.AddWithValue("@religion", student.info.religion);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        throw new Exception("Failed to add student.");
+                }
+
+                // Save data to `contact_information` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "contact_information (id, contact_number, email_address) "
+                        + "VALUES (@id, @contact_number, @email_address)";
+
+                    command.Parameters.AddWithValue("@id", student.student_number);
+                    command.Parameters.AddWithValue("@contact_number", student.contact.contact_number);
+                    command.Parameters.AddWithValue("@email_address", student.contact.email_address);
+
+                    if (command.ExecuteNonQuery() != 1)
+                    {
+                        // If it fails to add contact information, delete the student record
+                        // to prevent orphaned records.
+                        this.DeleteStudent(student.student_number, cleanup: true);
+                        throw new Exception("Failed to add student contact information.");
+                    }
+                }
+
+                // Save data to `present_addresses` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "present_addresses (id, line1, line2, zip_code) "
+                        + "VALUES (@id, @line1, @line2, @zip_code)";
+
+                    command.Parameters.AddWithValue("@id", student.student_number);
+                    command.Parameters.AddWithValue("@line1", student.address.present_line1);
+                    command.Parameters.AddWithValue("@line2", student.address.present_line2);
+                    command.Parameters.AddWithValue("@zip_code", student.address.present_zip_code);
+
+                    if (command.ExecuteNonQuery() != 1)
+                    {
+                        // If it fails to add contact information, delete the student record
+                        // to prevent orphaned records.
+                        this.DeleteStudent(student.student_number, cleanup: true);
+                        throw new Exception("Failed to add student present address.");
+                    }
+                }
+
+                // Save data to `permanent_addresses` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "permanent_addresses (id, line1, line2, zip_code) "
+                        + "VALUES (@id, @line1, @line2, @zip_code)";
+
+                    command.Parameters.AddWithValue("@id", student.student_number);
+                    command.Parameters.AddWithValue("@line1", student.address.permanent_line1);
+                    command.Parameters.AddWithValue("@line2", student.address.permanent_line2);
+                    command.Parameters.AddWithValue("@zip_code", student.address.permanent_zip_code);
+
+                    if (command.ExecuteNonQuery() != 1)
+                    {
+                        // If it fails to add contact information, delete the student record
+                        // to prevent orphaned records.
+                        this.DeleteStudent(student.student_number, cleanup: true);
+                        throw new Exception("Failed to add student permanent address.");
+                    }
+                }
+
+                // Save data to `student_family` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "student_family (id, mother_name, mother_occupation, mother_contact_number, mother_address, "
+                        + "father_name, father_occupation, father_contact_number, father_address, "
+                        + "guardian_name, guardian_occupation, guardian_contact_number, guardian_address) "
+                        + "VALUES (@id, "
+                        + "@mother_name, @mother_occupation, @mother_contact_number, @mother_address, "
+                        + "@father_name, @father_occupation, @father_contact_number, @father_address, "
+                        + "@guardian_name, @guardian_occupation, @guardian_contact_number, @guardian_address)";
+
+                    command.Parameters.AddWithValue("@id", student.student_number);
+
+                    if (student.family.mother != null)
+                    {
+                        command.Parameters.AddWithValue("@mother_name", student.family.mother.name);
+                        command.Parameters.AddWithValue("@mother_occupation", student.family.mother.occupation);
+                        command.Parameters.AddWithValue("@mother_contact_number", student.family.mother.contact_number);
+                        command.Parameters.AddWithValue("@mother_address", student.family.mother.address);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@mother_name", DBNull.Value);
+                        command.Parameters.AddWithValue("@mother_occupation", DBNull.Value);
+                        command.Parameters.AddWithValue("@mother_contact_number", DBNull.Value);
+                        command.Parameters.AddWithValue("@mother_address", DBNull.Value);
+                    }
+
+                    if (student.family.father != null)
+                    {
+                        command.Parameters.AddWithValue("@father_name", student.family.father.name);
+                        command.Parameters.AddWithValue("@father_occupation", student.family.father.occupation);
+                        command.Parameters.AddWithValue("@father_contact_number", student.family.father.contact_number);
+                        command.Parameters.AddWithValue("@father_address", student.family.father.address);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@father_name", DBNull.Value);
+                        command.Parameters.AddWithValue("@father_occupation", DBNull.Value);
+                        command.Parameters.AddWithValue("@father_contact_number", DBNull.Value);
+                        command.Parameters.AddWithValue("@father_address", DBNull.Value);
+                    }
+
+                    if (student.family.guardian != null)
+                    {
+                        command.Parameters.AddWithValue("@guardian_name", student.family.guardian.name);
+                        command.Parameters.AddWithValue("@guardian_occupation", student.family.guardian.occupation);
+                        command.Parameters.AddWithValue("@guardian_contact_number", student.family.guardian.contact_number);
+                        command.Parameters.AddWithValue("@guardian_address", student.family.guardian.address);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@guardian_name", DBNull.Value);
+                        command.Parameters.AddWithValue("@guardian_occupation", DBNull.Value);
+                        command.Parameters.AddWithValue("@guardian_contact_number", DBNull.Value);
+                        command.Parameters.AddWithValue("@guardian_address", DBNull.Value);
+                    }
+
+                    if (command.ExecuteNonQuery() != 1)
+                    {
+                        // If it fails to add contact information, delete the student record
+                        // to prevent orphaned records.
+                        this.DeleteStudent(student.student_number, cleanup: true);
+                        throw new Exception("Failed to add student family information.");
+                    }
+                }
+
+                // Save data to `academic_history` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "academic_history (id, last_school_attended, last_school_attended_year, "
+                        + "secondary_school, secondary_school_year, awards_received) "
+                        + "VALUES (@id, "
+                        + "@last_school_attended, @last_school_attended_year, "
+                        + "@secondary_school, @secondary_school_year, @awards_received)";
+
+                    command.Parameters.AddWithValue("@id", student.student_number);
+                    command.Parameters.AddWithValue("@last_school_attended", student.academic_history.last_school_attended);
+                    command.Parameters.AddWithValue("@last_school_attended_year", student.academic_history.last_school_attended_year);
+                    command.Parameters.AddWithValue("@secondary_school", student.academic_history.secondary_school);
+                    command.Parameters.AddWithValue("@secondary_school_year", student.academic_history.secondary_school_year);
+                    command.Parameters.AddWithValue("@awards_received", student.academic_history.awards_received);
+
+                    if (command.ExecuteNonQuery() != 1)
+                    {
+                        // If it fails to add contact information, delete the student record
+                        // to prevent orphaned records.
+                        this.DeleteStudent(student.student_number, cleanup: true);
+                        throw new Exception("Failed to add student academic history.");
+                    }
+                }
+            }
+        }
+
+        public void UpdateStudent(StudentModel student)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+
+                // Update data in `students` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    // TODO
+                }
+            }
+        }
+
+        /// <summary>
+        /// Delete a student from the database.
+        /// </summary>
+        /// <param name="student_number">The student number of the student to delete.</param>
+        /// <param name="cleanup">If true, do not throw an exception when it fails to delete a record from a table.</param>
+        public void DeleteStudent(string student_number, bool cleanup = false)
+        {
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+
+                // Delete data from `students` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM students WHERE student_number = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        if (!cleanup)
+                            throw new Exception("Failed to delete student.");
+                }
+
+                // Delete data from `contact_information` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM contact_information WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        if (!cleanup)
+                            throw new Exception("Failed to delete student contact information.");
+                }
+
+                // Delete data from `present_addresses` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM present_addresses WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        if (!cleanup)
+                            throw new Exception("Failed to delete student present address.");
+                }
+
+                // Delete data from `permanent_addresses` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM permanent_addresses WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        if (!cleanup)
+                            throw new Exception("Failed to delete student permanent address.");
+                }
+
+                // Delete data from `student_family` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM student_family WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        if (!cleanup)
+                            throw new Exception("Failed to delete student family information.");
+                }
+
+                // Delete data from `academic_history` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM academic_history WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        if (!cleanup)
+                            throw new Exception("Failed to delete student academic history.");
+                }
+            }
+        }
+
+        public List<StudentModel> GetAllStudents()
+        {
+            List<string> students = new List<string>();
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT student_number FROM students";
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            students.Add(reader.GetString("student_number"));
+                        }
+                    }
+                }
+            }
+
+            List<StudentModel> student_models = new List<StudentModel>();
+            foreach (string student_number in students)
+                student_models.Add(this.GetStudent(student_number));
+
+            return student_models;
+        }
+
+        public List<StudentModel> SearchStudents(string? query = null)
+        {
+            List<string> students = new List<string>();
+            using (MySqlConnection connection = GetNewConnection())
+            {
+                connection.Open();
+                // Search for student numbers and for first, middle, and last names
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    if (query == null)
+                        command.CommandText = "SELECT student_number FROM students";
+                    else
+                    {
+                        command.CommandText = "SELECT student_number FROM students WHERE CONCAT_WS('', student_number, name_first, name_middle, name_last) LIKE @query";
+                        command.Parameters.AddWithValue("@query", $"%{query}%");
+                    }
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
+                            students.Add(reader.GetString("student_number"));
+                }
+
+                List<StudentModel> student_models = new List<StudentModel>();
+                foreach (string student_number in students)
+                    student_models.Add(this.GetStudent(student_number));
+
+                return student_models;
+            }
         }
     }
 }
