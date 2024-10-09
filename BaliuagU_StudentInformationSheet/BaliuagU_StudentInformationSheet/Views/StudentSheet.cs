@@ -157,7 +157,7 @@ namespace BaliuagU_StudentInformationSheet.Views
                             birth_address: txtBirthplace.Text,
                             nationality: "Filipino", // FIXME
                             citizenship: "Filipino", // FIXME
-                            religion: "Roman Catholic" // FIXME
+                            religion: "Christian" // FIXME
                         ),
                         contact: new StudentContactInformation(
                             contact_number: txtContactNo.Text,

@@ -555,221 +555,229 @@ namespace BaliuagU_StudentInformationSheet
 
         public void AddStudent(StudentModel student)
         {
-            using (MySqlConnection connection = GetNewConnection())
+            try
             {
-                connection.Open();
-
-                // Save data to `students` table
-                using (MySqlCommand command = connection.CreateCommand())
+                using (MySqlConnection connection = GetNewConnection())
                 {
-                    command.CommandText =
-                        "INSERT INTO "
-                        + "students (student_number, "
-                        + "name_first, name_middle, name_last, "
-                        + "photo, gender, birth_date, birth_address, "
-                        + "nationality, citizenship, religion) "
-                        + "VALUES (@student_number, "
-                        + "@name_first, @name_middle, @name_last, "
-                        + "@photo, @gender, @birth_date, @birth_address, "
-                        + "@nationality, @citizenship, @religion)";
+                    connection.Open();
 
-                    command.Parameters.AddWithValue("@student_number", student.student_number);
-                    command.Parameters.AddWithValue("@name_first", student.name.first);
-                    command.Parameters.AddWithValue("@name_middle", student.name.middle);
-                    command.Parameters.AddWithValue("@name_last", student.name.last);
-                    command.Parameters.AddWithValue("@photo", ImageHandler.EncodeImage(student.photo));
-                    command.Parameters.AddWithValue("@gender", student.info.gender);
-                    command.Parameters.AddWithValue("@birth_date", student.info.birth_date);
-                    command.Parameters.AddWithValue("@birth_address", student.info.birth_address);
-                    command.Parameters.AddWithValue("@nationality", student.info.nationality);
-                    command.Parameters.AddWithValue("@citizenship", student.info.citizenship);
-                    command.Parameters.AddWithValue("@religion", student.info.religion);
-
-                    if (command.ExecuteNonQuery() != 1)
-                        throw new Exception("Failed to add student.");
-                }
-
-                // Save data to `contact_information` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText =
-                        "INSERT INTO "
-                        + "contact_information (id, contact_number, email_address) "
-                        + "VALUES (@id, @contact_number, @email_address)";
-
-                    command.Parameters.AddWithValue("@id", student.student_number);
-                    command.Parameters.AddWithValue("@contact_number", student.contact.contact_number);
-                    command.Parameters.AddWithValue("@email_address", student.contact.email_address);
-
-                    if (command.ExecuteNonQuery() != 1)
+                    // Save data to `students` table
+                    using (MySqlCommand command = connection.CreateCommand())
                     {
-                        // If it fails to add contact information, delete the student record
-                        // to prevent orphaned records.
-                        this.DeleteStudent(student.student_number, cleanup: true);
-                        throw new Exception("Failed to add student contact information.");
+                        command.CommandText =
+                            "INSERT INTO "
+                            + "students (student_number, "
+                            + "name_first, name_middle, name_last, "
+                            + "photo, gender, birth_date, birth_address, "
+                            + "nationality, citizenship, religion) "
+                            + "VALUES (@student_number, "
+                            + "@name_first, @name_middle, @name_last, "
+                            + "@photo, @gender, @birth_date, @birth_address, "
+                            + "@nationality, @citizenship, @religion)";
+
+                        command.Parameters.AddWithValue("@student_number", student.student_number);
+                        command.Parameters.AddWithValue("@name_first", student.name.first);
+                        command.Parameters.AddWithValue("@name_middle", student.name.middle);
+                        command.Parameters.AddWithValue("@name_last", student.name.last);
+                        command.Parameters.AddWithValue("@photo", ImageHandler.EncodeImage(student.photo));
+                        command.Parameters.AddWithValue("@gender", student.info.gender);
+                        command.Parameters.AddWithValue("@birth_date", student.info.birth_date);
+                        command.Parameters.AddWithValue("@birth_address", student.info.birth_address);
+                        command.Parameters.AddWithValue("@nationality", student.info.nationality);
+                        command.Parameters.AddWithValue("@citizenship", student.info.citizenship);
+                        command.Parameters.AddWithValue("@religion", student.info.religion);
+
+                        if (command.ExecuteNonQuery() != 1)
+                            throw new Exception("Failed to add student.");
+                    }
+
+                    // Save data to `contact_information` table
+                    using (MySqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT INTO "
+                            + "contact_information (id, contact_number, email_address) "
+                            + "VALUES (@id, @contact_number, @email_address)";
+
+                        command.Parameters.AddWithValue("@id", student.student_number);
+                        command.Parameters.AddWithValue("@contact_number", student.contact.contact_number);
+                        command.Parameters.AddWithValue("@email_address", student.contact.email_address);
+
+                        if (command.ExecuteNonQuery() != 1)
+                        {
+                            // If it fails to add contact information, delete the student record
+                            // to prevent orphaned records.
+                            this.DeleteStudent(student.student_number, cleanup: true);
+                            throw new Exception("Failed to add student contact information.");
+                        }
+                    }
+
+                    // Save data to `present_addresses` table
+                    using (MySqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT INTO "
+                            + "present_addresses (id, line1, line2, zip_code) "
+                            + "VALUES (@id, @line1, @line2, @zip_code)";
+
+                        command.Parameters.AddWithValue("@id", student.student_number);
+                        command.Parameters.AddWithValue("@line1", student.address.present_line1);
+                        command.Parameters.AddWithValue("@line2", student.address.present_line2);
+                        command.Parameters.AddWithValue("@zip_code", student.address.present_zip_code);
+
+                        if (command.ExecuteNonQuery() != 1)
+                        {
+                            // If it fails to add contact information, delete the student record
+                            // to prevent orphaned records.
+                            this.DeleteStudent(student.student_number, cleanup: true);
+                            throw new Exception("Failed to add student present address.");
+                        }
+                    }
+
+                    // Save data to `permanent_addresses` table
+                    using (MySqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT INTO "
+                            + "permanent_addresses (id, line1, line2, zip_code) "
+                            + "VALUES (@id, @line1, @line2, @zip_code)";
+
+                        command.Parameters.AddWithValue("@id", student.student_number);
+                        command.Parameters.AddWithValue("@line1", student.address.permanent_line1);
+                        command.Parameters.AddWithValue("@line2", student.address.permanent_line2);
+                        command.Parameters.AddWithValue("@zip_code", student.address.permanent_zip_code);
+
+                        if (command.ExecuteNonQuery() != 1)
+                        {
+                            // If it fails to add contact information, delete the student record
+                            // to prevent orphaned records.
+                            this.DeleteStudent(student.student_number, cleanup: true);
+                            throw new Exception("Failed to add student permanent address.");
+                        }
+                    }
+
+                    // Save data to `student_family` table
+                    using (MySqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT INTO "
+                            + "student_family (id, mother_name, mother_occupation, mother_contact_number, mother_address, "
+                            + "father_name, father_occupation, father_contact_number, father_address, "
+                            + "guardian_name, guardian_occupation, guardian_contact_number, guardian_address) "
+                            + "VALUES (@id, "
+                            + "@mother_name, @mother_occupation, @mother_contact_number, @mother_address, "
+                            + "@father_name, @father_occupation, @father_contact_number, @father_address, "
+                            + "@guardian_name, @guardian_occupation, @guardian_contact_number, @guardian_address)";
+
+                        command.Parameters.AddWithValue("@id", student.student_number);
+
+                        if (student.family.mother != null)
+                        {
+                            command.Parameters.AddWithValue("@mother_name", student.family.mother.name);
+                            command.Parameters.AddWithValue("@mother_occupation", student.family.mother.occupation);
+                            command.Parameters.AddWithValue("@mother_contact_number", student.family.mother.contact_number);
+                            command.Parameters.AddWithValue("@mother_address", student.family.mother.address);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@mother_name", DBNull.Value);
+                            command.Parameters.AddWithValue("@mother_occupation", DBNull.Value);
+                            command.Parameters.AddWithValue("@mother_contact_number", DBNull.Value);
+                            command.Parameters.AddWithValue("@mother_address", DBNull.Value);
+                        }
+
+                        if (student.family.father != null)
+                        {
+                            command.Parameters.AddWithValue("@father_name", student.family.father.name);
+                            command.Parameters.AddWithValue("@father_occupation", student.family.father.occupation);
+                            command.Parameters.AddWithValue("@father_contact_number", student.family.father.contact_number);
+                            command.Parameters.AddWithValue("@father_address", student.family.father.address);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@father_name", DBNull.Value);
+                            command.Parameters.AddWithValue("@father_occupation", DBNull.Value);
+                            command.Parameters.AddWithValue("@father_contact_number", DBNull.Value);
+                            command.Parameters.AddWithValue("@father_address", DBNull.Value);
+                        }
+
+                        if (student.family.guardian != null)
+                        {
+                            command.Parameters.AddWithValue("@guardian_name", student.family.guardian.name);
+                            command.Parameters.AddWithValue("@guardian_occupation", student.family.guardian.occupation);
+                            command.Parameters.AddWithValue("@guardian_contact_number", student.family.guardian.contact_number);
+                            command.Parameters.AddWithValue("@guardian_address", student.family.guardian.address);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@guardian_name", DBNull.Value);
+                            command.Parameters.AddWithValue("@guardian_occupation", DBNull.Value);
+                            command.Parameters.AddWithValue("@guardian_contact_number", DBNull.Value);
+                            command.Parameters.AddWithValue("@guardian_address", DBNull.Value);
+                        }
+
+                        if (command.ExecuteNonQuery() != 1)
+                        {
+                            // If it fails to add contact information, delete the student record
+                            // to prevent orphaned records.
+                            this.DeleteStudent(student.student_number, cleanup: true);
+                            throw new Exception("Failed to add student family information.");
+                        }
+                    }
+
+                    // Save data to `academic_history` table
+                    using (MySqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT INTO "
+                            + "academic_history (id, last_school_attended, last_school_attended_year, "
+                            + "secondary_school, secondary_school_year, awards_received) "
+                            + "VALUES (@id, "
+                            + "@last_school_attended, @last_school_attended_year, "
+                            + "@secondary_school, @secondary_school_year, @awards_received)";
+
+                        command.Parameters.AddWithValue("@id", student.student_number);
+                        command.Parameters.AddWithValue("@last_school_attended", student.academic_history.last_school_attended);
+                        command.Parameters.AddWithValue("@last_school_attended_year", student.academic_history.last_school_attended_year);
+                        command.Parameters.AddWithValue("@secondary_school", student.academic_history.secondary_school);
+                        command.Parameters.AddWithValue("@secondary_school_year", student.academic_history.secondary_school_year);
+                        command.Parameters.AddWithValue("@awards_received", student.academic_history.awards_received);
+
+                        if (command.ExecuteNonQuery() != 1)
+                        {
+                            // If it fails to add contact information, delete the student record
+                            // to prevent orphaned records.
+                            this.DeleteStudent(student.student_number, cleanup: true);
+                            throw new Exception("Failed to add student academic history.");
+                        }
+                    }
+
+                    // Save data to `personalities` table
+                    using (MySqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT INTO "
+                            + "personalities (id, hobbies, skills) "
+                            + "VALUES (@id, @hobbies, @skills)";
+
+                        command.Parameters.AddWithValue("@id", student.student_number);
+                        command.Parameters.AddWithValue("@hobbies", student.personality.hobbies);
+                        command.Parameters.AddWithValue("@skills", student.personality.skills);
+
+                        if (command.ExecuteNonQuery() != 1)
+                        {
+                            // If it fails to add contact information, delete the student record
+                            // to prevent orphaned records.
+                            this.DeleteStudent(student.student_number, cleanup: true);
+                            throw new Exception("Failed to add student personality.");
+                        }
                     }
                 }
-
-                // Save data to `present_addresses` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText =
-                        "INSERT INTO "
-                        + "present_addresses (id, line1, line2, zip_code) "
-                        + "VALUES (@id, @line1, @line2, @zip_code)";
-
-                    command.Parameters.AddWithValue("@id", student.student_number);
-                    command.Parameters.AddWithValue("@line1", student.address.present_line1);
-                    command.Parameters.AddWithValue("@line2", student.address.present_line2);
-                    command.Parameters.AddWithValue("@zip_code", student.address.present_zip_code);
-
-                    if (command.ExecuteNonQuery() != 1)
-                    {
-                        // If it fails to add contact information, delete the student record
-                        // to prevent orphaned records.
-                        this.DeleteStudent(student.student_number, cleanup: true);
-                        throw new Exception("Failed to add student present address.");
-                    }
-                }
-
-                // Save data to `permanent_addresses` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText =
-                        "INSERT INTO "
-                        + "permanent_addresses (id, line1, line2, zip_code) "
-                        + "VALUES (@id, @line1, @line2, @zip_code)";
-
-                    command.Parameters.AddWithValue("@id", student.student_number);
-                    command.Parameters.AddWithValue("@line1", student.address.permanent_line1);
-                    command.Parameters.AddWithValue("@line2", student.address.permanent_line2);
-                    command.Parameters.AddWithValue("@zip_code", student.address.permanent_zip_code);
-
-                    if (command.ExecuteNonQuery() != 1)
-                    {
-                        // If it fails to add contact information, delete the student record
-                        // to prevent orphaned records.
-                        this.DeleteStudent(student.student_number, cleanup: true);
-                        throw new Exception("Failed to add student permanent address.");
-                    }
-                }
-
-                // Save data to `student_family` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText =
-                        "INSERT INTO "
-                        + "student_family (id, mother_name, mother_occupation, mother_contact_number, mother_address, "
-                        + "father_name, father_occupation, father_contact_number, father_address, "
-                        + "guardian_name, guardian_occupation, guardian_contact_number, guardian_address) "
-                        + "VALUES (@id, "
-                        + "@mother_name, @mother_occupation, @mother_contact_number, @mother_address, "
-                        + "@father_name, @father_occupation, @father_contact_number, @father_address, "
-                        + "@guardian_name, @guardian_occupation, @guardian_contact_number, @guardian_address)";
-
-                    command.Parameters.AddWithValue("@id", student.student_number);
-
-                    if (student.family.mother != null)
-                    {
-                        command.Parameters.AddWithValue("@mother_name", student.family.mother.name);
-                        command.Parameters.AddWithValue("@mother_occupation", student.family.mother.occupation);
-                        command.Parameters.AddWithValue("@mother_contact_number", student.family.mother.contact_number);
-                        command.Parameters.AddWithValue("@mother_address", student.family.mother.address);
-                    }
-                    else
-                    {
-                        command.Parameters.AddWithValue("@mother_name", DBNull.Value);
-                        command.Parameters.AddWithValue("@mother_occupation", DBNull.Value);
-                        command.Parameters.AddWithValue("@mother_contact_number", DBNull.Value);
-                        command.Parameters.AddWithValue("@mother_address", DBNull.Value);
-                    }
-
-                    if (student.family.father != null)
-                    {
-                        command.Parameters.AddWithValue("@father_name", student.family.father.name);
-                        command.Parameters.AddWithValue("@father_occupation", student.family.father.occupation);
-                        command.Parameters.AddWithValue("@father_contact_number", student.family.father.contact_number);
-                        command.Parameters.AddWithValue("@father_address", student.family.father.address);
-                    }
-                    else
-                    {
-                        command.Parameters.AddWithValue("@father_name", DBNull.Value);
-                        command.Parameters.AddWithValue("@father_occupation", DBNull.Value);
-                        command.Parameters.AddWithValue("@father_contact_number", DBNull.Value);
-                        command.Parameters.AddWithValue("@father_address", DBNull.Value);
-                    }
-
-                    if (student.family.guardian != null)
-                    {
-                        command.Parameters.AddWithValue("@guardian_name", student.family.guardian.name);
-                        command.Parameters.AddWithValue("@guardian_occupation", student.family.guardian.occupation);
-                        command.Parameters.AddWithValue("@guardian_contact_number", student.family.guardian.contact_number);
-                        command.Parameters.AddWithValue("@guardian_address", student.family.guardian.address);
-                    }
-                    else
-                    {
-                        command.Parameters.AddWithValue("@guardian_name", DBNull.Value);
-                        command.Parameters.AddWithValue("@guardian_occupation", DBNull.Value);
-                        command.Parameters.AddWithValue("@guardian_contact_number", DBNull.Value);
-                        command.Parameters.AddWithValue("@guardian_address", DBNull.Value);
-                    }
-
-                    if (command.ExecuteNonQuery() != 1)
-                    {
-                        // If it fails to add contact information, delete the student record
-                        // to prevent orphaned records.
-                        this.DeleteStudent(student.student_number, cleanup: true);
-                        throw new Exception("Failed to add student family information.");
-                    }
-                }
-
-                // Save data to `academic_history` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText =
-                        "INSERT INTO "
-                        + "academic_history (id, last_school_attended, last_school_attended_year, "
-                        + "secondary_school, secondary_school_year, awards_received) "
-                        + "VALUES (@id, "
-                        + "@last_school_attended, @last_school_attended_year, "
-                        + "@secondary_school, @secondary_school_year, @awards_received)";
-
-                    command.Parameters.AddWithValue("@id", student.student_number);
-                    command.Parameters.AddWithValue("@last_school_attended", student.academic_history.last_school_attended);
-                    command.Parameters.AddWithValue("@last_school_attended_year", student.academic_history.last_school_attended_year);
-                    command.Parameters.AddWithValue("@secondary_school", student.academic_history.secondary_school);
-                    command.Parameters.AddWithValue("@secondary_school_year", student.academic_history.secondary_school_year);
-                    command.Parameters.AddWithValue("@awards_received", student.academic_history.awards_received);
-
-                    if (command.ExecuteNonQuery() != 1)
-                    {
-                        // If it fails to add contact information, delete the student record
-                        // to prevent orphaned records.
-                        this.DeleteStudent(student.student_number, cleanup: true);
-                        throw new Exception("Failed to add student academic history.");
-                    }
-                }
-
-                // Save data to `personalities` table
-                using (MySqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText =
-                        "INSERT INTO "
-                        + "personalities (id, hobbies, skills) "
-                        + "VALUES (@id, @hobbies, @skills)";
-
-                    command.Parameters.AddWithValue("@id", student.student_number);
-                    command.Parameters.AddWithValue("@hobbies", student.personality.hobbies);
-                    command.Parameters.AddWithValue("@skills", student.personality.skills);
-
-                    if (command.ExecuteNonQuery() != 1)
-                    {
-                        // If it fails to add contact information, delete the student record
-                        // to prevent orphaned records.
-                        this.DeleteStudent(student.student_number, cleanup: true);
-                        throw new Exception("Failed to add student personality.");
-                    }
-                }
+            }
+            catch (Exception e)
+            {
+                this.DeleteStudent(student.student_number, true);
+                throw e;
             }
         }
 

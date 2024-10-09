@@ -70,12 +70,25 @@ namespace BaliuagU_StudentInformationSheet.Tools
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            // Load the user's profile to the form
-            if (e.RowIndex < 0)
-                return;
+            try
+            {
+                // Load the user's profile to the form
+                if (e.RowIndex < 0)
+                    return;
 
-            string student_number = (string)dataGridView1.Rows[e.RowIndex].Cells["student_number"].Value;
-            this.active_student = db_handler.QuickGetStudent(student_number);
+                string student_number = (string)dataGridView1.Rows[e.RowIndex].Cells["student_number"].Value;
+                this.active_student = db_handler.QuickGetStudent(student_number);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred while loading the student's information. Please try again.\n\n" + ex.Message,
+                    "Error Loading Student",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
