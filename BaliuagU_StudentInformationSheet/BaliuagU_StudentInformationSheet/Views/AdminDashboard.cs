@@ -57,6 +57,7 @@ namespace BaliuagU_StudentInformationSheet.Views
         {
             dashboard1.Visible = false;
             profileAdmin1.Visible = true;
+            profileAdmin1.LoadProfile(user);
         }
     }
 }
