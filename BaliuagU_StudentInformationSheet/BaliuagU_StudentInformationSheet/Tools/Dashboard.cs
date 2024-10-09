@@ -30,6 +30,9 @@ namespace BaliuagU_StudentInformationSheet.Tools
             dataGridView1.Columns.Add("name_last", "Last Name");
             dataGridView1.Columns.Add("gender", "Gender");
             dataGridView1.Columns.Add("birth_date", "Birth ");
+
+            UpdateStudentsList();
+            textBox1.Focus();
         }
 
         private void addBtn_Click(object sender, EventArgs e)

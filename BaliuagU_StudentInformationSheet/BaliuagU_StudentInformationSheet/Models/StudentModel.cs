@@ -33,7 +33,7 @@ namespace StudentInformationSheet.Models
             StudentAddressInformation address,
             StudentFamilyInformation family,
             StudentAcademicHistory academic_history,
-            StudentPersonality personality
+            StudentPersonality personality,
             Image? photo = null
         )
         {

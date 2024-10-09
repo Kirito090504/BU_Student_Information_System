@@ -269,11 +269,11 @@ namespace BaliuagU_StudentInformationSheet
                             throw new Exception("Student not found in database.");
 
                         name = new StudentName(
-                            first: reader.GetString("first_name"),
-                            middle: reader.IsDBNull(reader.GetOrdinal("middle_name"))
+                            first: reader.GetString("name_first"),
+                            middle: reader.IsDBNull(reader.GetOrdinal("name_middle"))
                                 ? null
-                                : reader.GetString("middle_name"),
-                            last: reader.GetString("last_name")
+                                : reader.GetString("name_middle"),
+                            last: reader.GetString("name_last")
                         );
                         photo = reader.IsDBNull(reader.GetOrdinal("photo"))
                             ? null
