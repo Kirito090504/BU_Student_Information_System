@@ -11,6 +11,7 @@ namespace BaliuagU_StudentInformationSheet.Models
     public class UserModel
     {
         public static readonly char[] allowed_username_chars = new char[] { '-', '_', '.' };
+        public static readonly int PROFILE_PICTURE_MAX_SIZE = 1024 * 1024 * 2; // 2MB
 
         public enum Privilege
         {
