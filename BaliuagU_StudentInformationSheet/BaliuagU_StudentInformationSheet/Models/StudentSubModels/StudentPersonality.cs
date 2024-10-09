@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,13 @@ namespace BaliuagU_StudentInformationSheet.Models.StudentSubModels
 {
     internal class StudentPersonality
     {
-        public string hobbies;
-        public string skills;
+        public string? hobbies { get; set; }
+        public string? skills { get; set; }
+
+        public StudentPersonality(string? hobbies, string? skills)
+        {
+            this.hobbies = hobbies;
+            this.skills = skills;
+        }
     }
 }

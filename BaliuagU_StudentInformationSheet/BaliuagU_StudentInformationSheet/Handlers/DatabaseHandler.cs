@@ -251,6 +251,7 @@ namespace BaliuagU_StudentInformationSheet
             StudentAddressInformation address;
             StudentFamilyInformation family;
             StudentAcademicHistory academic_history;
+            StudentPersonality personality;
             Image? photo = null;
 
             using (MySqlConnection connection = GetNewConnection())
@@ -474,6 +475,27 @@ namespace BaliuagU_StudentInformationSheet
                     }
                 }
 
+                // Get student personality from `personalities` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM personalities WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            throw new Exception("Student personality not found in database.");
+
+                        personality = new StudentPersonality(
+                            hobbies: reader.IsDBNull(reader.GetOrdinal("hobbies"))
+                                ? null
+                                : reader.GetString("hobbies"),
+                            skills: reader.IsDBNull(reader.GetOrdinal("skills"))
+                                ? null
+                                : reader.GetString("skills")
+                        );
+                    }
+                }
+
                 return new StudentModel(
                     student_number: student_number,
                     name: name,
@@ -482,6 +504,7 @@ namespace BaliuagU_StudentInformationSheet
                     address: address,
                     family: family,
                     academic_history: academic_history,
+                    personality: personality,
                     photo: photo
                 );
             }
@@ -683,6 +706,27 @@ namespace BaliuagU_StudentInformationSheet
                         throw new Exception("Failed to add student academic history.");
                     }
                 }
+
+                // Save data to `personalities` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText =
+                        "INSERT INTO "
+                        + "personalities (id, hobbies, skills) "
+                        + "VALUES (@id, @hobbies, @skills)";
+
+                    command.Parameters.AddWithValue("@id", student.student_number);
+                    command.Parameters.AddWithValue("@hobbies", student.personality.hobbies);
+                    command.Parameters.AddWithValue("@skills", student.personality.skills);
+
+                    if (command.ExecuteNonQuery() != 1)
+                    {
+                        // If it fails to add contact information, delete the student record
+                        // to prevent orphaned records.
+                        this.DeleteStudent(student.student_number, cleanup: true);
+                        throw new Exception("Failed to add student personality.");
+                    }
+                }
             }
         }
 
@@ -775,6 +819,17 @@ namespace BaliuagU_StudentInformationSheet
                     if (command.ExecuteNonQuery() != 1)
                         if (!cleanup)
                             throw new Exception("Failed to delete student academic history.");
+                }
+
+                // Delete data from `personalities` table
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM personalities WHERE id = @student_number";
+                    command.Parameters.AddWithValue("@student_number", student_number);
+
+                    if (command.ExecuteNonQuery() != 1)
+                        if (!cleanup)
+                            throw new Exception("Failed to delete student personality.");
                 }
             }
         }

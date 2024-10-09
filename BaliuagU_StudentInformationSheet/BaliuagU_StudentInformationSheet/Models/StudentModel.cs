@@ -23,6 +23,7 @@ namespace StudentInformationSheet.Models
         public StudentAddressInformation address { get; set; }
         public StudentFamilyInformation family { get; set; }
         public StudentAcademicHistory academic_history { get; set; }
+        public StudentPersonality personality { get; set; }
 
         public StudentModel(
             string student_number,
@@ -32,6 +33,7 @@ namespace StudentInformationSheet.Models
             StudentAddressInformation address,
             StudentFamilyInformation family,
             StudentAcademicHistory academic_history,
+            StudentPersonality personality
             Image? photo = null
         )
         {
@@ -42,6 +44,7 @@ namespace StudentInformationSheet.Models
             this.address = address;
             this.family = family;
             this.academic_history = academic_history;
+            this.personality = personality;
             this.photo = photo;
         }
 
