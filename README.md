@@ -3,6 +3,8 @@
 This repository contains the source files for the Baliuag University Student
 Information System, a project for the _Developing .NET Solutions_ (WAM1) class.
 
+Read more at [the wiki](https://github.com/Chris1320/BU_Student_Information_System/wiki).
+
 ## Requirements
 
 To start contributing, you should have the following in your development
