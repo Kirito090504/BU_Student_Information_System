@@ -146,6 +146,7 @@
             this.printBtn.TabIndex = 9;
             this.toolTip1.SetToolTip(this.printBtn, "Export");
             this.printBtn.UseVisualStyleBackColor = false;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // addBtn
             // 
