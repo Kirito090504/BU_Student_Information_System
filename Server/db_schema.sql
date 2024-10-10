@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 09, 2024 at 09:00 AM
+-- Generation Time: Oct 10, 2024 at 04:37 PM
 -- Server version: 9.0.1
 -- PHP Version: 8.2.24
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -92,7 +92,8 @@ CREATE TABLE `students` (
   `birth_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The address where the student was born.',
   `nationality` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The students nationality.',
   `citizenship` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The legal citizenship of the student.',
-  `religion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The religion of the student.'
+  `religion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The religion of the student.',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'The table containing students personal information.';
 -- --------------------------------------------------------
 --
@@ -116,6 +117,16 @@ CREATE TABLE `student_family` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing the students mother, father, and guardian.';
 -- --------------------------------------------------------
 --
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` int NOT NULL,
+  `operation` varchar(16) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+-- --------------------------------------------------------
+--
 -- Table structure for table `users`
 --
 
@@ -124,7 +135,8 @@ CREATE TABLE `users` (
   `username` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The username of the user.',
   `userpass` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'SHA-256 hashed user password.',
   `privilege` int NOT NULL DEFAULT '1' COMMENT 'The privilege level of the user.',
-  `full_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The full name of the user.'
+  `full_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The full name of the user.',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'A table containing records of authorized users of the system.';
 --
 -- Dumping data for table `users`
@@ -135,14 +147,16 @@ INSERT INTO `users` (
     `username`,
     `userpass`,
     `privilege`,
-    `full_name`
+    `full_name`,
+    `is_active`
   )
 VALUES (
     1,
     'bu_admin',
     'd24560aa8c38adb31c57edeaa556c1fc82550b3c158968b2c4299a4e31302ef2',
     2,
-    ''
+    '',
+    1
   );
 --
 -- Indexes for dumped tables
@@ -183,6 +197,11 @@ ADD PRIMARY KEY (`student_number`);
 --
 ALTER TABLE `student_family`
 ADD PRIMARY KEY (`id`);
+--
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+ADD PRIMARY KEY (`timestamp`);
 --
 -- Indexes for table `users`
 --
