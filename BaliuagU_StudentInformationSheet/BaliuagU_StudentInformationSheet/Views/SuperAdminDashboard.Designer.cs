@@ -195,11 +195,12 @@
             this.ClientSize = new System.Drawing.Size(932, 540);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(948, 579);
             this.MinimumSize = new System.Drawing.Size(948, 579);
             this.Name = "SuperAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SuperAdminDashboard";
+            this.Text = "Super Admin Dashboard | Baliuag University Student Information System";
             this.Load += new System.EventHandler(this.SuperAdminDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
