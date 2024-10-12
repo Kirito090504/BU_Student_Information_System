@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,10 +13,15 @@ using BaliuagU_StudentInformationSheet.Handlers;
 using BaliuagU_StudentInformationSheet.Models;
 using BaliuagU_StudentInformationSheet.Properties;
 using BaliuagU_StudentInformationSheet.Views;
+using iText.IO.Font.Constants;
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
+using iText.Layout.Properties.Grid;
 using StudentInformationSheet.Models;
 
 namespace BaliuagU_StudentInformationSheet.Tools
@@ -188,139 +194,422 @@ namespace BaliuagU_StudentInformationSheet.Tools
                 // create the PDF
                 using (var doc = new Document(new PdfDocument(new PdfWriter(saveFileDialog.FileName))))
                 {
-                    var title = new Paragraph("Student Information Sheet");
-                    title.SetVerticalAlignment(VerticalAlignment.MIDDLE);
+                    // Get the resources of the dashboard because it is not available in Resource.
+                    System.ComponentModel.ComponentResourceManager dashboard_resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+                    Style style_h1 = new Style()
+                        .SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD))
+                        .SetFontSize(14)
+                        .SetFontColor(ColorConstants.BLACK)
+                        .SetTextAlignment(TextAlignment.CENTER);
+                    Style style_h2 = new Style()
+                        .SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLDOBLIQUE))
+                        .SetFontSize(10)
+                        .SetFontColor(ColorConstants.GRAY)
+                        .SetTextAlignment(TextAlignment.CENTER);
+                    Style style_s1 = new Style()
+                        .SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_OBLIQUE))
+                        .SetFontSize(7)
+                        .SetFontColor(ColorConstants.GRAY)
+                        .SetPaddingRight(5);
+                    Style style_s2 = new Style()
+                        .SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA))
+                        .SetFontSize(11)
+                        .SetFontColor(ColorConstants.BLACK);
 
-                    iText.Layout.Element.Image image;
-                    if (s.photo != null)
-                    {
-                        image = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(ImageHandler.EncodeImage(s.photo)));
-                        image.SetWidth(100);
-                        image.SetHeight(100);
-                        image.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
-                    }
-                    else
-                    {
-                        image = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(ImageHandler.EncodeImage(Resources.default_profile)));
-                        image.SetWidth(100);
-                        image.SetHeight(100);
-                        image.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT);
-                    }
+                    // Header
+                    var div_header = new Table(UnitValue.CreatePercentArray(2)).UseAllAvailableWidth();
+                    var div_header_left = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
+                    var div_header_right = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
 
+                    // BU Logo
+                    div_header_left.AddCell(
+                        new Cell().Add(
+                            new iText.Layout.Element.Image(
+                                iText.IO.Image.ImageDataFactory.Create(
+                                    ImageHandler.EncodeImage(
+                                    (System.Drawing.Image)dashboard_resources.GetObject("panel3.BackgroundImage")
+                                    )
+                                )
+                            )
+                        ).SetBorder(Border.NO_BORDER)
+                    );
+                    // Document title
+                    div_header_left.AddCell(
+                        new Cell().Add(
+                            new Paragraph("Student Information Sheet")
+                                .SetVerticalAlignment(VerticalAlignment.MIDDLE)
+                                .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER)
+                                .AddStyle(style_h1)
+                        ).SetBorder(Border.NO_BORDER)
+                    );
+                    // Student Profile Picture
+                    var image = s.photo != null
+                        ? new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(ImageHandler.EncodeImage(s.photo)))
+                        : new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(ImageHandler.EncodeImage(Resources.default_profile)));
+
+                    div_header_right.AddCell(
+                        new Cell().Add(
+                            image.SetWidth(100).SetHeight(100)
+                                .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER)
+                        ).SetBorder(Border.NO_BORDER)
+                    );
+
+                    var div_header_left_cell = new Cell().Add(div_header_left).SetBorder(Border.NO_BORDER);
+                    var div_header_right_cell = new Cell().Add(div_header_right).SetBorder(Border.NO_BORDER);
+
+                    div_header.AddCell(div_header_left_cell);
+                    div_header.AddCell(div_header_right_cell);
+
+                    // Student Information
                     var sname = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
                     sname.SetMarginTop(5);
-                    sname.AddCell($"Name: {s.name.last}, {s.name.first} {s.name.middle}");
-                    sname.AddCell($"Student No.: {s.student_number}");
+                    sname.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Name").AddStyle(style_s1))
+                            .Add(new Text($"{s.name.last}, {s.name.first} {s.name.middle}").AddStyle(style_s2)
+                        )
+                    );
+                    sname.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Student No.").AddStyle(style_s1))
+                            .Add(new Text(s.student_number).AddStyle(style_s2)
+                        )
+                    );
 
                     var sinfo_row1 = new Table(UnitValue.CreatePercentArray(3)).UseAllAvailableWidth();
-                    sinfo_row1.AddCell($"Gender: {s.info.gender}");
-                    sinfo_row1.AddCell($"Contact No.: {s.contact.contact_number}");
-                    sinfo_row1.AddCell($"Email: {s.contact.email_address}");
+                    sinfo_row1.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Gender").AddStyle(style_s1))
+                            .Add(new Text(s.info.gender).AddStyle(style_s2)
+                        )
+                    );
+                    sinfo_row1.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Contact No.").AddStyle(style_s1))
+                            .Add(new Text(s.contact.contact_number).AddStyle(style_s2)
+                        )
+                    );
+                    sinfo_row1.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Email").AddStyle(style_s1))
+                            .Add(new Text(s.contact.email_address).AddStyle(style_s2)
+                        )
+                    );
 
                     var sinfo_row2 = new Table(UnitValue.CreatePercentArray(new float[] { 25, 75 })).UseAllAvailableWidth();
-                    sinfo_row2.AddCell($"Birth Date: {s.info.birth_date.ToString("yyyy-MM-dd")}");
-                    sinfo_row2.AddCell($"Place of Birth: {s.info.birth_address}");
+                    sinfo_row2.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Birth Date").AddStyle(style_s1))
+                            .Add(new Text(s.info.birth_date.ToString("MMM dd, yyyy")).AddStyle(style_s2)
+                        )
+                    );
+                    sinfo_row2.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Place of Birth").AddStyle(style_s1))
+                            .Add(new Text(s.info.birth_address).AddStyle(style_s2)
+                        )
+                    );
 
                     var sinfo_row3 = new Table(UnitValue.CreatePercentArray(3)).UseAllAvailableWidth();
-                    sinfo_row3.AddCell($"Nationality: {s.info.nationality}");
-                    sinfo_row3.AddCell($"Citizenship: {s.info.citizenship}");
-                    sinfo_row3.AddCell($"Religion: {s.info.religion}");
+                    sinfo_row3.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Nationality").AddStyle(style_s1))
+                            .Add(new Text(s.info.nationality).AddStyle(style_s2)
+                        )
+                    );
+                    sinfo_row3.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Citizenship").AddStyle(style_s1))
+                            .Add(new Text(s.info.citizenship).AddStyle(style_s2)
+                        )
+                    );
+                    sinfo_row3.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Religion").AddStyle(style_s1))
+                            .Add(new Text(s.info.religion).AddStyle(style_s2)
+                        )
+                    );
 
                     var spresent_address_row1 = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
-                    spresent_address_row1.AddCell($"No./Street/Barangay: {s.address.present_line1}");
+                    spresent_address_row1.AddCell(
+                        new Paragraph()
+                            .Add(new Text("No./Street/Barangay").AddStyle(style_s1))
+                            .Add(new Text(s.address.present_line1).AddStyle(style_s2)
+                        )
+                    );
                     var spresent_address_row2 = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
-                    spresent_address_row2.AddCell($"District/Town/City/Province: {s.address.present_line2}");
-                    spresent_address_row2.AddCell($"ZIP Code: {s.address.present_zip_code}");
+                    spresent_address_row2.AddCell(
+                        new Paragraph()
+                            .Add(new Text("District/Town/City/Province").AddStyle(style_s1))
+                            .Add(new Text(s.address.present_line2).AddStyle(style_s2)
+                        )
+                    );
+                    spresent_address_row2.AddCell(
+                        new Paragraph()
+                            .Add(new Text("ZIP Code").AddStyle(style_s1))
+                            .Add(new Text(Convert.ToString(s.address.present_zip_code)).AddStyle(style_s2)
+                        )
+                    );
 
                     var spermanent_address_row1 = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
-                    spermanent_address_row1.AddCell($"No./Street/Barangay: {s.address.permanent_line1}");
+                    spermanent_address_row1.AddCell(
+                        new Paragraph()
+                            .Add(new Text("No./Street/Barangay").AddStyle(style_s1))
+                            .Add(new Text(s.address.permanent_line1).AddStyle(style_s2)
+                        )
+                    );
                     var spermanent_address_row2 = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
-                    spermanent_address_row2.AddCell($"District/Town/City/Province: {s.address.permanent_line2}");
-                    spermanent_address_row2.AddCell($"ZIP Code: {s.address.permanent_zip_code}");
+                    spermanent_address_row2.AddCell(
+                        new Paragraph()
+                            .Add(new Text("District/Town/City/Province").AddStyle(style_s1))
+                            .Add(new Text(s.address.permanent_line2).AddStyle(style_s2)
+                        )
+                    );
+                    spermanent_address_row2.AddCell(
+                        new Paragraph()
+                            .Add(new Text("ZIP Code").AddStyle(style_s1))
+                            .Add(new Text(Convert.ToString(s.address.permanent_zip_code)).AddStyle(style_s2)
+                        )
+                    );
 
                     var smother_row1 = new Table(UnitValue.CreatePercentArray(3)).UseAllAvailableWidth();
                     var smother_row2 = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
                     if (s.family.mother == null)
                     {
-                        smother_row1.AddCell("Mother's Name: N/A");
-                        smother_row1.AddCell("Occupation: N/A");
-                        smother_row1.AddCell("Contact No.: N/A");
-                        smother_row2.AddCell("Address: N/A");
+                        smother_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Mother's Name").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        smother_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Occupation").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        smother_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Contact No.").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        smother_row2.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Address").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
                     }
                     else
                     {
-                        smother_row1.AddCell($"Mother's Name: {s.family.mother.name}");
-                        smother_row1.AddCell($"Occupation: {s.family.mother.occupation}");
-                        smother_row1.AddCell($"Contact No.: {s.family.mother.contact_number}");
-                        smother_row2.AddCell($"Address: {s.family.mother.address}");
+                        smother_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Mother's Name").AddStyle(style_s1))
+                                .Add(new Text(s.family.mother.name).AddStyle(style_s2)
+                            )
+                        );
+                        smother_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Occupation").AddStyle(style_s1))
+                                .Add(new Text(s.family.mother.occupation).AddStyle(style_s2)
+                            )
+                        );
+                        smother_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Contact No.").AddStyle(style_s1))
+                                .Add(new Text(s.family.mother.contact_number).AddStyle(style_s2)
+                            )
+                        );
+                        smother_row2.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Address").AddStyle(style_s1))
+                                .Add(new Text(s.family.mother.address).AddStyle(style_s2)
+                            )
+                        );
                     }
 
                     var sfather_row1 = new Table(UnitValue.CreatePercentArray(3)).UseAllAvailableWidth();
                     var sfather_row2 = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
                     if (s.family.father == null)
                     {
-                        sfather_row1.AddCell("Father's Name: N/A");
-                        sfather_row1.AddCell("Occupation: N/A");
-                        sfather_row1.AddCell("Contact No.: N/A");
-                        sfather_row2.AddCell("Address: N/A");
+                        sfather_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Father's Name").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        sfather_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Occupation").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        sfather_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Contact No.").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        sfather_row2.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Address").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
                     }
                     else
                     {
-                        sfather_row1.AddCell($"Father's Name: {s.family.father.name}");
-                        sfather_row1.AddCell($"Occupation: {s.family.father.occupation}");
-                        sfather_row1.AddCell($"Contact No.: {s.family.father.contact_number}");
-                        sfather_row2.AddCell($"Address: {s.family.father.address}");
+                        sfather_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Father's Name").AddStyle(style_s1))
+                                .Add(new Text(s.family.father.name).AddStyle(style_s2)
+                            )
+                        );
+                        sfather_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Occupation").AddStyle(style_s1))
+                                .Add(new Text(s.family.father.occupation).AddStyle(style_s2)
+                            )
+                        );
+                        sfather_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Contact No.").AddStyle(style_s1))
+                                .Add(new Text(s.family.father.contact_number).AddStyle(style_s2)
+                            )
+                        );
+                        sfather_row2.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Address").AddStyle(style_s1))
+                                .Add(new Text(s.family.father.address).AddStyle(style_s2)
+                            )
+                        );
                     }
 
                     var sguardian_row1 = new Table(UnitValue.CreatePercentArray(3)).UseAllAvailableWidth();
                     var sguardian_row2 = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
                     if (s.family.guardian == null)
                     {
-                        sguardian_row1.AddCell("Guardian's Name: N/A");
-                        sguardian_row1.AddCell("Occupation: N/A");
-                        sguardian_row1.AddCell("Contact No.: N/A");
-                        sguardian_row2.AddCell("Address: N/A");
+                        sguardian_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Guardian's Name").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        sguardian_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Occupation").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        sguardian_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Contact No.").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                        sguardian_row2.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Address").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
                     }
                     else
                     {
-                        sguardian_row1.AddCell($"Guardian's Name: {s.family.guardian.name}");
-                        sguardian_row1.AddCell($"Occupation: {s.family.guardian.occupation}");
-                        sguardian_row1.AddCell($"Contact No.: {s.family.guardian.contact_number}");
-                        sguardian_row2.AddCell($"Address: {s.family.guardian.address}");
+                        sguardian_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Guardian's Name").AddStyle(style_s1))
+                                .Add(new Text(s.family.guardian.name).AddStyle(style_s2)
+                            )
+                        );
+                        sguardian_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Occupation").AddStyle(style_s1))
+                                .Add(new Text(s.family.guardian.occupation).AddStyle(style_s2)
+                            )
+                        );
+                        sguardian_row1.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Contact No.").AddStyle(style_s1))
+                                .Add(new Text(s.family.guardian.contact_number).AddStyle(style_s2)
+                            )
+                        );
+                        sguardian_row2.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Address").AddStyle(style_s1))
+                                .Add(new Text(s.family.guardian.address).AddStyle(style_s2)
+                            )
+                        );
                     }
 
                     var last_school = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
-                    last_school.AddCell($"Last School Attended: {s.academic_history.last_school_attended}");
-                    last_school.AddCell($"Year: {s.academic_history.last_school_attended_year}");
+                    last_school.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Last School Attended").AddStyle(style_s1))
+                            .Add(new Text(s.academic_history.last_school_attended).AddStyle(style_s2)
+                        )
+                    );
+                    last_school.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Year").AddStyle(style_s1))
+                            .Add(new Text(Convert.ToString(s.academic_history.last_school_attended_year)).AddStyle(style_s2)
+                        )
+                    );
                     var secondary_school = new Table(UnitValue.CreatePercentArray(new float[] { 75, 25 })).UseAllAvailableWidth();
-                    secondary_school.AddCell($"Secondary School: {s.academic_history.secondary_school}");
-                    secondary_school.AddCell($"Year: {s.academic_history.secondary_school_year}");
+                    secondary_school.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Secondary School").AddStyle(style_s1))
+                            .Add(new Text(s.academic_history.secondary_school).AddStyle(style_s2)
+                        )
+                    );
+                    secondary_school.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Year").AddStyle(style_s1))
+                            .Add(new Text(Convert.ToString(s.academic_history.secondary_school_year)).AddStyle(style_s2)
+                        )
+                    );
 
                     var awards = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
-                    awards.AddCell($"Awards Received:\n{s.academic_history.awards_received}");
-                    awards.AddCell($"Hobbies:\n{s.personality.hobbies}");
-                    awards.AddCell($"Skills:\n{s.personality.skills}");
+                    awards.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Awards Received").AddStyle(style_s1))
+                            .Add(new Text(s.academic_history.awards_received).AddStyle(style_s2)
+                        )
+                    );
+                    awards.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Hobbies").AddStyle(style_s1))
+                            .Add(new Text(s.personality.hobbies).AddStyle(style_s2)
+                        )
+                    );
+                    awards.AddCell(
+                        new Paragraph()
+                            .Add(new Text("Skills").AddStyle(style_s1))
+                            .Add(new Text(s.personality.skills).AddStyle(style_s2)
+                        )
+                    );
 
                     // add the elements to the PDF
-                    doc.Add(title);
-                    doc.Add(image);
+                    doc.Add(div_header);
+
                     doc.Add(sname);
                     doc.Add(sinfo_row1);
                     doc.Add(sinfo_row2);
                     doc.Add(sinfo_row3);
-                    doc.Add(new Paragraph("Present Address:"));
+                    doc.Add(new Paragraph("Present Address").AddStyle(style_h2));
                     doc.Add(spresent_address_row1);
                     doc.Add(spresent_address_row2);
-                    doc.Add(new Paragraph("Permanent Address:"));
+                    doc.Add(new Paragraph("Permanent Address").AddStyle(style_h2));
                     doc.Add(spermanent_address_row1);
                     doc.Add(spermanent_address_row2);
-                    doc.Add(new Paragraph("Mother's Information:"));
+                    //doc.Add(new Paragraph("Mother's Information:").AddStyle(style_h2));
                     doc.Add(smother_row1);
                     doc.Add(smother_row2);
-                    doc.Add(new Paragraph("Father's Information:"));
+                    //doc.Add(new Paragraph("Father's Information:").AddStyle(style_h2));
                     doc.Add(sfather_row1);
                     doc.Add(sfather_row2);
-                    doc.Add(new Paragraph("Guardian's Information:"));
+                    //doc.Add(new Paragraph("Guardian's Information:").AddStyle(style_h2));
                     doc.Add(sguardian_row1);
                     doc.Add(sguardian_row2);
                     doc.Add(last_school);
