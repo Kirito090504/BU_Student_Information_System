@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 10, 2024 at 04:37 PM
+-- Generation Time: Oct 12, 2024 at 02:26 AM
 -- Server version: 9.0.1
 -- PHP Version: 8.2.24
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -44,6 +44,16 @@ CREATE TABLE `contact_information` (
   `contact_number` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'The students contact number with country code.',
   `email_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'The students email address.'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = 'Students contact information';
+-- --------------------------------------------------------
+--
+-- Table structure for table `exports`
+--
+
+CREATE TABLE `exports` (
+  `export_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `student_number` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `file` mediumblob NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 -- --------------------------------------------------------
 --
 -- Table structure for table `permanent_addresses`
@@ -123,7 +133,7 @@ CREATE TABLE `student_family` (
 CREATE TABLE `transactions` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int NOT NULL,
-  `operation` varchar(16) COLLATE utf8mb4_general_ci NOT NULL
+  `operation` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 -- --------------------------------------------------------
 --
@@ -172,6 +182,12 @@ ADD PRIMARY KEY (`id`);
 --
 ALTER TABLE `contact_information`
 ADD PRIMARY KEY (`id`);
+--
+-- Indexes for table `exports`
+--
+ALTER TABLE `exports`
+ADD PRIMARY KEY (`export_time`),
+  ADD KEY `exports_student_number_students_student_number` (`student_number`);
 --
 -- Indexes for table `permanent_addresses`
 --
@@ -232,6 +248,11 @@ ADD CONSTRAINT `academic_history_id_students_student_number` FOREIGN KEY (`id`) 
 --
 ALTER TABLE `contact_information`
 ADD CONSTRAINT `contact_information_id_students_student_number` FOREIGN KEY (`id`) REFERENCES `students` (`student_number`) ON DELETE CASCADE ON UPDATE CASCADE;
+--
+-- Constraints for table `exports`
+--
+ALTER TABLE `exports`
+ADD CONSTRAINT `exports_student_number_students_student_number` FOREIGN KEY (`student_number`) REFERENCES `students` (`student_number`) ON DELETE CASCADE ON UPDATE CASCADE;
 --
 -- Constraints for table `permanent_addresses`
 --
