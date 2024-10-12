@@ -205,7 +205,8 @@ namespace BaliuagU_StudentInformationSheet.Tools
                         .SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLDOBLIQUE))
                         .SetFontSize(10)
                         .SetFontColor(ColorConstants.GRAY)
-                        .SetTextAlignment(TextAlignment.CENTER);
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetPaddingTop(10);
                     Style style_s1 = new Style()
                         .SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_OBLIQUE))
                         .SetFontSize(7)
@@ -251,7 +252,7 @@ namespace BaliuagU_StudentInformationSheet.Tools
                         new Cell().Add(
                             image.SetWidth(100).SetHeight(100)
                                 .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER)
-                        ).SetBorder(Border.NO_BORDER)
+                        )
                     );
 
                     var div_header_left_cell = new Cell().Add(div_header_left).SetBorder(Border.NO_BORDER);
@@ -571,24 +572,60 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     );
 
                     var awards = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
-                    awards.AddCell(
-                        new Paragraph()
-                            .Add(new Text("Awards Received").AddStyle(style_s1))
-                            .Add(new Text(s.academic_history.awards_received).AddStyle(style_s2)
-                        )
-                    );
-                    awards.AddCell(
-                        new Paragraph()
-                            .Add(new Text("Hobbies").AddStyle(style_s1))
-                            .Add(new Text(s.personality.hobbies).AddStyle(style_s2)
-                        )
-                    );
-                    awards.AddCell(
-                        new Paragraph()
-                            .Add(new Text("Skills").AddStyle(style_s1))
-                            .Add(new Text(s.personality.skills).AddStyle(style_s2)
-                        )
-                    );
+                    if (s.academic_history.awards_received != null)
+                    {
+                        awards.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Awards Received").AddStyle(style_s1))
+                                .Add(new Text(s.academic_history.awards_received).AddStyle(style_s2)
+                            )
+                        );
+                    }
+                    else
+                    {
+                        awards.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Awards Received").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                    }
+                    if (s.personality.hobbies != null)
+                    {
+                        awards.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Hobbies").AddStyle(style_s1))
+                                .Add(new Text(s.personality.hobbies).AddStyle(style_s2)
+                            )
+                        );
+                    }
+                    else
+                    {
+                        awards.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Hobbies").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                    }
+                    if (s.personality.skills != null)
+                    {
+                        awards.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Skills").AddStyle(style_s1))
+                                .Add(new Text(s.personality.skills).AddStyle(style_s2)
+                            )
+                        );
+                    }
+                    else
+                    {
+                        awards.AddCell(
+                            new Paragraph()
+                                .Add(new Text("Skills").AddStyle(style_s1))
+                                .Add(new Text("N/A").AddStyle(style_s2)
+                            )
+                        );
+                    }
 
                     // add the elements to the PDF
                     doc.Add(div_header);
@@ -603,15 +640,17 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     doc.Add(new Paragraph("Permanent Address").AddStyle(style_h2));
                     doc.Add(spermanent_address_row1);
                     doc.Add(spermanent_address_row2);
-                    //doc.Add(new Paragraph("Mother's Information:").AddStyle(style_h2));
+                    doc.Add(new Paragraph("Family Information").AddStyle(style_h2));
+                    //doc.Add(new Paragraph("Mother's Information").AddStyle(style_h2));
                     doc.Add(smother_row1);
                     doc.Add(smother_row2);
-                    //doc.Add(new Paragraph("Father's Information:").AddStyle(style_h2));
+                    //doc.Add(new Paragraph("Father's Information").AddStyle(style_h2));
                     doc.Add(sfather_row1);
                     doc.Add(sfather_row2);
-                    //doc.Add(new Paragraph("Guardian's Information:").AddStyle(style_h2));
+                    //doc.Add(new Paragraph("Guardian's Information").AddStyle(style_h2));
                     doc.Add(sguardian_row1);
                     doc.Add(sguardian_row2);
+                    doc.Add(new Paragraph("Academic Information").AddStyle(style_h2));
                     doc.Add(last_school);
                     doc.Add(secondary_school);
                     doc.Add(awards);
