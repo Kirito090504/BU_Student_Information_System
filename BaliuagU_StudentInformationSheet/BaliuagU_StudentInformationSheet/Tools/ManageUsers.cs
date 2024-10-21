@@ -241,6 +241,17 @@ namespace BaliuagU_StudentInformationSheet.Tools
                     return;
             }
 
+            var confirmResult = MessageBox.Show(
+                "Are you sure you want to delete this user?",
+                "Confirm Deletion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmResult == DialogResult.No)
+            {
+                return;
+            }
             db_handler.DeleteUser(active_user.user_id);
 
             MessageBox.Show(

@@ -48,6 +48,11 @@ namespace BaliuagU_StudentInformationSheet.Views
             birthdateTimePicker.Value = student.info.birth_date;
             txtBirthplace.Text = student.info.birth_address;
 
+            txtNationality.Text = student.info.nationality;
+            txtCitizenship.Text = student.info.citizenship;
+            txtReligion.Text = student.info.religion;
+
+
             txtPresentStreet.Text = student.address.present_line1;
             txtPresentCity.Text = student.address.present_line2;
             txtPresentZipcode.Text = Convert.ToString(student.address.present_zip_code);
@@ -89,6 +94,7 @@ namespace BaliuagU_StudentInformationSheet.Views
             txtSecondarySchoolYear.Text = Convert.ToString(
                 student.academic_history.secondary_school_year
             );
+            txtAwards.Text = student.academic_history.awards_received;
 
             txtHobbies.Text = student.personality.hobbies;
             txtTalent.Text = student.personality.skills;
@@ -155,9 +161,9 @@ namespace BaliuagU_StudentInformationSheet.Views
                             gender: cboGender.SelectedItem.ToString(),
                             birth_date: birthdateTimePicker.Value,
                             birth_address: txtBirthplace.Text,
-                            nationality: "Filipino", // FIXME
-                            citizenship: "Filipino", // FIXME
-                            religion: "Christian" // FIXME
+                            nationality: txtNationality.Text,
+                            citizenship: txtCitizenship.Text,
+                            religion: txtReligion.Text
                         ),
                         contact: new StudentContactInformation(
                             contact_number: txtContactNo.Text,
@@ -196,7 +202,7 @@ namespace BaliuagU_StudentInformationSheet.Views
                             last_school_attended_year: Convert.ToInt32(txtLastSchoolYear.Text),
                             secondary_school: txtSecondarySchool.Text,
                             secondary_school_year: Convert.ToInt32(txtSecondarySchoolYear.Text),
-                            awards_received: null // FIXME
+                            awards_received: txtAwards.Text
                         ),
                         personality: new StudentPersonality(
                             hobbies: txtHobbies.Text,
@@ -333,6 +339,10 @@ namespace BaliuagU_StudentInformationSheet.Views
                 birthdateTimePicker.Value = DateTime.Now;
                 txtBirthplace.Text = "";
 
+                txtNationality.Text = "";
+                txtCitizenship.Text = "";
+                txtReligion.Text = "";
+
                 txtPresentStreet.Text = "";
                 txtPresentCity.Text = "";
                 txtPresentZipcode.Text = "";
@@ -360,9 +370,12 @@ namespace BaliuagU_StudentInformationSheet.Views
                 txtLastSchoolYear.Text = "";
                 txtSecondarySchool.Text = "";
                 txtSecondarySchoolYear.Text = "";
+                txtAwards.Text = "";
 
                 txtHobbies.Text = "";
                 txtTalent.Text = "";
+
+                txtStudentNo.Focus();
             }
         }
     }

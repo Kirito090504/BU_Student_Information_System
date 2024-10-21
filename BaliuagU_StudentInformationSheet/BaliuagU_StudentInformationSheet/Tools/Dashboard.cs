@@ -115,16 +115,28 @@ namespace BaliuagU_StudentInformationSheet.Tools
                 );
                 return;
             }
-            db_handler.DeleteStudent(active_student.student_number);
 
-            MessageBox.Show(
-                "The student has been successfully deleted.",
-                "Student Deleted",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
+            var confirmResult = MessageBox.Show(
+                "Are you sure you want to delete this student?",
+                "Confirm Deletion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
             );
 
-            UpdateStudentsList();
+            if (confirmResult == DialogResult.Yes)
+            {
+                db_handler.DeleteStudent(active_student.student_number);
+
+                MessageBox.Show(
+                    "The student has been successfully deleted.",
+                    "Student Deleted",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                UpdateStudentsList();
+            }
+
             textBox1.Focus();
         }
 
